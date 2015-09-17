@@ -71,10 +71,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F352AFA1BAB3A9A00949972 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				9F5EB3871BA206AE00BC31A5 /* TPAnnotation.h */,
+				9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		9F352AFB1BAB3AB600949972 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9F3A41421AB30A930081FC05 /* Main.storyboard */,
+				9F3A41451AB30A930081FC05 /* Images.xcassets */,
+				9F3A41471AB30A930081FC05 /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9F352AFC1BAB3AC600949972 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9F3A413F1AB30A930081FC05 /* MapViewController.h */,
+				9F3A41401AB30A930081FC05 /* MapViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		9F3A412C1AB30A930081FC05 = {
 			isa = PBXGroup;
 			children = (
-				9F3A41601AB30C110081FC05 /* MapKit.framework */,
 				9F3A41371AB30A930081FC05 /* playingWithMapsPresentation */,
 				9F3A41511AB30A930081FC05 /* playingWithMapsPresentationTests */,
 				9F3A41361AB30A930081FC05 /* Products */,
@@ -95,15 +122,12 @@
 			children = (
 				9F3A413C1AB30A930081FC05 /* AppDelegate.h */,
 				9F3A413D1AB30A930081FC05 /* AppDelegate.m */,
-				9F3A413F1AB30A930081FC05 /* MapViewController.h */,
-				9F3A41401AB30A930081FC05 /* MapViewController.m */,
-				9F5EB3871BA206AE00BC31A5 /* TPAnnotation.h */,
-				9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */,
-				9F3A41421AB30A930081FC05 /* Main.storyboard */,
-				9F3A41451AB30A930081FC05 /* Images.xcassets */,
-				9F3A41471AB30A930081FC05 /* LaunchScreen.xib */,
+				9F352AFA1BAB3A9A00949972 /* Modal */,
+				9F352AFB1BAB3AB600949972 /* View */,
+				9F352AFC1BAB3AC600949972 /* Controller */,
 				9F352AF81BAB2FFA00949972 /* placeholderImage.png */,
 				9F3A415E1AB30B310081FC05 /* CoreLocation.framework */,
+				9F3A41601AB30C110081FC05 /* MapKit.framework */,
 				9F3A41381AB30A930081FC05 /* Supporting Files */,
 			);
 			path = playingWithMapsPresentation;
