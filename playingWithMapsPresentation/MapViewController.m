@@ -13,22 +13,21 @@
 
 @interface MapViewController () <MKMapViewDelegate>
 
+@property (strong, nonatomic)CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITextField *searchLabel;
-@property (strong, nonatomic)CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UIView *descriptionView;
-- (IBAction)descriptionButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
-
+- (IBAction)descriptionButton:(id)sender;
 
 @end
 
 @implementation MapViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
     [self.descriptionView setHidden:YES];
     self.mapView.delegate = self;
     self.locationManager = [[CLLocationManager alloc] init];
@@ -39,15 +38,11 @@
     }
 
     MKCoordinateSpan mySpan = MKCoordinateSpanMake(.15, .15);
-    
     MKCoordinateRegion myRegion = MKCoordinateRegionMake(userCoordinate, mySpan);
     [self.mapView setRegion:myRegion animated:YES];
-    
     self.mapView.showsUserLocation = YES;
     [self.mapView setCenterCoordinate:userCoordinate animated:YES];
-  
     [self addGestureRecogniserToMapView];
-
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
 }
@@ -57,6 +52,7 @@
     NSLog(@"annotation selected");
     [self.descriptionView setHidden:NO];
 }
+
 - (void)addGestureRecogniserToMapView
 {
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(addPinToMap:)];
