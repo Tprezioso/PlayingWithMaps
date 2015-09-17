@@ -20,6 +20,7 @@
 		9F3A415F1AB30B310081FC05 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3A415E1AB30B310081FC05 /* CoreLocation.framework */; };
 		9F3A41611AB30C110081FC05 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3A41601AB30C110081FC05 /* MapKit.framework */; };
 		9F5EB3891BA206AE00BC31A5 /* TPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */; };
+		9FEC4E471BAB482000538223 /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEC4E461BAB482000538223 /* map-pin.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		9F3A41601AB30C110081FC05 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9F5EB3871BA206AE00BC31A5 /* TPAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAnnotation.h; sourceTree = "<group>"; };
 		9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAnnotation.m; sourceTree = "<group>"; };
+		9FEC4E461BAB482000538223 /* map-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +134,7 @@
 				9F352AFA1BAB3A9A00949972 /* Modal */,
 				9F352AFB1BAB3AB600949972 /* View */,
 				9F352AFC1BAB3AC600949972 /* Controller */,
-				9F352AF81BAB2FFA00949972 /* placeholderImage.png */,
-				9F352AFD1BAB40FC00949972 /* text-list.png */,
+				9FEC4E451BAB465900538223 /* Images */,
 				9F3A415E1AB30B310081FC05 /* CoreLocation.framework */,
 				9F3A41601AB30C110081FC05 /* MapKit.framework */,
 				9F3A41381AB30A930081FC05 /* Supporting Files */,
@@ -165,6 +166,16 @@
 				9F3A41531AB30A930081FC05 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FEC4E451BAB465900538223 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9FEC4E461BAB482000538223 /* map-pin.png */,
+				9F352AF81BAB2FFA00949972 /* placeholderImage.png */,
+				9F352AFD1BAB40FC00949972 /* text-list.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +261,7 @@
 			files = (
 				9F3A41441AB30A930081FC05 /* Main.storyboard in Resources */,
 				9F352AF91BAB2FFA00949972 /* placeholderImage.png in Resources */,
+				9FEC4E471BAB482000538223 /* map-pin.png in Resources */,
 				9F352AFE1BAB40FC00949972 /* text-list.png in Resources */,
 				9F3A41491AB30A930081FC05 /* LaunchScreen.xib in Resources */,
 				9F3A41461AB30A930081FC05 /* Images.xcassets in Resources */,
