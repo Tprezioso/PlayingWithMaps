@@ -19,7 +19,6 @@
 @property (strong, nonatomic) IBOutlet UIView *descriptionView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
-- (IBAction)descriptionButton:(id)sender;
 
 @end
 
