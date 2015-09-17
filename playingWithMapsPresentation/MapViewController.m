@@ -99,15 +99,5 @@
 //    [self.mapView addAnnotation:point];
 //}
 
-- (IBAction)descriptionButton:(id)sender
-{
-    TPAnnotation *pin = [[TPAnnotation alloc] init];
-    
-    if (pin) {
-        [self.descriptionView setHidden:NO];
-    } else {
-        [self.descriptionView setHidden:YES];
-    }
-}
 
 @end

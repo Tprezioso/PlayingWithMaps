@@ -80,13 +80,7 @@
                             <constraint firstItem="mDQ-4j-6PM" firstAttribute="trailing" secondItem="wd0-gF-jMS" secondAttribute="trailing" id="tPN-iG-ycz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PastPort Map" id="iXj-sh-wMc">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="h88-WA-eqa">
-                            <connections>
-                                <action selector="descriptionButton:" destination="vXZ-lx-hvc" id="Shh-TR-TZr"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="PastPort Map" id="iXj-sh-wMc"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="stf-4i-NM9" id="WxK-de-aqi"/>
                         <outlet property="descriptionView" destination="mDQ-4j-6PM" id="iOe-t0-Z4T"/>
