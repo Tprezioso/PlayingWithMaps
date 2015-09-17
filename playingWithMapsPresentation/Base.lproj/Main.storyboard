@@ -80,7 +80,9 @@
                             <constraint firstItem="mDQ-4j-6PM" firstAttribute="trailing" secondItem="wd0-gF-jMS" secondAttribute="trailing" id="tPN-iG-ycz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PastPort Map" id="iXj-sh-wMc"/>
+                    <navigationItem key="navigationItem" title="PastPort Map" id="iXj-sh-wMc">
+                        <barButtonItem key="rightBarButtonItem" image="text-list.png" id="K0R-2B-ZXv"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="stf-4i-NM9" id="WxK-de-aqi"/>
                         <outlet property="descriptionView" destination="mDQ-4j-6PM" id="iOe-t0-Z4T"/>
@@ -180,5 +182,6 @@
     </scenes>
     <resources>
         <image name="placeholderImage.png" width="121" height="121"/>
+        <image name="text-list.png" width="30" height="30"/>
     </resources>
 </document>

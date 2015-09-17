@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F352AF91BAB2FFA00949972 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F352AF81BAB2FFA00949972 /* placeholderImage.png */; };
+		9F352AFE1BAB40FC00949972 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F352AFD1BAB40FC00949972 /* text-list.png */; };
 		9F3A413B1AB30A930081FC05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3A413A1AB30A930081FC05 /* main.m */; };
 		9F3A413E1AB30A930081FC05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3A413D1AB30A930081FC05 /* AppDelegate.m */; };
 		9F3A41411AB30A930081FC05 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3A41401AB30A930081FC05 /* MapViewController.m */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		9F352AF81BAB2FFA00949972 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
+		9F352AFD1BAB40FC00949972 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
 		9F3A41351AB30A930081FC05 /* playingWithMapsPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = playingWithMapsPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3A41391AB30A930081FC05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F3A413A1AB30A930081FC05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				9F352AFB1BAB3AB600949972 /* View */,
 				9F352AFC1BAB3AC600949972 /* Controller */,
 				9F352AF81BAB2FFA00949972 /* placeholderImage.png */,
+				9F352AFD1BAB40FC00949972 /* text-list.png */,
 				9F3A415E1AB30B310081FC05 /* CoreLocation.framework */,
 				9F3A41601AB30C110081FC05 /* MapKit.framework */,
 				9F3A41381AB30A930081FC05 /* Supporting Files */,
@@ -242,6 +245,7 @@
 			files = (
 				9F3A41441AB30A930081FC05 /* Main.storyboard in Resources */,
 				9F352AF91BAB2FFA00949972 /* placeholderImage.png in Resources */,
+				9F352AFE1BAB40FC00949972 /* text-list.png in Resources */,
 				9F3A41491AB30A930081FC05 /* LaunchScreen.xib in Resources */,
 				9F3A41461AB30A930081FC05 /* Images.xcassets in Resources */,
 			);
