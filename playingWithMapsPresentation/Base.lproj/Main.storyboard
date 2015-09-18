@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--PastPort Map-->
+        <!--Map-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="MapViewController" sceneMemberID="viewController">
@@ -82,7 +82,7 @@
                             <constraint firstItem="mDQ-4j-6PM" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="467" id="o1G-NP-YKk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PastPort Map" id="iXj-sh-wMc">
+                    <navigationItem key="navigationItem" title="Map" id="iXj-sh-wMc">
                         <barButtonItem key="rightBarButtonItem" image="text-list.png" id="K0R-2B-ZXv">
                             <connections>
                                 <segue destination="8iS-ZE-f4i" kind="show" id="jCa-z5-e8f"/>
@@ -112,19 +112,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scs-cx-5eH">
-                                <rect key="frame" x="235" y="289" width="86" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scs-cx-5eH">
+                                <rect key="frame" x="109" y="289" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="scs-cx-5eH" firstAttribute="top" secondItem="4s8-Mf-hxf" secondAttribute="bottom" constant="225" id="Hih-Co-776"/>
-                            <constraint firstItem="scs-cx-5eH" firstAttribute="centerY" secondItem="Ap7-ab-VBp" secondAttribute="centerY" id="buS-hj-peX"/>
-                            <constraint firstItem="scs-cx-5eH" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leading" constant="235" id="eln-xL-bY6"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgV-UC-WC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,7 +142,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adf-CH-5K2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155" y="277"/>
+            <point key="canvasLocation" x="157" y="277"/>
         </scene>
         <!--Locations-->
         <scene sceneID="CEE-zp-aeh">
