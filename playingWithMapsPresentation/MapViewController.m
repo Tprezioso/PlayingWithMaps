@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "DetailViewController.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "TPAnnotation.h"
@@ -101,6 +102,17 @@
 //    
 //    [self.mapView addAnnotation:point];
 //}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"detailView"]) {
+        DetailViewController *detailVC = segue.destinationViewController;
+        detailVC.detailTitleString = self.titleLabel.text;
+        detailVC.detailedInfoString = self.descriptionLabel.text;
+        detailVC.detailImage = self.mapImageView.image;
+       // NSLog(@"%@",detailVC.detailTitleLabel.text);
+    }
+}
 
 
 @end

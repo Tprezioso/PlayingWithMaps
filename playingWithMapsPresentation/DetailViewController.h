@@ -10,4 +10,9 @@
 
 @interface DetailViewController : UIViewController
 
+@property (strong, nonatomic) NSString *detailTitleString;
+@property (strong, nonatomic) NSString *detailedInfoString;
+@property (strong, nonatomic) UIImage *detailImage;
+
+
 @end

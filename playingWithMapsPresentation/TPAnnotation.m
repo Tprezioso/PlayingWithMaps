@@ -13,5 +13,4 @@
 @synthesize title;
 @synthesize subtitle;
 @synthesize coordinate;
-
 @end

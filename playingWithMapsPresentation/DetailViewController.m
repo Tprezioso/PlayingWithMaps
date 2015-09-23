@@ -22,6 +22,10 @@
 {
     [super viewDidLoad];
     
+    self.detailTitleLabel.text = self.detailTitleString;
+    self.detailTextView.text = self.detailedInfoString;
+    self.detailImageView.image = self.detailImage;
+    
     self.detailImageView.layer.cornerRadius = self.detailImageView.frame.size.height / 2;
     self.detailImageView.layer.masksToBounds = YES;
 }
