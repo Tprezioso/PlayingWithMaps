@@ -15,7 +15,6 @@
 
 @property (strong, nonatomic)CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UITextField *searchLabel;
 @property (strong, nonatomic) IBOutlet UIView *descriptionView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
