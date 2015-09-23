@@ -20,6 +20,7 @@
 		9F3A415F1AB30B310081FC05 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3A415E1AB30B310081FC05 /* CoreLocation.framework */; };
 		9F3A41611AB30C110081FC05 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3A41601AB30C110081FC05 /* MapKit.framework */; };
 		9F5EB3891BA206AE00BC31A5 /* TPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */; };
+		9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7BBFED1BB318B20090BE56 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9FEC4E471BAB482000538223 /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEC4E461BAB482000538223 /* map-pin.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		9F3A41601AB30C110081FC05 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9F5EB3871BA206AE00BC31A5 /* TPAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAnnotation.h; sourceTree = "<group>"; };
 		9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAnnotation.m; sourceTree = "<group>"; };
+		9F7BBFEC1BB318B20090BE56 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		9F7BBFED1BB318B20090BE56 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9FEC4E461BAB482000538223 /* map-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +107,8 @@
 				9F3A41401AB30A930081FC05 /* MapViewController.m */,
 				9F352AFF1BAB41FD00949972 /* LocationTableViewController.h */,
 				9F352B001BAB41FD00949972 /* LocationTableViewController.m */,
+				9F7BBFEC1BB318B20090BE56 /* DetailViewController.h */,
+				9F7BBFED1BB318B20090BE56 /* DetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				9F3A413E1AB30A930081FC05 /* AppDelegate.m in Sources */,
 				9F352B011BAB41FD00949972 /* LocationTableViewController.m in Sources */,
 				9F3A413B1AB30A930081FC05 /* main.m in Sources */,
+				9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
