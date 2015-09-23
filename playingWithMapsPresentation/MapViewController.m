@@ -44,8 +44,10 @@
     [self addGestureRecogniserToMapView];
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
-    self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
-    self.mapImageView.clipsToBounds = YES;
+   
+    self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.height / 2;
+    //self.mapImageView.clipsToBounds = YES;
+    self.mapImageView.layer.masksToBounds = YES;
     
 }
 

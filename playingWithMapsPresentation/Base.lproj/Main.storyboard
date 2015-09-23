@@ -33,18 +33,18 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="gwK-ke-uky">
-                                        <rect key="frame" x="8" y="8" width="152" height="117"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="152" id="ti3-9Y-4Lf"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="testestestestestestestestestestestestestestestestestestestestestestestestestestestestes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stf-4i-NM9">
                                         <rect key="frame" x="168" y="37" width="424" height="88"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="gwK-ke-uky">
+                                        <rect key="frame" x="8" y="8" width="152" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="152" id="ti3-9Y-4Lf"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -53,7 +53,7 @@
                                     <constraint firstItem="gbh-x5-43T" firstAttribute="leading" secondItem="stf-4i-NM9" secondAttribute="leading" id="LRL-IS-lLh"/>
                                     <constraint firstItem="stf-4i-NM9" firstAttribute="bottom" secondItem="mDQ-4j-6PM" secondAttribute="bottomMargin" id="LSQ-LW-zyG"/>
                                     <constraint firstItem="stf-4i-NM9" firstAttribute="bottom" secondItem="mDQ-4j-6PM" secondAttribute="bottomMargin" id="MLL-LE-k7N"/>
-                                    <constraint firstItem="stf-4i-NM9" firstAttribute="bottom" secondItem="gwK-ke-uky" secondAttribute="bottom" id="TN6-dM-DCX"/>
+                                    <constraint firstItem="stf-4i-NM9" firstAttribute="bottom" secondItem="gwK-ke-uky" secondAttribute="bottom" constant="17" id="TN6-dM-DCX"/>
                                     <constraint firstItem="gwK-ke-uky" firstAttribute="top" secondItem="mDQ-4j-6PM" secondAttribute="topMargin" id="bnD-Ga-INe"/>
                                     <constraint firstItem="gbh-x5-43T" firstAttribute="trailing" secondItem="mDQ-4j-6PM" secondAttribute="trailingMargin" id="g2d-Ua-vrC"/>
                                     <constraint firstItem="gbh-x5-43T" firstAttribute="top" secondItem="gwK-ke-uky" secondAttribute="top" id="jFh-sI-CnB"/>
