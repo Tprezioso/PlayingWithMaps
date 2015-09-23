@@ -21,7 +21,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    self.detailImageView.layer.cornerRadius = self.detailImageView.frame.size.height / 2;
+    self.detailImageView.layer.masksToBounds = YES;
 }
 
 
