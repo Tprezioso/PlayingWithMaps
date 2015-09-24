@@ -11,6 +11,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "TPAnnotation.h"
+#import <MBProgressHUD.h>
 
 @interface MapViewController () <MKMapViewDelegate>
 
@@ -28,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.descriptionView setHidden:YES];
     self.mapView.delegate = self;
     self.locationManager = [[CLLocationManager alloc] init];
@@ -48,7 +50,7 @@
    
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
-    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view

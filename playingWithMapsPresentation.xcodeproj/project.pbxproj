@@ -22,6 +22,7 @@
 		9F5EB3891BA206AE00BC31A5 /* TPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */; };
 		9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7BBFED1BB318B20090BE56 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9FEC4E471BAB482000538223 /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEC4E461BAB482000538223 /* map-pin.png */; settings = {ASSET_TAGS = (); }; };
+		A6EEA2A02180A5D25B9142D9 /* libPods-playingWithMapsPresentation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 376E4A5EE9511B3592B0EEE3 /* libPods-playingWithMapsPresentation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		376E4A5EE9511B3592B0EEE3 /* libPods-playingWithMapsPresentation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-playingWithMapsPresentation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F83360596AA2DC24B97349E /* Pods-playingWithMapsPresentation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playingWithMapsPresentation.release.xcconfig"; path = "Pods/Target Support Files/Pods-playingWithMapsPresentation/Pods-playingWithMapsPresentation.release.xcconfig"; sourceTree = "<group>"; };
+		479B0465876EC29B05683278 /* Pods-playingWithMapsPresentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playingWithMapsPresentation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-playingWithMapsPresentation/Pods-playingWithMapsPresentation.debug.xcconfig"; sourceTree = "<group>"; };
 		9F352AF81BAB2FFA00949972 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		9F352AFD1BAB40FC00949972 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
 		9F352AFF1BAB41FD00949972 /* LocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTableViewController.h; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			files = (
 				9F3A41611AB30C110081FC05 /* MapKit.framework in Frameworks */,
 				9F3A415F1AB30B310081FC05 /* CoreLocation.framework in Frameworks */,
+				A6EEA2A02180A5D25B9142D9 /* libPods-playingWithMapsPresentation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24DBD4625984A260E8255F82 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				479B0465876EC29B05683278 /* Pods-playingWithMapsPresentation.debug.xcconfig */,
+				3F83360596AA2DC24B97349E /* Pods-playingWithMapsPresentation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9F352AFA1BAB3A9A00949972 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +133,8 @@
 				9F3A41371AB30A930081FC05 /* playingWithMapsPresentation */,
 				9F3A41511AB30A930081FC05 /* playingWithMapsPresentationTests */,
 				9F3A41361AB30A930081FC05 /* Products */,
+				24DBD4625984A260E8255F82 /* Pods */,
+				F9E175631C7EC976171559C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +199,14 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		F9E175631C7EC976171559C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				376E4A5EE9511B3592B0EEE3 /* libPods-playingWithMapsPresentation.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -190,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F3A41581AB30A930081FC05 /* Build configuration list for PBXNativeTarget "playingWithMapsPresentation" */;
 			buildPhases = (
+				D840B9468B9C2D69717B0E71 /* Check Pods Manifest.lock */,
 				9F3A41311AB30A930081FC05 /* Sources */,
 				9F3A41321AB30A930081FC05 /* Frameworks */,
 				9F3A41331AB30A930081FC05 /* Resources */,
+				C56019F321A15049B1D04538 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -281,6 +307,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C56019F321A15049B1D04538 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-playingWithMapsPresentation/Pods-playingWithMapsPresentation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D840B9468B9C2D69717B0E71 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9F3A41311AB30A930081FC05 /* Sources */ = {
@@ -412,6 +471,7 @@
 		};
 		9F3A41591AB30A930081FC05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 479B0465876EC29B05683278 /* Pods-playingWithMapsPresentation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -423,6 +483,7 @@
 		};
 		9F3A415A1AB30A930081FC05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F83360596AA2DC24B97349E /* Pods-playingWithMapsPresentation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

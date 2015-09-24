@@ -7,7 +7,7 @@
 //
 
 #import "LocationTableViewController.h"
-
+#import <MBProgressHUD.h>
 @interface LocationTableViewController ()
 
 @end
@@ -16,12 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [MBProgressHUD hideHUDForView:self.tableView animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

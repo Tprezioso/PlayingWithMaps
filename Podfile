@@ -2,7 +2,7 @@
 # platform :ios, '6.0'
 
 target 'playingWithMapsPresentation' do
-	pod 'JSQNotificationObserverKit', '~> 1.0'
+	pod 'MBProgressHUD'
 end
 
 target 'playingWithMapsPresentationTests' do
