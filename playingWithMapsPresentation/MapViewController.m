@@ -47,6 +47,16 @@
     [self addGestureRecogniserToMapView];
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
+    
+    //<<<<<<<<Preloaded location (make a method to load all preloaded loactions)>>>>>>>>>>>>>>>>>>>>>>>>>>
+    TPAnnotation *addedPinOnLoad = [[TPAnnotation alloc]init];
+    addedPinOnLoad.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
+    addedPinOnLoad.title = @"Kissena Park";
+    addedPinOnLoad.subtitle = @"Former loaction of worlds Fair and Loaction formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
+    self.titleLabel.text = addedPinOnLoad.title;
+    self.descriptionLabel.text = addedPinOnLoad.subtitle;
+    [self.mapView addAnnotation:addedPinOnLoad];
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
    
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
@@ -80,6 +90,8 @@
     self.titleLabel.text = toAdd.title;
     self.descriptionLabel.text = toAdd.subtitle;
     [self.mapView addAnnotation:toAdd];
+    //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
