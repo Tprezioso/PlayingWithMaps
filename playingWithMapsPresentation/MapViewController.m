@@ -47,16 +47,13 @@
     [self addGestureRecogniserToMapView];
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
-    
-    //<<<<<<<<Preloaded location (make a method to load all preloaded loactions)>>>>>>>>>>>>>>>>>>>>>>>>>>
-    TPAnnotation *addedPinOnLoad = [[TPAnnotation alloc]init];
-    addedPinOnLoad.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
-    addedPinOnLoad.title = @"Kissena Park";
-    addedPinOnLoad.subtitle = @"Former loaction of worlds Fair and Loaction formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
-    self.titleLabel.text = addedPinOnLoad.title;
-    self.descriptionLabel.text = addedPinOnLoad.subtitle;
+
+    //<<<<<<<<Preloaded location >>>>>>>>>>>>>>>>>>>>>>>>>>
+    [TPAnnotation setPreloadedPins].coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
+    self.titleLabel.text = [TPAnnotation setPreloadedPins].title;
+    self.descriptionLabel.text = [TPAnnotation setPreloadedPins].subtitle;
     self.mapImageView.image = [UIImage imageNamed:@"kissenaParkExit.jpg"];
-    [self.mapView addAnnotation:addedPinOnLoad];
+    [self.mapView addAnnotation:[TPAnnotation setPreloadedPins]];
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
    
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
