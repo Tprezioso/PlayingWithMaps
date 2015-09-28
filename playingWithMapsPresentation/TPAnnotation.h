@@ -19,6 +19,8 @@
 @property (nonatomic, copy) NSString * title;
 @property (nonatomic, copy) NSString * subtitle;
 @property (nonatomic, assign)CLLocationCoordinate2D coordinate;
+
 - (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate;
+
 
 @end

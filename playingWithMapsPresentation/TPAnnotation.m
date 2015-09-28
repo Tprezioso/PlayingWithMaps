@@ -14,6 +14,7 @@
 @synthesize subtitle;
 @synthesize coordinate;
 
+
 -(instancetype)init
 {
     if (self = [super init]) {
@@ -37,4 +38,5 @@
 {
 
 }
+
 @end

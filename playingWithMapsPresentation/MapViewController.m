@@ -47,9 +47,11 @@
     [self addGestureRecogniserToMapView];
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
+
     
     //<<<<<<<<Preloaded location (make a method to load all preloaded loactions)>>>>>>>>>>>>>>>>>>>>>>>>>>
     [self addPrestPins];
+
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
    
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
