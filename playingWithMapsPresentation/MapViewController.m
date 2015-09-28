@@ -49,19 +49,35 @@
     NSLog(@"%f",userCoordinate.longitude);
     
     //<<<<<<<<Preloaded location (make a method to load all preloaded loactions)>>>>>>>>>>>>>>>>>>>>>>>>>>
-    TPAnnotation *addedPinOnLoad = [[TPAnnotation alloc]init];
-    addedPinOnLoad.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
-    addedPinOnLoad.title = @"Kissena Park";
-    addedPinOnLoad.subtitle = @"Former loaction of worlds Fair and Loaction formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
-    self.titleLabel.text = addedPinOnLoad.title;
-    self.descriptionLabel.text = addedPinOnLoad.subtitle;
-    self.mapImageView.image = [UIImage imageNamed:@"kissenaParkExit.jpg"];
-    [self.mapView addAnnotation:addedPinOnLoad];
+    [self addPrestPins];
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
    
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+-(void)addPrestPins
+{
+    TPAnnotation *kissenaPrakPin = [[TPAnnotation alloc]init];
+    kissenaPrakPin.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
+    kissenaPrakPin.title = @"Kissena Park";
+    kissenaPrakPin.subtitle = @"Park in Flushing Queens";
+    self.titleLabel.text = kissenaPrakPin.title;
+    self.descriptionLabel.text = kissenaPrakPin.subtitle;
+    self.mapImageView.image = [UIImage imageNamed:@"kissenaParkExit.jpg"];
+    
+    TPAnnotation *flushingMeadowsPark = [[TPAnnotation alloc] init];
+    flushingMeadowsPark.coordinate = CLLocationCoordinate2DMake(40.740385, -73.840322);
+    flushingMeadowsPark.title = @"Flushing Meadows Park";
+    flushingMeadowsPark.subtitle = @"Former loaction of worlds Fair and Loaction formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
+    self.titleLabel.text = flushingMeadowsPark.title;
+    self.descriptionLabel.text = flushingMeadowsPark.subtitle;
+    self.mapImageView.image = [UIImage imageNamed:@"flsuhingMeadowsPark.jpeg"];
+    
+    
+    [self.mapView addAnnotation:kissenaPrakPin];
+    [self.mapView addAnnotation:flushingMeadowsPark];
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view

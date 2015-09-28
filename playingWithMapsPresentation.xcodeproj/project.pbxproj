@@ -22,6 +22,7 @@
 		9F44DDCB1BB9837300F011E7 /* kissenaParkExit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F44DDCA1BB9837300F011E7 /* kissenaParkExit.jpg */; settings = {ASSET_TAGS = (); }; };
 		9F5EB3891BA206AE00BC31A5 /* TPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */; };
 		9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7BBFED1BB318B20090BE56 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9FD82E931BB9C751003173FD /* flsuhingMeadowsPark.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9FD82E921BB9C751003173FD /* flsuhingMeadowsPark.jpeg */; settings = {ASSET_TAGS = (); }; };
 		9FEC4E471BAB482000538223 /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEC4E461BAB482000538223 /* map-pin.png */; settings = {ASSET_TAGS = (); }; };
 		A6EEA2A02180A5D25B9142D9 /* libPods-playingWithMapsPresentation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 376E4A5EE9511B3592B0EEE3 /* libPods-playingWithMapsPresentation.a */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAnnotation.m; sourceTree = "<group>"; };
 		9F7BBFEC1BB318B20090BE56 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9F7BBFED1BB318B20090BE56 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		9FD82E921BB9C751003173FD /* flsuhingMeadowsPark.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flsuhingMeadowsPark.jpeg; sourceTree = "<group>"; };
 		9FEC4E461BAB482000538223 /* map-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				9F44DDCA1BB9837300F011E7 /* kissenaParkExit.jpg */,
+				9FD82E921BB9C751003173FD /* flsuhingMeadowsPark.jpeg */,
 				9FEC4E461BAB482000538223 /* map-pin.png */,
 				9F352AF81BAB2FFA00949972 /* placeholderImage.png */,
 				9F352AFD1BAB40FC00949972 /* text-list.png */,
@@ -295,6 +298,7 @@
 			files = (
 				9F3A41441AB30A930081FC05 /* Main.storyboard in Resources */,
 				9F352AF91BAB2FFA00949972 /* placeholderImage.png in Resources */,
+				9FD82E931BB9C751003173FD /* flsuhingMeadowsPark.jpeg in Resources */,
 				9FEC4E471BAB482000538223 /* map-pin.png in Resources */,
 				9F44DDCB1BB9837300F011E7 /* kissenaParkExit.jpg in Resources */,
 				9F352AFE1BAB40FC00949972 /* text-list.png in Resources */,
