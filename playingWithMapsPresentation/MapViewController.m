@@ -55,6 +55,7 @@
     addedPinOnLoad.subtitle = @"Former loaction of worlds Fair and Loaction formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
     self.titleLabel.text = addedPinOnLoad.title;
     self.descriptionLabel.text = addedPinOnLoad.subtitle;
+    self.mapImageView.image = [UIImage imageNamed:@"kissenaParkExit.jpg"];
     [self.mapView addAnnotation:addedPinOnLoad];
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
    
