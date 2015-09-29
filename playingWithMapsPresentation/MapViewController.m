@@ -59,7 +59,7 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
--(void)addPrestPins
+- (void)addPrestPins
 {
     TPAnnotation *kissenaPrakPin = [[TPAnnotation alloc]init];
     kissenaPrakPin.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
@@ -121,6 +121,7 @@
         self.descriptionView.hidden = YES;
     }
 }
+
 // Use to add annotation to userLocation
 //- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 //{
@@ -146,6 +147,5 @@
        // NSLog(@"%@",detailVC.detailTitleLabel.text);
     }
 }
-
 
 @end
