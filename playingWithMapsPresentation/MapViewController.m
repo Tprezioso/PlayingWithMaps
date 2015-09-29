@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "DetailViewController.h"
+#import "LocationTableViewController.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "TPAnnotation.h"
@@ -21,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
+@property (strong, nonatomic) NSArray *locationsArray;
 
 @end
 
@@ -72,8 +74,8 @@
     flushingMeadowsPark.title = @"Flushing Meadows Park";
     flushingMeadowsPark.subtitle = @"Former loaction of worlds Fair and Loaction formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
 
-    NSArray *locations = @[kissenaPrakPin, flushingMeadowsPark];
-    [self.mapView addAnnotations:locations];
+    self.locationsArray = @[kissenaPrakPin, flushingMeadowsPark];
+    [self.mapView addAnnotations:self.locationsArray];
 //    [self.mapView addAnnotation:kissenaPrakPin];
 //    [self.mapView addAnnotation:flushingMeadowsPark];
 }
@@ -161,6 +163,7 @@
         detailVC.detailImage = self.mapImageView.image;
        // NSLog(@"%@",detailVC.detailTitleLabel.text);
     }
+
 }
 
 @end

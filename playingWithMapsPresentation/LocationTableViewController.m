@@ -7,6 +7,7 @@
 //
 
 #import "LocationTableViewController.h"
+#import "MapViewController.h"
 #import <MBProgressHUD.h>
 @interface LocationTableViewController ()
 
@@ -36,15 +37,16 @@
     return 0;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.textLabel.text = self.locationsNames;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

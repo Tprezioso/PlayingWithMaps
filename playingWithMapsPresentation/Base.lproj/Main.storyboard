@@ -98,7 +98,7 @@
                     <navigationItem key="navigationItem" title="Map" id="iXj-sh-wMc">
                         <barButtonItem key="rightBarButtonItem" image="text-list.png" id="K0R-2B-ZXv">
                             <connections>
-                                <segue destination="8iS-ZE-f4i" kind="show" id="jCa-z5-e8f"/>
+                                <segue destination="8iS-ZE-f4i" kind="show" identifier="listView" id="jCa-z5-e8f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -199,7 +199,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aHH-TE-cCL">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicCell" id="aHH-TE-cCL">
                                 <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHH-TE-cCL" id="Yuv-yF-51S">

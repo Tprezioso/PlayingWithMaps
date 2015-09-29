@@ -10,4 +10,6 @@
 
 @interface LocationTableViewController : UITableViewController
 
+@property(strong, nonatomic)NSString *locationsNames;
+
 @end
