@@ -51,6 +51,7 @@
     
     //<<<<<<<<Preloaded location (make a method to load all preloaded loactions)>>>>>>>>>>>>>>>>>>>>>>>>>>
     [self addPrestPins];
+    
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
    
@@ -65,27 +66,41 @@
     kissenaPrakPin.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
     kissenaPrakPin.title = @"Kissena Park";
     kissenaPrakPin.subtitle = @"Park in Flushing Queens";
-    self.titleLabel.text = kissenaPrakPin.title;
-    self.descriptionLabel.text = kissenaPrakPin.subtitle;
-    self.mapImageView.image = [UIImage imageNamed:@"kissenaParkExit.jpg"];
     
     TPAnnotation *flushingMeadowsPark = [[TPAnnotation alloc] init];
     flushingMeadowsPark.coordinate = CLLocationCoordinate2DMake(40.740385, -73.840322);
     flushingMeadowsPark.title = @"Flushing Meadows Park";
     flushingMeadowsPark.subtitle = @"Former loaction of worlds Fair and Loaction formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
-    self.titleLabel.text = flushingMeadowsPark.title;
-    self.descriptionLabel.text = flushingMeadowsPark.subtitle;
-    self.mapImageView.image = [UIImage imageNamed:@"flsuhingMeadowsPark.jpeg"];
-    
-    
-    [self.mapView addAnnotation:kissenaPrakPin];
-    [self.mapView addAnnotation:flushingMeadowsPark];
+
+    NSArray *locations = @[kissenaPrakPin, flushingMeadowsPark];
+    [self.mapView addAnnotations:locations];
+//    [self.mapView addAnnotation:kissenaPrakPin];
+//    [self.mapView addAnnotation:flushingMeadowsPark];
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     NSLog(@"annotation selected");
     [self.descriptionView setHidden:NO];
+    id<MKAnnotation> annSelected = view.annotation;
+    
+    if ([annSelected isKindOfClass:[TPAnnotation class]])
+    {
+        TPAnnotation *dm = (TPAnnotation *)annSelected;
+        if (dm.title) {
+            self.titleLabel.text = dm.title;
+            self.descriptionLabel.text = dm.subtitle;
+            if ([dm.title isEqualToString:@"Kissena Park"] ) {
+                self.mapImageView.image = [UIImage imageNamed:@"kissenaParkExit.jpg"];
+            } else {
+                self.mapImageView.image = [UIImage imageNamed:@"flsuhingMeadowsPark.jpeg"];
+            }
+        }
+        NSLog(@"Pin touched: title = %@", dm.title);
+    } else {
+        [self.descriptionView setHidden:YES];
+    }
+
 }
 
 - (void)addGestureRecogniserToMapView
@@ -117,7 +132,7 @@
 {
     NSLog(@"touches began");
     UITouch *touch = [touches anyObject];
-    if(touch.view!= self.descriptionView){
+    if(touch.view != self.descriptionView){
         self.descriptionView.hidden = YES;
     }
 }
