@@ -26,13 +26,12 @@
     self.detailTitleLabel.text = self.detailTitleString;
     self.detailTextView.text = self.detailedInfoString;
     self.detailImageView.image = self.detailImage;
-    
+    [self.detailTitleLabel setFont:[UIFont systemFontOfSize:17]];
+    [self.detailTextView setFont:[UIFont systemFontOfSize:17]];
     self.detailImageView.layer.cornerRadius = self.detailImageView.frame.size.height / 2;
     self.detailImageView.layer.masksToBounds = YES;
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
-
-
 /*
 #pragma mark - Navigation
 
