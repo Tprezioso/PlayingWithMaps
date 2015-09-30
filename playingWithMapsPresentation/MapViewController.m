@@ -72,7 +72,7 @@
     TPAnnotation *flushingMeadowsPark = [[TPAnnotation alloc] init];
     flushingMeadowsPark.coordinate = CLLocationCoordinate2DMake(40.740385, -73.840322);
     flushingMeadowsPark.title = @"Flushing Meadows Park";
-    flushingMeadowsPark.subtitle = @"Former loaction of worlds Fair and Loaction formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
+    flushingMeadowsPark.subtitle = @"Former location of worlds Fair and Location formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
 
     self.locationsArray = @[kissenaPrakPin, flushingMeadowsPark];
     [self.mapView addAnnotations:self.locationsArray];
@@ -95,7 +95,7 @@
             if ([dm.title isEqualToString:@"Kissena Park"] ) {
                 self.mapImageView.image = [UIImage imageNamed:@"kissenaParkExit.jpg"];
             } else {
-                self.mapImageView.image = [UIImage imageNamed:@"flsuhingMeadowsPark.jpeg"];
+                self.mapImageView.image = [UIImage imageNamed:@"flushingMeadowsPark.jpeg"];
             }
         }
         NSLog(@"Pin touched: title = %@", dm.title);
