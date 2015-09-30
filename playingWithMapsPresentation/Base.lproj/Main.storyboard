@@ -98,7 +98,7 @@
                     <navigationItem key="navigationItem" title="Map" id="iXj-sh-wMc">
                         <barButtonItem key="rightBarButtonItem" image="text-list.png" id="K0R-2B-ZXv">
                             <connections>
-                                <segue destination="8iS-ZE-f4i" kind="show" identifier="listView" id="jCa-z5-e8f"/>
+                                <segue destination="QOX-PT-bcK" kind="show" identifier="listView" id="vTy-v0-nbA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -216,32 +216,14 @@
                     <navigationItem key="navigationItem" title="Locations" id="bK8-Gl-Hw7">
                         <barButtonItem key="rightBarButtonItem" image="map-pin.png" id="nTb-KB-Ifv">
                             <connections>
-                                <segue destination="0n2-Fh-fr0" kind="show" id="GzD-wT-LhQ"/>
+                                <segue destination="0n2-Fh-fr0" kind="show" identifier="" id="GzD-wT-LhQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GH-TW-SD5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437" y="277"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="GTI-Uw-9Cy">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8iS-ZE-f4i" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lhs-e0-Cjx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="QOX-PT-bcK" kind="relationship" relationship="rootViewController" id="Gcf-U5-FLI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lp7-dN-8D5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1625" y="277"/>
+            <point key="canvasLocation" x="1690" y="277"/>
         </scene>
     </scenes>
     <resources>

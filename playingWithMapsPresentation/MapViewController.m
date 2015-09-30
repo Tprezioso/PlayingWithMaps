@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
 @property (strong, nonatomic) NSArray *locationsArray;
+@property (strong, nonatomic) NSArray *locationsNames;
 
 @end
 
@@ -50,13 +51,7 @@
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
 
-    
-    //<<<<<<<<Preloaded location (make a method to load all preloaded loactions)>>>>>>>>>>>>>>>>>>>>>>>>>>
     [self addPrestPins];
-    
-
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-   
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -76,7 +71,10 @@
 
     self.locationsArray = @[kissenaPrakPin, flushingMeadowsPark];
     [self.mapView addAnnotations:self.locationsArray];
-//    [self.mapView addAnnotation:kissenaPrakPin];
+    self.locationsNames = @[kissenaPrakPin.title, flushingMeadowsPark.title];
+//    LocationTableViewController * listview = [[LocationTableViewController alloc] init];
+//    listview.locationsNames = self.locationsArray;
+    //    [self.mapView addAnnotation:kissenaPrakPin];
 //    [self.mapView addAnnotation:flushingMeadowsPark];
 }
 
@@ -102,7 +100,6 @@
     } else {
         [self.descriptionView setHidden:YES];
     }
-
 }
 
 - (void)addGestureRecogniserToMapView
@@ -163,7 +160,11 @@
         detailVC.detailImage = self.mapImageView.image;
        // NSLog(@"%@",detailVC.detailTitleLabel.text);
     }
+    if ([segue.identifier isEqualToString:@"listView"]) {
+        LocationTableViewController *listView = segue.destinationViewController;
 
+        listView.locationsNames = self.locationsNames;
+    }
 }
 
 @end
