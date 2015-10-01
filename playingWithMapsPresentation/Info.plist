@@ -4,7 +4,12 @@
 <dict>
 	<key>UIApplicationShortcutItems</key>
 	<array>
-		<string>Hope this Works</string>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Hope This works</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>edu.thomasprezioso.playingWithMapsPresentation.hopethisworks</string>
+		</dict>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We would like to use your Location</string>
