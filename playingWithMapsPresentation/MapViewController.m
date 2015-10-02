@@ -51,13 +51,13 @@
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
 
-    [self addPrestPins];
+    [self addPresetPins];
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
-- (void)addPrestPins
+- (void)addPresetPins
 {
     TPAnnotation *pins = [[TPAnnotation alloc] init];
     self.locationsArray = [pins presetPins];
@@ -148,7 +148,7 @@
     }
     if ([segue.identifier isEqualToString:@"listView"]) {
         LocationTableViewController *listView = segue.destinationViewController;
-
+        listView.locations = self.locationsArray;
         listView.locationsNames = self.locationsNames;
     }
 }
