@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPAnnotation.h"
 
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) NSString *detailTitleString;
 @property (strong, nonatomic) NSString *detailedInfoString;
 @property (strong, nonatomic) UIImage *detailImage;
+@property (strong, nonatomic) TPAnnotation *detailLocations;
 
 
 @end
