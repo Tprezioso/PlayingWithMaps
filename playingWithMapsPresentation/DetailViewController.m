@@ -23,6 +23,7 @@
 {
     [super viewDidLoad];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     self.detailTitleLabel.text = self.detailTitleString;
     self.detailTextView.text = self.detailedInfoString;
     self.detailImageView.image = self.detailImage;
@@ -31,8 +32,8 @@
     self.detailTextView.text = self.detailLocations.subtitle;
     self.detailImageView.image = self.detailLocations.image;
     
-    [self.detailTitleLabel setFont:[UIFont systemFontOfSize:17]];
-    [self.detailTextView setFont:[UIFont systemFontOfSize:17]];
+    [self.detailTitleLabel setFont:[UIFont systemFontOfSize:13]];
+    [self.detailTextView setFont:[UIFont systemFontOfSize:13]];
     self.detailImageView.layer.cornerRadius = self.detailImageView.frame.size.height / 2;
     self.detailImageView.layer.masksToBounds = YES;
     [MBProgressHUD hideHUDForView:self.view animated:YES];
