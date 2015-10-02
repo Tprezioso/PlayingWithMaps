@@ -18,25 +18,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
-    // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [self.locationsNames count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
     cell.textLabel.text = self.locationsNames[indexPath.row];
     
     return cell;

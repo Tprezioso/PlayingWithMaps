@@ -72,10 +72,6 @@
     self.locationsArray = @[kissenaPrakPin, flushingMeadowsPark];
     [self.mapView addAnnotations:self.locationsArray];
     self.locationsNames = @[kissenaPrakPin.title, flushingMeadowsPark.title];
-//    LocationTableViewController * listview = [[LocationTableViewController alloc] init];
-//    listview.locationsNames = self.locationsArray;
-    //    [self.mapView addAnnotation:kissenaPrakPin];
-//    [self.mapView addAnnotation:flushingMeadowsPark];
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -124,7 +120,6 @@
     self.descriptionLabel.text = toAdd.subtitle;
     [self.mapView addAnnotation:toAdd];
     //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
-    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
