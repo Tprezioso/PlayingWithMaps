@@ -14,13 +14,15 @@
     NSString *subtitle;
     NSString *note;
     CLLocationCoordinate2D coordinate;
+    UIImage *image;
 }
 
 @property (nonatomic, copy) NSString * title;
 @property (nonatomic, copy) NSString * subtitle;
 @property (nonatomic, assign)CLLocationCoordinate2D coordinate;
+@property (strong, nonatomic)UIImage *image;
 
-- (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate;
+- (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate image:(UIImage*)pinImage;
 - (NSArray *)presetPins;
 
 @end

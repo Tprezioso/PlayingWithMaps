@@ -29,6 +29,7 @@
     
     self.detailTitleLabel.text = self.detailLocations.title;
     self.detailTextView.text = self.detailLocations.subtitle;
+    self.detailImageView.image = self.detailLocations.image;
     
     [self.detailTitleLabel setFont:[UIFont systemFontOfSize:17]];
     [self.detailTextView setFont:[UIFont systemFontOfSize:17]];

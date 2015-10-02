@@ -77,11 +77,7 @@
         if (dm.title) {
             self.titleLabel.text = dm.title;
             self.descriptionLabel.text = dm.subtitle;
-            if ([dm.title isEqualToString:@"Kissena Park"] ) {
-                self.mapImageView.image = [UIImage imageNamed:@"kissenaParkExit.jpg"];
-            } else {
-                self.mapImageView.image = [UIImage imageNamed:@"flushingMeadowsPark.jpeg"];
-            }
+            self.mapImageView.image = dm.image;
         }
         NSLog(@"Pin touched: title = %@", dm.title);
     } else {

@@ -13,6 +13,7 @@
 @synthesize title;
 @synthesize subtitle;
 @synthesize coordinate;
+@synthesize image;
 
 
 -(instancetype)init
@@ -24,12 +25,14 @@
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate
+- (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate image:(UIImage*)pinImage
 {
     if (self = [super init]) {
         pinTitle = title;
         pinSubtitle = subtitle;
         pinCoordinate = coordinate;
+        pinImage = image;
+        
     }
     return self;
 }
@@ -40,11 +43,14 @@
     kissenaPrakPin.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
     kissenaPrakPin.title = @"Kissena Park";
     kissenaPrakPin.subtitle = @"Park in Flushing Queens";
+    kissenaPrakPin.image = [UIImage imageNamed:@"kissenaParkExit.jpg"];
     
     TPAnnotation *flushingMeadowsPark = [[TPAnnotation alloc] init];
     flushingMeadowsPark.coordinate = CLLocationCoordinate2DMake(40.740385, -73.840322);
     flushingMeadowsPark.title = @"Flushing Meadows Park";
     flushingMeadowsPark.subtitle = @"Former location of worlds Fair and Location formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
+    flushingMeadowsPark.image = [UIImage imageNamed:@"flushingMeadowsPark.jpeg"];
+    
     NSArray *presetPinsArray = @[kissenaPrakPin, flushingMeadowsPark];
     return presetPinsArray;
 
