@@ -21,6 +21,6 @@
 @property (nonatomic, assign)CLLocationCoordinate2D coordinate;
 
 - (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate;
-
+- (NSArray *)presetPins;
 
 @end

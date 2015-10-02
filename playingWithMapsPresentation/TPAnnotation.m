@@ -34,8 +34,19 @@
     return self;
 }
 
-- (void)presetPins
+- (NSArray *)presetPins
 {
+    TPAnnotation *kissenaPrakPin = [[TPAnnotation alloc]init];
+    kissenaPrakPin.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
+    kissenaPrakPin.title = @"Kissena Park";
+    kissenaPrakPin.subtitle = @"Park in Flushing Queens";
+    
+    TPAnnotation *flushingMeadowsPark = [[TPAnnotation alloc] init];
+    flushingMeadowsPark.coordinate = CLLocationCoordinate2DMake(40.740385, -73.840322);
+    flushingMeadowsPark.title = @"Flushing Meadows Park";
+    flushingMeadowsPark.subtitle = @"Former location of worlds Fair and Location formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
+    NSArray *presetPinsArray = @[kissenaPrakPin, flushingMeadowsPark];
+    return presetPinsArray;
 
 }
 

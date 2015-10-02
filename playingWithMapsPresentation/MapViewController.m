@@ -59,19 +59,10 @@
 
 - (void)addPrestPins
 {
-    TPAnnotation *kissenaPrakPin = [[TPAnnotation alloc]init];
-    kissenaPrakPin.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
-    kissenaPrakPin.title = @"Kissena Park";
-    kissenaPrakPin.subtitle = @"Park in Flushing Queens";
-    
-    TPAnnotation *flushingMeadowsPark = [[TPAnnotation alloc] init];
-    flushingMeadowsPark.coordinate = CLLocationCoordinate2DMake(40.740385, -73.840322);
-    flushingMeadowsPark.title = @"Flushing Meadows Park";
-    flushingMeadowsPark.subtitle = @"Former location of worlds Fair and Location formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
-
-    self.locationsArray = @[kissenaPrakPin, flushingMeadowsPark];
+    TPAnnotation *pins = [[TPAnnotation alloc] init];
+    self.locationsArray = [pins presetPins];
     [self.mapView addAnnotations:self.locationsArray];
-    self.locationsNames = @[kissenaPrakPin.title, flushingMeadowsPark.title];
+    self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]];
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
