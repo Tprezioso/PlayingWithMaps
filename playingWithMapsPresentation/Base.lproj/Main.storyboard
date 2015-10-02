@@ -231,13 +231,7 @@
                             <outlet property="delegate" destination="QOX-PT-bcK" id="tpW-cH-fo5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Locations" id="bK8-Gl-Hw7">
-                        <barButtonItem key="rightBarButtonItem" image="map-pin.png" id="nTb-KB-Ifv">
-                            <connections>
-                                <segue destination="0n2-Fh-fr0" kind="show" identifier="" id="GzD-wT-LhQ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Locations" id="bK8-Gl-Hw7"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GH-TW-SD5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -245,7 +239,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="map-pin.png" width="30" height="30"/>
         <image name="placeholderImage.png" width="121" height="121"/>
         <image name="text-list.png" width="30" height="30"/>
     </resources>
