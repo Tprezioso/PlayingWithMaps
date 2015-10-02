@@ -15,7 +15,8 @@
 
 @implementation LocationTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -38,7 +39,6 @@
     
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
