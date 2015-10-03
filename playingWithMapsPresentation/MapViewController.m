@@ -140,7 +140,7 @@
         detailVC.detailTitleString = self.titleLabel.text;
         detailVC.detailedInfoString = self.descriptionLabel.text;
         detailVC.detailImage = self.mapImageView.image;
-       // NSLog(@"%@",detailVC.detailTitleLabel.text);
+        // NSLog(@"%@",detailVC.detailTitleLabel.text);
     }
     if ([segue.identifier isEqualToString:@"listView"]) {
         LocationTableViewController *listView = segue.destinationViewController;
