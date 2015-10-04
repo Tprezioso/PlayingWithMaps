@@ -16,7 +16,7 @@
 
 @interface MapViewController () <MKMapViewDelegate>
 
-@property (strong, nonatomic)CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIView *descriptionView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
