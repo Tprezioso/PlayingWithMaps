@@ -16,15 +16,6 @@
 @synthesize image;
 
 
--(instancetype)init
-{
-    if (self = [super init]) {
-        title = title;
-        subtitle = subtitle;
-    }
-    return self;
-}
-
 - (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate image:(UIImage*)pinImage
 {
     if (self = [super init]) {
