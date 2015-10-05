@@ -222,7 +222,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="IL1-M9-36Z" kind="show" id="hKI-T8-zJb"/>
+                                    <segue destination="IL1-M9-36Z" kind="show" identifier="detailVCFromTable" id="hKI-T8-zJb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

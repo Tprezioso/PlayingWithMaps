@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
 @property (strong, nonatomic) NSArray *locationsArray;
 @property (strong, nonatomic) NSArray *locationsNames;
+@property (strong, nonatomic) TPAnnotation *pin;
 
 @end
 
@@ -78,6 +79,7 @@
             self.titleLabel.text = dm.title;
             self.descriptionLabel.text = dm.subtitle;
             self.mapImageView.image = dm.image;
+            self.pin = dm;
         }
         NSLog(@"Pin touched: title = %@", dm.title);
     } else {
@@ -137,9 +139,7 @@
 {
     if ([segue.identifier isEqualToString:@"detailView"]) {
         DetailViewController *detailVC = segue.destinationViewController;
-        detailVC.detailTitleString = self.titleLabel.text;
-        detailVC.detailedInfoString = self.descriptionLabel.text;
-        detailVC.detailImage = self.mapImageView.image;
+        detailVC.detailLocations = self.pin;
         // NSLog(@"%@",detailVC.detailTitleLabel.text);
     }
     if ([segue.identifier isEqualToString:@"listView"]) {

@@ -24,10 +24,6 @@
     [super viewDidLoad];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    self.detailTitleLabel.text = self.detailTitleString;
-    self.detailTextView.text = self.detailedInfoString;
-    self.detailImageView.image = self.detailImage;
-    
     self.detailTitleLabel.text = self.detailLocations.title;
     self.detailTextView.text = self.detailLocations.subtitle;
     self.detailImageView.image = self.detailLocations.image;
