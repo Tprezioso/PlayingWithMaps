@@ -103,8 +103,9 @@
     CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     TPAnnotation *toAdd = [[TPAnnotation alloc] init];
     toAdd.coordinate = touchMapCoordinate;
-    toAdd.subtitle = @"Here";
-    toAdd.title = @"Your Pin";
+    toAdd.subtitle = @"Tap Here";
+    toAdd.title = @"Edit Your Pin";
+    toAdd.image = [UIImage imageNamed:@"placeholderImage.png"];
     self.titleLabel.text = toAdd.title;
     self.descriptionLabel.text = toAdd.subtitle;
     [self.mapView addAnnotation:toAdd];
