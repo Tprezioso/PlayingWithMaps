@@ -22,8 +22,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
-@property (strong, nonatomic) NSArray *locationsArray;
-@property (strong, nonatomic) NSArray *locationsNames;
+@property (strong, nonatomic) NSMutableArray *locationsArray;
+@property (strong, nonatomic) NSMutableArray *locationsNames;
 @property (strong, nonatomic) TPAnnotation *pin;
 
 @end
@@ -63,7 +63,7 @@
     TPAnnotation *pins = [[TPAnnotation alloc] init];
     self.locationsArray = [pins presetPins];
     [self.mapView addAnnotations:self.locationsArray];
-    self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]];
+    self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view

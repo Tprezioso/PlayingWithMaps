@@ -23,6 +23,6 @@
 @property (strong, nonatomic)UIImage *image;
 
 - (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate image:(UIImage*)pinImage;
-- (NSArray *)presetPins;
+- (NSMutableArray *)presetPins;
 
 @end

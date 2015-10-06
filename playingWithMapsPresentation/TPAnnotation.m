@@ -28,7 +28,7 @@
     return self;
 }
 
-- (NSArray *)presetPins
+- (NSMutableArray *)presetPins
 {
     TPAnnotation *kissenaPrakPin = [[TPAnnotation alloc]init];
     kissenaPrakPin.coordinate = CLLocationCoordinate2DMake(40.745184, -73.806207);
@@ -42,7 +42,7 @@
     flushingMeadowsPark.subtitle = @"Former location of worlds Fair and Location formally know as the valley of ashes made famous in the book 'The Grest gatsby'";
     flushingMeadowsPark.image = [UIImage imageNamed:@"flushingMeadowsPark.jpeg"];
     
-    NSArray *presetPinsArray = @[kissenaPrakPin, flushingMeadowsPark];
+    NSMutableArray *presetPinsArray = [[NSMutableArray alloc]initWithObjects:flushingMeadowsPark, kissenaPrakPin, nil];
     return presetPinsArray;
 
 }
