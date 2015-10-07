@@ -84,6 +84,8 @@
     } else {
         [self.descriptionView setHidden:YES];
     }
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    view.rightCalloutAccessoryView = infoButton;
 }
 
 - (void)addGestureRecogniserToMapView
