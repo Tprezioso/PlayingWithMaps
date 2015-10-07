@@ -109,6 +109,8 @@
     self.titleLabel.text = toAdd.title;
     self.descriptionLabel.text = toAdd.subtitle;
     [self.mapView addAnnotation:toAdd];
+    [self.locationsArray addObject:toAdd];
+    [self.locationsNames addObject:toAdd.title];
     //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
 }
 
