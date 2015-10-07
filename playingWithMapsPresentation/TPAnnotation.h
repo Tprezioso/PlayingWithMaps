@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-@interface TPAnnotation : NSObject <MKAnnotation>{
+@interface TPAnnotation : NSObject <MKAnnotation> {
     
     NSString *title;
     NSString *subtitle;

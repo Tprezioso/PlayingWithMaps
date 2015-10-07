@@ -72,7 +72,7 @@
     [self.descriptionView setHidden:NO];
     id<MKAnnotation> annSelected = view.annotation;
     
-    if ([annSelected isKindOfClass:[TPAnnotation class]]){
+    if ([annSelected isKindOfClass:[TPAnnotation class]]) {
         TPAnnotation *dm = (TPAnnotation *)annSelected;
         if (dm.title) {
             self.titleLabel.text = dm.title;
@@ -95,7 +95,7 @@
 
 - (void)addPinToMap:(UIGestureRecognizer *)gestureRecognizer
 {
-    if (gestureRecognizer.state != UIGestureRecognizerStateBegan){
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan) {
         return;
     }
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
@@ -117,7 +117,7 @@
 {
     NSLog(@"touches began");
     UITouch *touch = [touches anyObject];
-    if(touch.view != self.descriptionView){
+    if (touch.view != self.descriptionView) {
         self.descriptionView.hidden = YES;
     }
 }
