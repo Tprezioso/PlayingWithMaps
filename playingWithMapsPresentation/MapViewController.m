@@ -141,8 +141,8 @@
     if ([segue.identifier isEqualToString:@"detailView"]) {
         DetailViewController *detailVC = segue.destinationViewController;
         detailVC.detailLocations = self.pin;
-        // NSLog(@"%@",detailVC.detailTitleLabel.text);
     }
+
     if ([segue.identifier isEqualToString:@"listView"]) {
         LocationTableViewController *listView = segue.destinationViewController;
         listView.locations = self.locationsArray;
