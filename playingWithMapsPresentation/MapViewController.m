@@ -88,6 +88,12 @@
     view.rightCalloutAccessoryView = infoButton;
 }
 
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    DetailViewController *detailVC = [[DetailViewController alloc] init];
+    [self.navigationController pushViewController:detailVC animated:NO];
+}
+
 - (void)addGestureRecogniserToMapView
 {
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(addPinToMap:)];
