@@ -23,7 +23,9 @@
 {
     [super viewDidLoad];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
+    UIBarButtonItem *editBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction)];
+    self.navigationItem.rightBarButtonItem = editBarButton;
+        
     self.detailTitleLabel.text = self.detailLocations.title;
     self.detailTextView.text = self.detailLocations.subtitle;
     self.detailImageView.image = self.detailLocations.image;
