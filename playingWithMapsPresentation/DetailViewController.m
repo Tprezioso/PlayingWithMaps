@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    UIBarButtonItem *editBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction)];
+    UIBarButtonItem *editBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editMode)];
     self.navigationItem.rightBarButtonItem = editBarButton;
         
     self.detailTitleLabel.text = self.detailLocations.title;
@@ -35,6 +35,13 @@
     self.detailImageView.layer.cornerRadius = self.detailImageView.frame.size.height / 2;
     self.detailImageView.layer.masksToBounds = YES;
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+- (void)editMode
+{
+    if ((self.detailTitleLabel.text = @"Edit Your Pin") && (self.detailTitleLabel.text = @"Tap Here") && (self.detailImageView.image = [UIImage imageNamed:@"placeholderImage"])) {
+        self.detailTextView.editable = YES;
+    }
 }
 
 @end
