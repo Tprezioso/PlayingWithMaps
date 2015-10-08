@@ -164,13 +164,13 @@
                         <constraints>
                             <constraint firstItem="scs-cx-5eH" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="top" id="6zV-IW-X5B"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="bottom" constant="15" id="Fuq-hA-4Xo"/>
-                            <constraint firstItem="iJ1-6i-KUI" firstAttribute="top" secondItem="4s8-Mf-hxf" secondAttribute="bottom" constant="8" symbolic="YES" id="IJM-XL-jKG"/>
                             <constraint firstItem="iJ1-6i-KUI" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="5" id="Pfy-co-2nU"/>
+                            <constraint firstItem="iJ1-6i-KUI" firstAttribute="top" secondItem="4s8-Mf-hxf" secondAttribute="bottom" constant="8" symbolic="YES" id="SwQ-4K-Lam"/>
+                            <constraint firstItem="bJg-Dg-YFY" firstAttribute="top" secondItem="ZRz-Z7-Mhv" secondAttribute="bottom" constant="40" id="bl1-3z-pHH"/>
                             <constraint firstItem="scs-cx-5eH" firstAttribute="leading" secondItem="iJ1-6i-KUI" secondAttribute="trailing" constant="18" id="kQi-O6-XFG"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="centerX" secondItem="Ap7-ab-VBp" secondAttribute="centerX" id="lD9-tP-TTg"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="-4" id="s5J-u3-YRE"/>
                             <constraint firstItem="scs-cx-5eH" firstAttribute="trailing" secondItem="Ap7-ab-VBp" secondAttribute="trailingMargin" id="tKK-Rk-ukr"/>
-                            <constraint firstItem="bJg-Dg-YFY" firstAttribute="top" secondItem="ZRz-Z7-Mhv" secondAttribute="bottom" constant="40" id="z1I-ge-Ikh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -243,6 +243,6 @@
         <image name="text-list.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hKI-T8-zJb"/>
+        <segue reference="LVp-mh-GKV"/>
     </inferredMetricsTieBreakers>
 </document>

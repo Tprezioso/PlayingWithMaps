@@ -90,8 +90,7 @@
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    DetailViewController *detailVC = [[DetailViewController alloc] init];
-    [self.navigationController pushViewController:detailVC animated:NO];
+    [self performSegueWithIdentifier:@"detailView" sender:self];
 }
 
 - (void)addGestureRecogniserToMapView
