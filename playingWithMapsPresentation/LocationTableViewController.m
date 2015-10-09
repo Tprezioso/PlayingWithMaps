@@ -22,7 +22,6 @@
     [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
      self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
 }
 

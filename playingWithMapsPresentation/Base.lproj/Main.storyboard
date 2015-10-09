@@ -141,7 +141,7 @@
                                     <constraint firstAttribute="width" constant="124" id="bfq-CX-G6f"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRz-Z7-Mhv">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRz-Z7-Mhv">
                                 <rect key="frame" x="16" y="215" width="569" height="345"/>
                                 <animations/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -166,7 +166,7 @@
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="bottom" constant="15" id="Fuq-hA-4Xo"/>
                             <constraint firstItem="iJ1-6i-KUI" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="5" id="Pfy-co-2nU"/>
                             <constraint firstItem="iJ1-6i-KUI" firstAttribute="top" secondItem="4s8-Mf-hxf" secondAttribute="bottom" constant="8" symbolic="YES" id="SwQ-4K-Lam"/>
-                            <constraint firstItem="bJg-Dg-YFY" firstAttribute="top" secondItem="ZRz-Z7-Mhv" secondAttribute="bottom" constant="40" id="bl1-3z-pHH"/>
+                            <constraint firstItem="bJg-Dg-YFY" firstAttribute="top" secondItem="ZRz-Z7-Mhv" secondAttribute="bottom" constant="-4" id="bl1-3z-pHH"/>
                             <constraint firstItem="scs-cx-5eH" firstAttribute="leading" secondItem="iJ1-6i-KUI" secondAttribute="trailing" constant="18" id="kQi-O6-XFG"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="centerX" secondItem="Ap7-ab-VBp" secondAttribute="centerX" id="lD9-tP-TTg"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="-4" id="s5J-u3-YRE"/>
@@ -218,7 +218,7 @@
                                 <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHH-TE-cCL" id="Yuv-yF-51S">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -245,6 +245,6 @@
         <image name="text-list.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hKI-T8-zJb"/>
+        <segue reference="LVp-mh-GKV"/>
     </inferredMetricsTieBreakers>
 </document>

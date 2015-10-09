@@ -33,16 +33,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self.descriptionView setHidden:YES];
+
     self.mapView.delegate = self;
+    self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
+    self.mapImageView.clipsToBounds = YES;
+
+    [self.descriptionView setHidden:YES];
+    [self setUpMap];
+    [self addPresetPins];
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+- (void)setUpMap
+{
     self.locationManager = [[CLLocationManager alloc] init];
     CLLocationCoordinate2D userCoordinate = self.locationManager.location.coordinate;
     
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
-
+    
     MKCoordinateSpan mySpan = MKCoordinateSpanMake(.15, .15);
     MKCoordinateRegion myRegion = MKCoordinateRegionMake(userCoordinate, mySpan);
     [self.mapView setRegion:myRegion animated:YES];
@@ -52,10 +65,6 @@
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
 
-    [self addPresetPins];
-    self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
-    self.mapImageView.clipsToBounds = YES;
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)addPresetPins
@@ -79,18 +88,21 @@
             self.descriptionLabel.text = dm.subtitle;
             self.mapImageView.image = dm.image;
             self.pin = dm;
+            NSLog(@"Pin touched: title = %@", dm.title);
         }
-        NSLog(@"Pin touched: title = %@", dm.title);
     } else {
         [self.descriptionView setHidden:YES];
     }
     UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     view.rightCalloutAccessoryView = infoButton;
+    infoButton.hidden = YES;
 }
 
--(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    [self performSegueWithIdentifier:@"detailView" sender:self];
+       //if (self.mapView.userLocation.coordinate = view.annotation) {
+           [self performSegueWithIdentifier:@"detailView" sender:self];
+    //}
 }
 
 - (void)addGestureRecogniserToMapView
