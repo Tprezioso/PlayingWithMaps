@@ -93,7 +93,6 @@
     } else {
         [self.descriptionView setHidden:YES];
     }
-    
     UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     view.rightCalloutAccessoryView = infoButton;
     infoButton.hidden = YES;
@@ -118,6 +117,7 @@
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan) {
         return;
     }
+    
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     TPAnnotation *toAdd = [[TPAnnotation alloc] init];
