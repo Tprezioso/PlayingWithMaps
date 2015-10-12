@@ -100,9 +100,7 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-       //if (self.mapView.userLocation.coordinate = view.annotation) {
-           [self performSegueWithIdentifier:@"detailView" sender:self];
-    //}
+    [self performSegueWithIdentifier:@"detailView" sender:self];
 }
 
 - (void)addGestureRecogniserToMapView
