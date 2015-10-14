@@ -61,7 +61,6 @@
     [self addGestureRecogniserToMapView];
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
-
 }
 
 - (void)addPresetPins
