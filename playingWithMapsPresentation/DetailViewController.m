@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *detailImageView;
 @property (strong, nonatomic) IBOutlet UILabel *detailTitleLabel;
 @property (strong, nonatomic) IBOutlet UITextView *detailTextView;
+@property (strong, nonatomic) UIBarButtonItem *editBarButton;
+@property (nonatomic) BOOL isEditing;
 
 @end
 
@@ -23,31 +25,41 @@
 {
     [super viewDidLoad];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    UIBarButtonItem *editBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editMode)];
-//    if ([editBarButton ]) {
-//        editBarButton.title = @"Done";
-//    }
-    self.navigationItem.rightBarButtonItem = editBarButton;
-        
+    self.editBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editMode)];
+    self.navigationItem.rightBarButtonItem = self.editBarButton;
     self.detailTitleLabel.text = self.detailLocations.title;
     self.detailTextView.text = self.detailLocations.subtitle;
     self.detailImageView.image = self.detailLocations.image;
-    
-    [self.detailTitleLabel setFont:[UIFont systemFontOfSize:13]];
-    [self.detailTextView setFont:[UIFont systemFontOfSize:13]];
     self.detailImageView.layer.cornerRadius = self.detailImageView.frame.size.height / 2;
     self.detailImageView.layer.masksToBounds = YES;
     
+    [self.detailTitleLabel setFont:[UIFont systemFontOfSize:13]];
+    [self.detailTextView setFont:[UIFont systemFontOfSize:13]];
+    
     if (![self.detailTitleLabel.text  isEqual: @"Edit Your Pin"]) {
-        self.navigationItem.rightBarButtonItem.enabled = NO;
+        self.editBarButton.enabled = NO;
+        self.editBarButton.tintColor = [UIColor clearColor];
     }
-
+    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)editMode
 {
-    self.detailTextView.editable = YES;
+    if (self.editBarButton.target) {
+        self.isEditing = YES;
+        if ((self.isEditing == YES) && ([self.editBarButton.title  isEqual: @"Done"])) {
+            self.isEditing = NO;
+        }
+    }
+    
+    if (self.isEditing == YES) {
+        self.editBarButton.title = @"Done";
+        self.detailTextView.editable = YES;
+    } else {
+        self.editBarButton.title = @"Edit";
+        self.detailTextView.editable = NO;
+    }
 }
 
 @end

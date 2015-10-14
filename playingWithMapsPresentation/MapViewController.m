@@ -35,15 +35,12 @@
     [super viewDidLoad];
    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-
     self.mapView.delegate = self;
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
-
     [self.descriptionView setHidden:YES];
     [self setUpMap];
     [self addPresetPins];
-    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
