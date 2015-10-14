@@ -148,19 +148,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scs-cx-5eH">
-                                <rect key="frame" x="167" y="72" width="413" height="35"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hello" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zb-xq-0Wx">
+                                <rect key="frame" x="167" y="72" width="413" height="30"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="INb-LX-yfv"/>
+                                    <constraint firstAttribute="height" constant="30" id="Nce-KE-zdl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hello" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zb-xq-0Wx">
-                                <rect key="frame" x="167" y="115" width="413" height="30"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -168,18 +161,15 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="scs-cx-5eH" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="top" id="6zV-IW-X5B"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="bottom" constant="15" id="Fuq-hA-4Xo"/>
                             <constraint firstItem="iJ1-6i-KUI" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="5" id="Pfy-co-2nU"/>
+                            <constraint firstItem="0zb-xq-0Wx" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="top" id="Sne-bB-rxS"/>
                             <constraint firstItem="iJ1-6i-KUI" firstAttribute="top" secondItem="4s8-Mf-hxf" secondAttribute="bottom" constant="8" symbolic="YES" id="SwQ-4K-Lam"/>
                             <constraint firstItem="bJg-Dg-YFY" firstAttribute="top" secondItem="ZRz-Z7-Mhv" secondAttribute="bottom" constant="-4" id="bl1-3z-pHH"/>
-                            <constraint firstItem="0zb-xq-0Wx" firstAttribute="top" secondItem="scs-cx-5eH" secondAttribute="bottom" constant="8" symbolic="YES" id="jxk-AV-orS"/>
-                            <constraint firstItem="scs-cx-5eH" firstAttribute="leading" secondItem="iJ1-6i-KUI" secondAttribute="trailing" constant="18" id="kQi-O6-XFG"/>
+                            <constraint firstItem="0zb-xq-0Wx" firstAttribute="trailing" secondItem="Ap7-ab-VBp" secondAttribute="trailingMargin" id="fpD-jD-Vvw"/>
+                            <constraint firstItem="0zb-xq-0Wx" firstAttribute="leading" secondItem="iJ1-6i-KUI" secondAttribute="trailing" constant="18" id="htM-a2-clE"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="centerX" secondItem="Ap7-ab-VBp" secondAttribute="centerX" id="lD9-tP-TTg"/>
-                            <constraint firstItem="0zb-xq-0Wx" firstAttribute="leading" secondItem="scs-cx-5eH" secondAttribute="leading" id="nbo-1J-n7u"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="-4" id="s5J-u3-YRE"/>
-                            <constraint firstItem="scs-cx-5eH" firstAttribute="trailing" secondItem="Ap7-ab-VBp" secondAttribute="trailingMargin" id="tKK-Rk-ukr"/>
-                            <constraint firstItem="0zb-xq-0Wx" firstAttribute="trailing" secondItem="scs-cx-5eH" secondAttribute="trailing" id="wAx-v2-jHn"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -187,7 +177,6 @@
                     <connections>
                         <outlet property="detailImageView" destination="iJ1-6i-KUI" id="Qk1-oG-kJE"/>
                         <outlet property="detailTextView" destination="ZRz-Z7-Mhv" id="xPz-zv-Hdk"/>
-                        <outlet property="detailTitleLabel" destination="scs-cx-5eH" id="kDC-2M-Ahx"/>
                         <outlet property="detailTitleTextField" destination="0zb-xq-0Wx" id="F5K-tL-ems"/>
                     </connections>
                 </viewController>

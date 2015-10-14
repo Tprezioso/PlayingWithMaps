@@ -29,15 +29,19 @@
     self.editBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editMode)];
     self.navigationItem.rightBarButtonItem = self.editBarButton;
     self.detailTitleLabel.text = self.detailLocations.title;
+    self.detailTitleTextField.text = self.detailLocations.title;
+    
     self.detailTextView.text = self.detailLocations.subtitle;
     self.detailImageView.image = self.detailLocations.image;
     self.detailImageView.layer.cornerRadius = self.detailImageView.frame.size.height / 2;
     self.detailImageView.layer.masksToBounds = YES;
     
     [self.detailTitleLabel setFont:[UIFont systemFontOfSize:13]];
+    [self.detailTitleTextField setFont:[UIFont systemFontOfSize:13]];
+    
     [self.detailTextView setFont:[UIFont systemFontOfSize:13]];
     
-    if (![self.detailTitleLabel.text  isEqual: @"Edit Your Pin"]) {
+    if (![self.detailTitleTextField.text  isEqual: @"Edit Your Pin"]) {
         self.editBarButton.enabled = NO;
         self.editBarButton.tintColor = [UIColor clearColor];
     }
