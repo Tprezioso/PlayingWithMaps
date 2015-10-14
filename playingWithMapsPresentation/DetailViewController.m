@@ -41,7 +41,6 @@
         self.editBarButton.enabled = NO;
         self.editBarButton.tintColor = [UIColor clearColor];
     }
-    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
@@ -56,10 +55,8 @@
     
     if (self.isEditing == YES) {
         self.editBarButton.title = @"Done";
-        //self.detailTitleTextField
         self.detailTextView.editable = YES;
         self.detailTitleTextField.enabled = YES;
-        
     } else {
         self.editBarButton.title = @"Edit";
         self.detailTextView.editable = NO;
