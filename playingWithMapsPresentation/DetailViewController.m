@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *detailTitleLabel;
 @property (strong, nonatomic) IBOutlet UITextView *detailTextView;
 @property (strong, nonatomic) UIBarButtonItem *editBarButton;
+@property (strong, nonatomic) IBOutlet UITextField *detailTitleTextField;
 @property (nonatomic) BOOL isEditing;
 
 @end
