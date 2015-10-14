@@ -29,6 +29,7 @@
     self.editBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editMode)];
     self.navigationItem.rightBarButtonItem = self.editBarButton;
     self.detailTitleTextField.text = self.detailLocations.title;
+    self.detailTitleTextField.enabled = NO;
     self.detailTextView.text = self.detailLocations.subtitle;
     self.detailImageView.image = self.detailLocations.image;
     self.detailImageView.layer.cornerRadius = self.detailImageView.frame.size.height / 2;
@@ -55,10 +56,14 @@
     
     if (self.isEditing == YES) {
         self.editBarButton.title = @"Done";
+        //self.detailTitleTextField
         self.detailTextView.editable = YES;
+        self.detailTitleTextField.enabled = YES;
+        
     } else {
         self.editBarButton.title = @"Edit";
         self.detailTextView.editable = NO;
+        self.detailTitleTextField.enabled = NO;
     }
 }
 
