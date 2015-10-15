@@ -43,8 +43,8 @@
     [self.descriptionView setHidden:YES];
     [self setUpMap];
     [self addPresetPins];
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)setUpMap
