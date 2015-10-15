@@ -52,6 +52,9 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.locationsNames removeObjectAtIndex:indexPath.row];
+        NSMutableDictionary *removedPin = [[NSMutableDictionary alloc] init];
+        removedPin [@"pin"] = [self.locations objectAtIndex:indexPath.row];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"removePin" object:nil userInfo:removedPin];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

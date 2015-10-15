@@ -17,6 +17,8 @@
 @interface MapViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+@property (strong, nonatomic) TPAnnotation *pin;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIView *descriptionView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
@@ -24,7 +26,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
 @property (strong, nonatomic) NSMutableArray *locationsArray;
 @property (strong, nonatomic) NSMutableArray *locationsNames;
-@property (strong, nonatomic) TPAnnotation *pin;
+
 
 @end
 
@@ -42,6 +44,7 @@
     [self setUpMap];
     [self addPresetPins];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
 }
 
 - (void)setUpMap
@@ -69,6 +72,13 @@
     self.locationsArray = [pins presetPins];
     [self.mapView addAnnotations:self.locationsArray];
     self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
+}
+
+-(void)removepinFromMap:(NSNotification *)pinNotification
+{
+    TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
+    [self.mapView removeAnnotation:pinToRemove];
+    self.descriptionView.hidden = YES;
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view

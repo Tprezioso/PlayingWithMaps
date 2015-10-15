@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Thomas Prezioso. All rights reserved.
 //
 
+#import "TPAnnotation.h"
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
