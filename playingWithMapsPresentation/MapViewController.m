@@ -74,7 +74,7 @@
     self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
 }
 
--(void)removepinFromMap:(NSNotification *)pinNotification
+- (void)removepinFromMap:(NSNotification *)pinNotification
 {
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     [self.mapView removeAnnotation:pinToRemove];
