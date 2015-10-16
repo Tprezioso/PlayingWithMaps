@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "ImageViewController.h"
 #import <MBProgressHUD.h>
 
 @interface DetailViewController ()
@@ -63,7 +64,7 @@
         self.editBarButton.title = @"Edit";
         self.detailTextView.editable = NO;
         self.detailTitleTextField.enabled = NO;
-        self.editImageButtonPressed.enabled = NO;
+//        self.editImageButtonPressed.enabled = NO;
     }
 }
 
@@ -88,6 +89,14 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"imageView"]) {
+        ImageViewController *imageVC = segue.destinationViewController;
+        imageVC.detailedImage = self.detailImageView.image;
+    }
 }
 
 @end

@@ -165,6 +165,7 @@
                                 </state>
                                 <connections>
                                     <action selector="editImageButton:" destination="IL1-M9-36Z" eventType="touchUpInside" id="0O8-Ge-22m"/>
+                                    <segue destination="xb9-hK-C9y" kind="show" identifier="imageView" id="9jw-ez-DFd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -198,6 +199,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgV-UC-WC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="967" y="1064"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="KFs-Ea-Iid">
+            <objects>
+                <viewController id="xb9-hK-C9y" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uoV-5b-Ojw"/>
+                        <viewControllerLayoutGuide type="bottom" id="JsH-Ij-rfp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="phI-7H-ovU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3QQ-sd-W4G">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="3QQ-sd-W4G" secondAttribute="bottom" id="AVk-nb-fg3"/>
+                            <constraint firstItem="3QQ-sd-W4G" firstAttribute="leading" secondItem="phI-7H-ovU" secondAttribute="leading" id="C1T-TW-lA0"/>
+                            <constraint firstAttribute="trailing" secondItem="3QQ-sd-W4G" secondAttribute="trailing" id="dxt-L0-YlZ"/>
+                            <constraint firstItem="3QQ-sd-W4G" firstAttribute="top" secondItem="phI-7H-ovU" secondAttribute="top" id="mcs-sC-eHn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KKR-0o-fEx"/>
+                    <connections>
+                        <outlet property="pictureImage" destination="3QQ-sd-W4G" id="Sea-LR-ACQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="47J-Dv-fa0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="1064"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y4Z-lD-HHl">
