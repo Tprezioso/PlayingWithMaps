@@ -16,10 +16,10 @@
 @property (strong, nonatomic) IBOutlet UITextView *detailTextView;
 @property (strong, nonatomic) IBOutlet UITextField *detailTitleTextField;
 @property (strong, nonatomic) IBOutlet UIButton *editImageButtonPressed;
+@property (strong, nonatomic) IBOutlet UIButton *segueButton;
 @property (strong, nonatomic) UIBarButtonItem *editBarButton;
 @property (nonatomic) BOOL isEditing;
 - (IBAction)editImageButton:(id)sender;
-@property (strong, nonatomic) IBOutlet UIButton *segueButton;
 
 @end
 
@@ -67,9 +67,7 @@
         self.editBarButton.title = @"Edit";
         self.detailTextView.editable = NO;
         self.detailTitleTextField.enabled = NO;
-//        self.editImageButtonPressed.enabled = NO;
         self.segueButton.enabled = YES;
-
     }
 }
 
