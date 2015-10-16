@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0n2-Fh-fr0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -165,23 +167,37 @@
                                 </state>
                                 <connections>
                                     <action selector="editImageButton:" destination="IL1-M9-36Z" eventType="touchUpInside" id="0O8-Ge-22m"/>
-                                    <segue destination="xb9-hK-C9y" kind="show" identifier="imageView" id="9jw-ez-DFd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxj-g3-eO2" customClass="imageView">
+                                <rect key="frame" x="25" y="72" width="124" height="128"/>
+                                <animations/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xb9-hK-C9y" kind="show" identifier="imageView" id="hyl-9Q-dYh"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Wxj-g3-eO2" firstAttribute="baseline" secondItem="ZgE-Yf-99G" secondAttribute="firstBaseline" id="4sr-2P-2Ps"/>
+                            <constraint firstItem="Wxj-g3-eO2" firstAttribute="leading" secondItem="iJ1-6i-KUI" secondAttribute="leading" id="DUX-Ll-zZM"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="bottom" constant="15" id="Fuq-hA-4Xo"/>
                             <constraint firstItem="ZgE-Yf-99G" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="top" id="ILS-rl-6og"/>
                             <constraint firstItem="iJ1-6i-KUI" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="5" id="Pfy-co-2nU"/>
                             <constraint firstItem="0zb-xq-0Wx" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="top" id="Sne-bB-rxS"/>
                             <constraint firstItem="iJ1-6i-KUI" firstAttribute="top" secondItem="4s8-Mf-hxf" secondAttribute="bottom" constant="8" symbolic="YES" id="SwQ-4K-Lam"/>
+                            <constraint firstItem="Wxj-g3-eO2" firstAttribute="top" secondItem="ZgE-Yf-99G" secondAttribute="top" id="V0o-EA-8Dv"/>
                             <constraint firstItem="bJg-Dg-YFY" firstAttribute="top" secondItem="ZRz-Z7-Mhv" secondAttribute="bottom" constant="-4" id="bl1-3z-pHH"/>
                             <constraint firstItem="0zb-xq-0Wx" firstAttribute="trailing" secondItem="Ap7-ab-VBp" secondAttribute="trailingMargin" id="fpD-jD-Vvw"/>
                             <constraint firstItem="ZgE-Yf-99G" firstAttribute="trailing" secondItem="iJ1-6i-KUI" secondAttribute="trailing" id="hHT-oB-1YM"/>
                             <constraint firstItem="0zb-xq-0Wx" firstAttribute="leading" secondItem="iJ1-6i-KUI" secondAttribute="trailing" constant="18" id="htM-a2-clE"/>
+                            <constraint firstItem="Wxj-g3-eO2" firstAttribute="trailing" secondItem="ZgE-Yf-99G" secondAttribute="trailing" id="i8C-xm-Gi5"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="centerX" secondItem="Ap7-ab-VBp" secondAttribute="centerX" id="lD9-tP-TTg"/>
+                            <constraint firstItem="Wxj-g3-eO2" firstAttribute="firstBaseline" secondItem="ZgE-Yf-99G" secondAttribute="baseline" id="qKU-QA-5sy"/>
                             <constraint firstItem="ZgE-Yf-99G" firstAttribute="bottom" secondItem="iJ1-6i-KUI" secondAttribute="bottom" id="r5w-Lb-XhE"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="-4" id="s5J-u3-YRE"/>
                             <constraint firstItem="ZgE-Yf-99G" firstAttribute="leading" secondItem="iJ1-6i-KUI" secondAttribute="leading" id="vUg-PX-0ns"/>
@@ -194,6 +210,7 @@
                         <outlet property="detailTextView" destination="ZRz-Z7-Mhv" id="xPz-zv-Hdk"/>
                         <outlet property="detailTitleTextField" destination="0zb-xq-0Wx" id="F5K-tL-ems"/>
                         <outlet property="editImageButtonPressed" destination="ZgE-Yf-99G" id="BBn-2r-TAu"/>
+                        <outlet property="segueButton" destination="Wxj-g3-eO2" id="YHR-ai-FAr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgV-UC-WC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
