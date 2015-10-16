@@ -13,11 +13,11 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *detailImageView;
 @property (strong, nonatomic) IBOutlet UITextView *detailTextView;
-@property (strong, nonatomic) UIBarButtonItem *editBarButton;
 @property (strong, nonatomic) IBOutlet UITextField *detailTitleTextField;
-- (IBAction)editImageButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *editImageButtonPressed;
+@property (strong, nonatomic) UIBarButtonItem *editBarButton;
 @property (nonatomic) BOOL isEditing;
+- (IBAction)editImageButton:(id)sender;
 
 @end
 
@@ -74,10 +74,8 @@
         picker.delegate = self;
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
         [self presentViewController:picker animated:YES completion:NULL];
     }
-
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
