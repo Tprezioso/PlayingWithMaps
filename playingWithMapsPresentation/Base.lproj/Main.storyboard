@@ -157,19 +157,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgE-Yf-99G">
+                                <rect key="frame" x="25" y="72" width="124" height="128"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="editImageButton:" destination="IL1-M9-36Z" eventType="touchUpInside" id="0O8-Ge-22m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="bottom" constant="15" id="Fuq-hA-4Xo"/>
+                            <constraint firstItem="ZgE-Yf-99G" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="top" id="ILS-rl-6og"/>
                             <constraint firstItem="iJ1-6i-KUI" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="5" id="Pfy-co-2nU"/>
                             <constraint firstItem="0zb-xq-0Wx" firstAttribute="top" secondItem="iJ1-6i-KUI" secondAttribute="top" id="Sne-bB-rxS"/>
                             <constraint firstItem="iJ1-6i-KUI" firstAttribute="top" secondItem="4s8-Mf-hxf" secondAttribute="bottom" constant="8" symbolic="YES" id="SwQ-4K-Lam"/>
                             <constraint firstItem="bJg-Dg-YFY" firstAttribute="top" secondItem="ZRz-Z7-Mhv" secondAttribute="bottom" constant="-4" id="bl1-3z-pHH"/>
                             <constraint firstItem="0zb-xq-0Wx" firstAttribute="trailing" secondItem="Ap7-ab-VBp" secondAttribute="trailingMargin" id="fpD-jD-Vvw"/>
+                            <constraint firstItem="ZgE-Yf-99G" firstAttribute="trailing" secondItem="iJ1-6i-KUI" secondAttribute="trailing" id="hHT-oB-1YM"/>
                             <constraint firstItem="0zb-xq-0Wx" firstAttribute="leading" secondItem="iJ1-6i-KUI" secondAttribute="trailing" constant="18" id="htM-a2-clE"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="centerX" secondItem="Ap7-ab-VBp" secondAttribute="centerX" id="lD9-tP-TTg"/>
+                            <constraint firstItem="ZgE-Yf-99G" firstAttribute="bottom" secondItem="iJ1-6i-KUI" secondAttribute="bottom" id="r5w-Lb-XhE"/>
                             <constraint firstItem="ZRz-Z7-Mhv" firstAttribute="leading" secondItem="Ap7-ab-VBp" secondAttribute="leadingMargin" constant="-4" id="s5J-u3-YRE"/>
+                            <constraint firstItem="ZgE-Yf-99G" firstAttribute="leading" secondItem="iJ1-6i-KUI" secondAttribute="leading" id="vUg-PX-0ns"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

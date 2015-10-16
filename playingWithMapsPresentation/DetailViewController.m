@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *detailTextView;
 @property (strong, nonatomic) UIBarButtonItem *editBarButton;
 @property (strong, nonatomic) IBOutlet UITextField *detailTitleTextField;
+- (IBAction)editImageButton:(id)sender;
 @property (nonatomic) BOOL isEditing;
 
 @end
@@ -64,4 +65,6 @@
     }
 }
 
+- (IBAction)editImageButton:(id)sender {
+}
 @end
