@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TPAnnotation.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationBarDelegate>
 
 @property (strong, nonatomic) TPAnnotation *detailLocations;
 
