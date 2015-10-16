@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UIBarButtonItem *editBarButton;
 @property (strong, nonatomic) IBOutlet UITextField *detailTitleTextField;
 - (IBAction)editImageButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *editImageButtonPressed;
 @property (nonatomic) BOOL isEditing;
 
 @end
@@ -57,21 +58,25 @@
         self.editBarButton.title = @"Done";
         self.detailTextView.editable = YES;
         self.detailTitleTextField.enabled = YES;
+        self.editImageButtonPressed.enabled = YES;
     } else {
         self.editBarButton.title = @"Edit";
         self.detailTextView.editable = NO;
         self.detailTitleTextField.enabled = NO;
+        self.editImageButtonPressed.enabled = NO;
     }
 }
 
 - (IBAction)editImageButton:(id)sender
 {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    [self presentViewController:picker animated:YES completion:NULL];
+    if (self.isEditing == YES) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
 
 }
 
