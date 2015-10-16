@@ -12,7 +12,6 @@
 @interface DetailViewController ()
 
 @property (strong, nonatomic) IBOutlet UIImageView *detailImageView;
-@property (strong, nonatomic) IBOutlet UILabel *detailTitleLabel;
 @property (strong, nonatomic) IBOutlet UITextView *detailTextView;
 @property (strong, nonatomic) UIBarButtonItem *editBarButton;
 @property (strong, nonatomic) IBOutlet UITextField *detailTitleTextField;
