@@ -160,7 +160,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgE-Yf-99G">
                                 <rect key="frame" x="25" y="72" width="124" height="128"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="editImageButton:" destination="IL1-M9-36Z" eventType="touchUpInside" id="0O8-Ge-22m"/>
                                 </connections>
