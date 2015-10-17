@@ -72,7 +72,7 @@
 
 - (IBAction)editImageButton:(id)sender
 {
-    if (self.isEditing == YES) {
+    if (self.isEditing) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
         picker.allowsEditing = YES;

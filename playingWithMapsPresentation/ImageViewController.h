@@ -10,6 +10,6 @@
 
 @interface ImageViewController : UIViewController
 
-@property(strong, nonatomic)UIImage *detailedImage;
+@property (strong, nonatomic) UIImage *detailedImage;
 
 @end
