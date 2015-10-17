@@ -23,7 +23,6 @@
         pinSubtitle = subtitle;
         pinCoordinate = coordinate;
         pinImage = image;
-        
     }
     return self;
 }
@@ -44,7 +43,6 @@
     
     NSMutableArray *presetPinsArray = [[NSMutableArray alloc]initWithObjects:flushingMeadowsPark, kissenaPrakPin, nil];
     return presetPinsArray;
-
 }
 
 @end
