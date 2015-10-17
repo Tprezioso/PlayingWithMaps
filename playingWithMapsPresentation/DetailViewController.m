@@ -51,18 +51,17 @@
 {
     if (self.editBarButton.target) {
         self.isEditing = YES;
-        if ((self.isEditing == YES) && ([self.editBarButton.title  isEqual: @"Done"])) {
+        if ((self.isEditing) && ([self.editBarButton.title  isEqual: @"Done"])) {
             self.isEditing = NO;
         }
     }
     
-    if (self.isEditing == YES) {
+    if (self.isEditing) {
         self.editBarButton.title = @"Done";
         self.detailTextView.editable = YES;
         self.detailTitleTextField.enabled = YES;
         self.editImageButtonPressed.enabled = YES;
         self.segueButton.enabled = NO;
-
     } else {
         self.editBarButton.title = @"Edit";
         self.detailTextView.editable = NO;
