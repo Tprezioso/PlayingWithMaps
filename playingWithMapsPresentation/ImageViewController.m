@@ -19,7 +19,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.pictureImage.image = self.detailedImage;
 }
 
