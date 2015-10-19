@@ -42,9 +42,15 @@
     [self setUpMap];
     [self addPresetPins];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
+    [self savePins];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+}
 - (void)setUpMap
 {
     self.locationManager = [[CLLocationManager alloc] init];
@@ -158,6 +164,14 @@
 //    
 //    [self.mapView addAnnotation:point];
 //}
+
+- (void)savePins
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *locationsData =[NSKeyedArchiver archivedDataWithRootObject:self.locationsArray];
+    [defaults setObject:locationsData forKey:@"locationsArray"];
+    [defaults synchronize];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
