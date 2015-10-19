@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
 @property (strong, nonatomic) NSMutableArray *locationsArray;
 @property (strong, nonatomic) NSMutableArray *locationsNames;
+@property (strong, nonatomic) NSMutableArray *savedPins;
 
 @end
 
@@ -66,6 +67,13 @@
     self.mapView.showsUserLocation = YES;
     [self.mapView setCenterCoordinate:userCoordinate animated:YES];
     [self addGestureRecogniserToMapView];
+    
+//    NSMutableArray *anotherArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"savedPins"];
+//  //  for (TPAnnotation *pinning in anotherArray) {
+//    if ([TPAnnotation getAllPins] != nil) {
+        [self.mapView addAnnotations:[TPAnnotation getAllPins]];
+  //  }
+    //}
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
 }
@@ -138,6 +146,13 @@
     [self.mapView addAnnotation:toAdd];
     [self.locationsArray addObject:toAdd];
     [self.locationsNames addObject:toAdd.title];
+
+    [TPAnnotation savePins:toAdd];
+//    [self.savedPins addObject:toAdd];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:self.savedPins forKey:@"savedPins"];
+//    [defaults synchronize];
+    
     //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
 }
 

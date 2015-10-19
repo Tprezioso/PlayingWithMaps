@@ -47,12 +47,15 @@
     [self loadTable];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self saveTable];
 
+}
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self saveTable];
-}
+    }
 
 - (void)editMode
 {
@@ -102,10 +105,14 @@
 
 - (void)saveTable
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.detailTitleTextField.text forKey:@"titleTextField"];
-    [defaults setObject:self.detailTextView.text forKey:@"detailTextzView"];
+//        TPAnnotation *editedPin = [[TPAnnotation alloc] initWithTitle:self.detailTitleTextField.text subtitle:self.detailTitleTextField.text pinCoordinates:editedPin.coordinate image:nil];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSData *encoded =[NSKeyedArchiver archivedDataWithRootObject:editedPin];
+        [defaults setObject:self.detailLocations.title forKey:@"titleTextField"];
+        [defaults setObject:self.detailTextView.text forKey:@"detailTextzView"];
+//    [defaults setObject:encoded forKey:@"encoded"];
     [defaults synchronize];
+    //}
 }
 
 - (void)loadTable
@@ -113,6 +120,10 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.detailTextView.text = [defaults objectForKey:@"detailTextzView"];
     self.detailTitleTextField.text = [defaults objectForKey:@"titleTextField"];
+//    NSData *encodedData = [defaults objectForKey:@"encoded"];
+//    TPAnnotation *deCodedPin = [NSKeyedUnarchiver unarchiveObjectWithData:encodedData];
+//    self.detailTitleTextField.text = deCodedPin.title;
+//    self.detailTextView.text = deCodedPin.subtitle;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

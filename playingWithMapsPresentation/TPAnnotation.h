@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-@interface TPAnnotation : NSObject <MKAnnotation> {
+@interface TPAnnotation : NSObject <MKAnnotation, NSCoding> {
     NSString *title;
     NSString *subtitle;
     NSString *note;
@@ -20,7 +20,11 @@
 @property (nonatomic, copy) NSString * subtitle;
 @property (nonatomic, assign)CLLocationCoordinate2D coordinate;
 @property (strong, nonatomic)UIImage *image;
+//@property (strong, nonatomic)NSMutableArray *allPins;
 - (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate image:(UIImage*)pinImage;
 - (NSMutableArray *)presetPins;
++ (NSMutableArray *)getAllPins;
++ (void)loadPins;
++ (void)savePins:(TPAnnotation *)annotation;
 
 @end
