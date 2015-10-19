@@ -103,7 +103,7 @@
 - (void)saveTable
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.detailLocations.title forKey:@"titleTextField"];
+    [defaults setObject:self.detailTitleTextField.text forKey:@"titleTextField"];
     [defaults setObject:self.detailTextView.text forKey:@"detailTextzView"];
     [defaults synchronize];
 }

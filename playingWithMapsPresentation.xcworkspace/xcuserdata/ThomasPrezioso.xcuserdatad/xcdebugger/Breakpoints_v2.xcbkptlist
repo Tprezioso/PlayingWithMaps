@@ -20,12 +20,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "playingWithMapsPresentation/DetailViewController.m"
-            timestampString = "466961161.97718"
+            timestampString = "466977590.332852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-saveTable"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-loadTable"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -36,12 +36,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "playingWithMapsPresentation/DetailViewController.m"
-            timestampString = "466963132.943895"
+            timestampString = "466977270.013326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-loadTable"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-saveTable"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
