@@ -42,7 +42,7 @@
     [self setUpMap];
     [self addPresetPins];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
-    [self savePins];
+//    [self savePins];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
