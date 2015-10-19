@@ -103,14 +103,16 @@
 - (void)saveTable
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.detailTextView.text forKey:@"detailText"];
+    [defaults setObject:self.detailTitleTextField.text forKey:@"titleTextField"];
+    [defaults setObject:self.detailTextView.text forKey:@"detailTextzView"];
     [defaults synchronize];
 }
 
 - (void)loadTable
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.detailTextView.text = [defaults objectForKey:@"detailText"];
+    self.detailTextView.text = [defaults objectForKey:@"detailTextzView"];
+    self.detailTitleTextField.text = [defaults objectForKey:@"titleTextField"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
