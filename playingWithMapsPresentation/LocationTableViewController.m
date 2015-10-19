@@ -75,6 +75,18 @@
 }
 */
 
+//- (void)saveTable
+//{
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:self.tableView forKey:@"tableview"];
+//}
+//
+//- (void)loadTable
+//{
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    self.tableView = [defaults objectForKey:@"tableview"];
+//}
+
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

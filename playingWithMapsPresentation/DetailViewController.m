@@ -44,7 +44,14 @@
         self.editBarButton.enabled = NO;
         self.editBarButton.tintColor = [UIColor clearColor];
     }
+    [self loadTable];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self saveTable];
 }
 
 - (void)editMode
@@ -91,6 +98,19 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)saveTable
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.detailTextView.text forKey:@"detailText"];
+    [defaults synchronize];
+}
+
+- (void)loadTable
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.detailTextView.text = [defaults objectForKey:@"detailText"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
