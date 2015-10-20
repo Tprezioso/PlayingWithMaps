@@ -33,7 +33,7 @@ static UITableView *tableView;
     //Encode properties, other class variables, etc
     [encoder encodeObject:self.title forKey:@"title"];
     [encoder encodeObject:self.subtitle forKey:@"subtitle"];
-    [encoder encodeObject:[NSValue valueWithMKCoordinate:self.coordinate] forKey:@"coordinate"];
+   // [encoder encodeObject:[NSValue valueWithMKCoordinate:self.coordinate] forKey:@"coordinate"];
     //    [encoder encodeDouble:self.coordinate.latitude forKey:@"latCoordinate"];
 //    [encoder encodeDouble:self.coordinate.longitude forKey:@"longCoorditnate"];
     //[encoder encodeObject:self.subCategoryName forKey:@"subcategory"];
