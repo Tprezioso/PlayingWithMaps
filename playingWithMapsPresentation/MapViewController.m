@@ -41,6 +41,8 @@
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
     [self.descriptionView setHidden:YES];
+    [self loadData];
+
     [self setUpMap];
     [self addPresetPins];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
@@ -81,8 +83,7 @@
 //        [self.mapView addAnnotation:newPin];
 //    }
 //  TPAnnotation *newPin = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filename];
-    [self loadData];
-    //[self.mapView addAnnotations:self.locationsArray];
+    
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
 }
@@ -156,6 +157,7 @@
     [self.locationsArray addObject:toAdd];
     [self.locationsNames addObject:toAdd.title];
     [self saveData];
+    [self loadData];
     //NSString *docsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
 //    self.filename = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -202,7 +204,7 @@
     [NSKeyedArchiver archiveRootObject:self.locationsArray toFile:filePath];
 }
 
-- (NSMutableArray*) loadData {
+- (void) loadData {
     // look for saved data.
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectoryPath = [paths objectAtIndex:0];
@@ -213,7 +215,7 @@
         NSArray *savedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         self.locationsArray = [[NSMutableArray alloc] initWithArray:savedData];
     }
-    return self.locationsArray;
+    //[self.mapView addAnnotations:self.locationsArray];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F015E061BD6DAE600F3A706 /* TPLocationDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F015E051BD6DAE600F3A706 /* TPLocationDataStore.m */; settings = {ASSET_TAGS = (); }; };
 		9F352AF91BAB2FFA00949972 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F352AF81BAB2FFA00949972 /* placeholderImage.png */; };
 		9F352AFE1BAB40FC00949972 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F352AFD1BAB40FC00949972 /* text-list.png */; };
 		9F352B011BAB41FD00949972 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F352B001BAB41FD00949972 /* LocationTableViewController.m */; };
@@ -42,6 +43,8 @@
 		376E4A5EE9511B3592B0EEE3 /* libPods-playingWithMapsPresentation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-playingWithMapsPresentation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F83360596AA2DC24B97349E /* Pods-playingWithMapsPresentation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playingWithMapsPresentation.release.xcconfig"; path = "Pods/Target Support Files/Pods-playingWithMapsPresentation/Pods-playingWithMapsPresentation.release.xcconfig"; sourceTree = "<group>"; };
 		479B0465876EC29B05683278 /* Pods-playingWithMapsPresentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playingWithMapsPresentation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-playingWithMapsPresentation/Pods-playingWithMapsPresentation.debug.xcconfig"; sourceTree = "<group>"; };
+		9F015E041BD6DAE600F3A706 /* TPLocationDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocationDataStore.h; sourceTree = "<group>"; };
+		9F015E051BD6DAE600F3A706 /* TPLocationDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocationDataStore.m; sourceTree = "<group>"; };
 		9F352AF81BAB2FFA00949972 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		9F352AFD1BAB40FC00949972 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
 		9F352AFF1BAB41FD00949972 /* LocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTableViewController.h; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 			children = (
 				9F5EB3871BA206AE00BC31A5 /* TPAnnotation.h */,
 				9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */,
+				9F015E041BD6DAE600F3A706 /* TPLocationDataStore.h */,
+				9F015E051BD6DAE600F3A706 /* TPLocationDataStore.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				9F3A41411AB30A930081FC05 /* MapViewController.m in Sources */,
 				9F3A413E1AB30A930081FC05 /* AppDelegate.m in Sources */,
 				9F352B011BAB41FD00949972 /* LocationTableViewController.m in Sources */,
+				9F015E061BD6DAE600F3A706 /* TPLocationDataStore.m in Sources */,
 				9F3A413B1AB30A930081FC05 /* main.m in Sources */,
 				9FD89E6D1BD1864F0041FEE3 /* ImageViewController.m in Sources */,
 				9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */,
