@@ -105,13 +105,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9F015E071BD6E0A900F3A706 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				9F015E041BD6DAE600F3A706 /* TPLocationDataStore.h */,
+				9F015E051BD6DAE600F3A706 /* TPLocationDataStore.m */,
+			);
+			name = DataStore;
+			sourceTree = "<group>";
+		};
 		9F352AFA1BAB3A9A00949972 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
 				9F5EB3871BA206AE00BC31A5 /* TPAnnotation.h */,
 				9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */,
-				9F015E041BD6DAE600F3A706 /* TPLocationDataStore.h */,
-				9F015E051BD6DAE600F3A706 /* TPLocationDataStore.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -166,6 +173,7 @@
 			children = (
 				9F3A413C1AB30A930081FC05 /* AppDelegate.h */,
 				9F3A413D1AB30A930081FC05 /* AppDelegate.m */,
+				9F015E071BD6E0A900F3A706 /* DataStore */,
 				9F352AFA1BAB3A9A00949972 /* Modal */,
 				9F352AFB1BAB3AB600949972 /* View */,
 				9F352AFC1BAB3AC600949972 /* Controller */,
