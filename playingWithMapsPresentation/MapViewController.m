@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSMutableArray *locationsArray;
 @property (strong, nonatomic) NSMutableArray *locationsNames;
 @property (strong, nonatomic) NSMutableArray *savedPins;
+@property(strong, nonatomic) NSString *filename;
 
 @end
 
@@ -72,14 +73,16 @@
     [self.mapView setCenterCoordinate:userCoordinate animated:YES];
     [self addGestureRecogniserToMapView];
     
-    if (self.locationsArray != nil) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSData *coordinate = [defaults objectForKey:@"latCoordinate"];
-        TPAnnotation *newPin = [NSKeyedUnarchiver unarchiveObjectWithData:coordinate];
-    
-        [self.mapView addAnnotation:newPin];
-    }
-    
+//    if (self.locationsArray != nil) {
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        NSData *coordinate = [defaults objectForKey:@"latCoordinate"];
+//        TPAnnotation *newPin = [NSKeyedUnarchiver unarchiveObjectWithData:coordinate];
+//    
+//        [self.mapView addAnnotation:newPin];
+//    }
+//  TPAnnotation *newPin = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filename];
+    [self loadData];
+    //[self.mapView addAnnotations:self.locationsArray];
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
 }
@@ -152,11 +155,16 @@
     [self.mapView addAnnotation:toAdd];
     [self.locationsArray addObject:toAdd];
     [self.locationsNames addObject:toAdd.title];
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:toAdd] forKey:@"newPin"];
-    [defaults synchronize];
-    NSLog(@">>>>>>>>>%@", [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys]);
+    [self saveData];
+    //NSString *docsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+//    self.filename = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    [NSKeyedArchiver archiveRootObject:toAdd toFile:self.filename];
+//    NSLog(@"%@",self.filename);
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:toAdd] forKey:@"newPin"];
+//    [defaults synchronize];
+//    NSLog(@">>>>>>>>>%@", [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys]);
 
     //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
 }
@@ -184,6 +192,29 @@
 //    
 //    [self.mapView addAnnotation:point];
 //}
+
+- (void) saveData {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
+    
+    [NSKeyedArchiver archiveRootObject:self.locationsArray toFile:filePath];
+}
+
+- (NSMutableArray*) loadData {
+    // look for saved data.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSArray *savedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        self.locationsArray = [[NSMutableArray alloc] initWithArray:savedData];
+    }
+    return self.locationsArray;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

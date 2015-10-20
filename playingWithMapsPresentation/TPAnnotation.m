@@ -33,22 +33,29 @@ static UITableView *tableView;
     //Encode properties, other class variables, etc
     [encoder encodeObject:self.title forKey:@"title"];
     [encoder encodeObject:self.subtitle forKey:@"subtitle"];
-   // [encoder encodeObject:[NSValue valueWithMKCoordinate:self.coordinate] forKey:@"coordinate"];
-    //    [encoder encodeDouble:self.coordinate.latitude forKey:@"latCoordinate"];
-//    [encoder encodeDouble:self.coordinate.longitude forKey:@"longCoorditnate"];
-    //[encoder encodeObject:self.subCategoryName forKey:@"subcategory"];
+    //[encoder encodeObject:[NSValue valueWithMKCoordinate:self.coordinate] forKey:@"coordinate"];
+    NSMutableArray *coords = [[NSMutableArray alloc]init];
+    [coords addObject:[NSNumber numberWithDouble:self.coordinate.longitude]];
+    [coords addObject:[NSNumber numberWithDouble:self.coordinate.latitude]];
+    [encoder encodeObject:coords forKey:@"coords"];
+
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
-    self = [super init];
-    if(self) {
+    //self = [super init];
+    //if(self) {
         //decode properties, other class vars
         self.title = [decoder decodeObjectForKey:@"title"];
         self.subtitle = [decoder decodeObjectForKey:@"subtitle"];
-       // self.subCategoryName = [decoder decodeObjectForKey:@"subcategory"];
-    }
-    return self;
+        NSMutableArray *coord = [decoder decodeObjectForKey:@"coords"];
+        double lat = [(NSString *)[coord objectAtIndex:0] doubleValue];
+        double lon = [(NSString *)[coord objectAtIndex:1] doubleValue];
+        
+        CLLocationCoordinate2D coordss = (CLLocationCoordinate2D){lat, lon};
+        
+    //}
+    return [self initWithTitle:self.title subtitle:self.subtitle pinCoordinates:coordss image:nil];
 }
 - (NSMutableArray *)presetPins
 {
@@ -67,39 +74,39 @@ static UITableView *tableView;
     NSMutableArray *presetPinsArray = [[NSMutableArray alloc]initWithObjects:flushingMeadowsPark, kissenaPrakPin, nil];
     return presetPinsArray;
 }
-+ (void)savePins:(TPAnnotation *)annotation
-{
-    //[allPins addObject:annotation];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:annotation];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"allPins"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-+ (void)loadPins
-{
-    if (allPins == nil) {
-        allPins = [NSMutableArray arrayWithArray:@[]];
-    }
-    NSData *rawData = [[NSUserDefaults standardUserDefaults] dataForKey:@"allPins"];
-    if (rawData == nil) {
-        return;
-    } else {
-    NSArray *allData = [NSKeyedUnarchiver unarchiveObjectWithData:rawData];
-    allPins = [NSMutableArray arrayWithArray:allData];
-
-    }
-}
-
-+ (void)setTable:(UITableView *)table
-{
-    tableView = table;
-}
-
-+ (NSMutableArray *)getAllPins
-{
-//    TPAnnotation *testPin = [[TPAnnotation alloc] initWithTitle:@"What" subtitle:@"UP BITCHED" pinCoordinates:CLLocationCoordinate2DMake(40.74038, -73.84032) image:nil];
-//    [allPins addObject:testPin];
-    return allPins;
-}
+//+ (void)savePins:(TPAnnotation *)annotation
+//{
+//    //[allPins addObject:annotation];
+//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:annotation];
+//    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"allPins"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//}
+//
+//+ (void)loadPins
+//{
+//    if (allPins == nil) {
+//        allPins = [NSMutableArray arrayWithArray:@[]];
+//    }
+//    NSData *rawData = [[NSUserDefaults standardUserDefaults] dataForKey:@"allPins"];
+//    if (rawData == nil) {
+//        return;
+//    } else {
+//    NSArray *allData = [NSKeyedUnarchiver unarchiveObjectWithData:rawData];
+//    allPins = [NSMutableArray arrayWithArray:allData];
+//
+//    }
+//}
+//
+//+ (void)setTable:(UITableView *)table
+//{
+//    tableView = table;
+//}
+//
+//+ (NSMutableArray *)getAllPins
+//{
+////    TPAnnotation *testPin = [[TPAnnotation alloc] initWithTitle:@"What" subtitle:@"UP BITCHED" pinCoordinates:CLLocationCoordinate2DMake(40.74038, -73.84032) image:nil];
+////    [allPins addObject:testPin];
+//    return allPins;
+//}
 
 @end
