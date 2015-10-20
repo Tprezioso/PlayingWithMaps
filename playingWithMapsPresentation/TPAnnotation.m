@@ -15,6 +15,7 @@
 @synthesize coordinate;
 @synthesize image;
 static NSMutableArray *allPins = nil;
+static UITableView *tableView;
 
 
 - (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate image:(UIImage*)pinImage
@@ -32,12 +33,16 @@ static NSMutableArray *allPins = nil;
     //Encode properties, other class variables, etc
     [encoder encodeObject:self.title forKey:@"title"];
     [encoder encodeObject:self.subtitle forKey:@"subtitle"];
+    [encoder encodeObject:[NSValue valueWithMKCoordinate:self.coordinate] forKey:@"coordinate"];
+    //    [encoder encodeDouble:self.coordinate.latitude forKey:@"latCoordinate"];
+//    [encoder encodeDouble:self.coordinate.longitude forKey:@"longCoorditnate"];
     //[encoder encodeObject:self.subCategoryName forKey:@"subcategory"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
-    if((self = [super init])) {
+    self = [super init];
+    if(self) {
         //decode properties, other class vars
         self.title = [decoder decodeObjectForKey:@"title"];
         self.subtitle = [decoder decodeObjectForKey:@"subtitle"];
@@ -85,11 +90,15 @@ static NSMutableArray *allPins = nil;
     }
 }
 
++ (void)setTable:(UITableView *)table
+{
+    tableView = table;
+}
 
 + (NSMutableArray *)getAllPins
 {
-    TPAnnotation *testPin = [[TPAnnotation alloc] initWithTitle:@"What" subtitle:@"UP BITCHED" pinCoordinates:CLLocationCoordinate2DMake(40.74038, -73.84032) image:nil];
-    [allPins addObject:testPin];
+//    TPAnnotation *testPin = [[TPAnnotation alloc] initWithTitle:@"What" subtitle:@"UP BITCHED" pinCoordinates:CLLocationCoordinate2DMake(40.74038, -73.84032) image:nil];
+//    [allPins addObject:testPin];
     return allPins;
 }
 

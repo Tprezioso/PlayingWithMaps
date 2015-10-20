@@ -43,8 +43,12 @@
     [self setUpMap];
     [self addPresetPins];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
-//    [self savePins];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+   // [self setUpMap];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -68,12 +72,14 @@
     [self.mapView setCenterCoordinate:userCoordinate animated:YES];
     [self addGestureRecogniserToMapView];
     
-//    NSMutableArray *anotherArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"savedPins"];
-//  //  for (TPAnnotation *pinning in anotherArray) {
-//    if ([TPAnnotation getAllPins] != nil) {
-        [self.mapView addAnnotations:[TPAnnotation getAllPins]];
-  //  }
-    //}
+    if (self.locationsArray != nil) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *coordinate = [defaults objectForKey:@"latCoordinate"];
+        TPAnnotation *newPin = [NSKeyedUnarchiver unarchiveObjectWithData:coordinate];
+    
+        [self.mapView addAnnotation:newPin];
+    }
+    
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
 }
@@ -147,12 +153,11 @@
     [self.locationsArray addObject:toAdd];
     [self.locationsNames addObject:toAdd.title];
 
-    [TPAnnotation savePins:toAdd];
-//    [self.savedPins addObject:toAdd];
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults setObject:self.savedPins forKey:@"savedPins"];
-//    [defaults synchronize];
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:toAdd] forKey:@"newPin"];
+    [defaults synchronize];
+    NSLog(@">>>>>>>>>%@", [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys]);
+
     //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
 }
 
@@ -179,14 +184,6 @@
 //    
 //    [self.mapView addAnnotation:point];
 //}
-
-- (void)savePins
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *locationsData =[NSKeyedArchiver archivedDataWithRootObject:self.locationsArray];
-    [defaults setObject:locationsData forKey:@"locationsArray"];
-    [defaults synchronize];
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

@@ -26,5 +26,6 @@
 + (NSMutableArray *)getAllPins;
 + (void)loadPins;
 + (void)savePins:(TPAnnotation *)annotation;
++ (void)setTable:(UITableView *)table;
 
 @end
