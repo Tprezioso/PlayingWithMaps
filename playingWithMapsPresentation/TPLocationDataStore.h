@@ -11,6 +11,7 @@
 @interface TPLocationDataStore : NSObject
 
 @property (strong, nonatomic) NSMutableArray *locations;
+
 + (instancetype)sharedLocationsDataStore;
 
 @end

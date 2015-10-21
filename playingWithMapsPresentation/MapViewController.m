@@ -91,7 +91,8 @@
 - (void)addPresetPins
 {
     TPAnnotation *pins = [[TPAnnotation alloc] init];
-    self.locationsArray = [pins presetPins];
+//    self.locationsArray = [pins presetPins];
+    self.locationsArray = self.store.locations;
     [self.mapView addAnnotations:self.locationsArray];
     self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
 }
@@ -153,11 +154,15 @@
     toAdd.image = [UIImage imageNamed:@"placeholderImage.png"];
     self.titleLabel.text = toAdd.title;
     self.descriptionLabel.text = toAdd.subtitle;
-    [self.mapView addAnnotation:toAdd];
+    self.store = [TPLocationDataStore sharedLocationsDataStore];
+    self.store.locations = [NSMutableArray arrayWithArray:self.locationsArray];
     [self.locationsArray addObject:toAdd];
     [self.locationsNames addObject:toAdd.title];
-    [self saveData];
-    [self loadData];
+
+    [self.mapView addAnnotation:toAdd];
+    
+//    [self saveData];
+//    [self loadData];
     //NSString *docsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
 //    self.filename = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
