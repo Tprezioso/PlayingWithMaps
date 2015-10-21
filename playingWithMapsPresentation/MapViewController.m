@@ -103,6 +103,8 @@
     double lat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLatCoordinate"];
     double lon = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLonCoordinate"];
     testPin.coordinate = CLLocationCoordinate2DMake(lat, lon);
+    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinImage"];
+    testPin.image = [UIImage imageWithData:imageData];
     [self.locationsArray addObject:testPin];
     [self.mapView addAnnotations:self.locationsArray];
     self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
@@ -184,7 +186,7 @@
     [defaults setObject:toAdd.subtitle forKey:@"pinsubtitle"];
     [defaults setDouble:toAdd.coordinate.latitude forKey:@"pinLatCoordinate"];
     [defaults setDouble:toAdd.coordinate.longitude forKey:@"pinLonCoordinate"];
-//    [defaults setObject:toAdd.image forKey:@"pinImage"];
+    [defaults setObject:UIImagePNGRepresentation(toAdd.image) forKey:@"pinImage"];
     [defaults synchronize];
 //    NSLog(@">>>>>>>>>%@", [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys]);
 
