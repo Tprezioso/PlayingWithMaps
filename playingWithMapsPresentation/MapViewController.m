@@ -11,6 +11,7 @@
 #import "LocationTableViewController.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreData/CoreData.h>
 #import "TPAnnotation.h"
 #import <MBProgressHUD.h>
 
