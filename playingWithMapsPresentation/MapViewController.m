@@ -41,8 +41,12 @@
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
     [self.descriptionView setHidden:YES];
-    //[self loadData];
-
+    self.store = [TPLocationDataStore sharedLocationsDataStore];
+    TPAnnotation *testPin = [[TPAnnotation alloc] initWithTitle:@"yoyo" subtitle:@"This is a test" pinCoordinates:CLLocationCoordinate2DMake(0, 0) image:nil];
+    [self.locationsArray addObject:testPin];
+    self.store.locations = [NSMutableArray arrayWithArray:self.locationsArray];
+    [self.mapView addAnnotations:self.store.locations];
+    
     [self setUpMap];
     [self addPresetPins];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
@@ -91,8 +95,8 @@
 - (void)addPresetPins
 {
     TPAnnotation *pins = [[TPAnnotation alloc] init];
-//    self.locationsArray = [pins presetPins];
-    self.locationsArray = self.store.locations;
+    self.locationsArray = [pins presetPins];
+   self.store.locations = [NSMutableArray arrayWithArray:self.locationsArray];
     [self.mapView addAnnotations:self.locationsArray];
     self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
 }
@@ -154,12 +158,11 @@
     toAdd.image = [UIImage imageNamed:@"placeholderImage.png"];
     self.titleLabel.text = toAdd.title;
     self.descriptionLabel.text = toAdd.subtitle;
-    [self.locationsArray addObject:toAdd];
+    [self.locationsArray addObject:toAdd.title];
     [self.locationsNames addObject:toAdd.title];
 
     [self.mapView addAnnotation:toAdd];
-//    self.store = [TPLocationDataStore sharedLocationsDataStore];
-//    self.store.locations = [NSMutableArray arrayWithArray:self.locationsArray];
+    self.store.locations = [NSMutableArray arrayWithObject:toAdd];
     
 //    [self saveData];
 //    [self loadData];

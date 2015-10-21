@@ -25,6 +25,7 @@
 		9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7BBFED1BB318B20090BE56 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9FD82E931BB9C751003173FD /* flushingMeadowsPark.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9FD82E921BB9C751003173FD /* flushingMeadowsPark.jpeg */; settings = {ASSET_TAGS = (); }; };
 		9FD89E6D1BD1864F0041FEE3 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD89E6C1BD1864F0041FEE3 /* ImageViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9FD9D9821BD821D7004DB535 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9D9801BD821D7004DB535 /* DataModel.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		9FEC4E471BAB482000538223 /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEC4E461BAB482000538223 /* map-pin.png */; settings = {ASSET_TAGS = (); }; };
 		A6EEA2A02180A5D25B9142D9 /* libPods-playingWithMapsPresentation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 376E4A5EE9511B3592B0EEE3 /* libPods-playingWithMapsPresentation.a */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		9FD82E921BB9C751003173FD /* flushingMeadowsPark.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flushingMeadowsPark.jpeg; sourceTree = "<group>"; };
 		9FD89E6B1BD1864F0041FEE3 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		9FD89E6C1BD1864F0041FEE3 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		9FD9D9811BD821D7004DB535 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		9FEC4E461BAB482000538223 /* map-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				9F3A41391AB30A930081FC05 /* Info.plist */,
+				9FD9D9801BD821D7004DB535 /* DataModel.xcdatamodeld */,
 				9F3A413A1AB30A930081FC05 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -378,6 +381,7 @@
 				9F352B011BAB41FD00949972 /* LocationTableViewController.m in Sources */,
 				9F015E061BD6DAE600F3A706 /* TPLocationDataStore.m in Sources */,
 				9F3A413B1AB30A930081FC05 /* main.m in Sources */,
+				9FD9D9821BD821D7004DB535 /* DataModel.xcdatamodeld in Sources */,
 				9FD89E6D1BD1864F0041FEE3 /* ImageViewController.m in Sources */,
 				9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */,
 			);
@@ -597,6 +601,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9FD9D9801BD821D7004DB535 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9FD9D9811BD821D7004DB535 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 9FD9D9811BD821D7004DB535 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9F3A412D1AB30A930081FC05 /* Project object */;
 }
