@@ -97,9 +97,15 @@
 {
     TPAnnotation *pins = [[TPAnnotation alloc] init];
     self.locationsArray = [pins presetPins];
-   self.store.locations = [NSMutableArray arrayWithArray:self.locationsArray];
     [self.mapView addAnnotations:self.locationsArray];
     self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
+    TPAnnotation *testPin = [[TPAnnotation alloc] init];
+    testPin.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinTitle"];
+    testPin.subtitle = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinsubtitle"];
+    double lat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLatCoordinate"];
+    double lon = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLonCoordinate"];
+    testPin.coordinate = CLLocationCoordinate2DMake(lat, lon);
+    [self.mapView addAnnotation:testPin];
 }
 
 - (void)removepinFromMap:(NSNotification *)pinNotification
@@ -167,14 +173,18 @@
     
 //    [self saveData];
 //    [self loadData];
-    //NSString *docsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    
+//    NSString *docsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    
 //    self.filename = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 //    [NSKeyedArchiver archiveRootObject:toAdd toFile:self.filename];
 //    NSLog(@"%@",self.filename);
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:toAdd] forKey:@"newPin"];
-//    [defaults synchronize];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:toAdd.title forKey:@"pinTitle"];
+    [defaults setObject:toAdd.subtitle forKey:@"pinsubtitle"];
+    [defaults setDouble:toAdd.coordinate.latitude forKey:@"pinLatCoordinate"];
+    [defaults setDouble:toAdd.coordinate.longitude forKey:@"pinLonCoordinate"];
+//    [defaults setObject:toAdd.image forKey:@"pinImage"];
+    [defaults synchronize];
 //    NSLog(@">>>>>>>>>%@", [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys]);
 
     //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
