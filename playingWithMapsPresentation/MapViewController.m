@@ -26,8 +26,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
 @property (strong, nonatomic) NSMutableArray *locationsArray;
 @property (strong, nonatomic) NSMutableArray *locationsNames;
-@property (strong, nonatomic) NSMutableArray *savedPins;
-@property(strong, nonatomic) NSString *filename;
 
 @end
 
@@ -42,28 +40,12 @@
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
     [self.descriptionView setHidden:YES];
-    self.store = [TPLocationDataStore sharedLocationsDataStore];
-    TPAnnotation *testPin = [[TPAnnotation alloc] initWithTitle:@"yoyo" subtitle:@"This is a test" pinCoordinates:CLLocationCoordinate2DMake(0, 0) image:nil];
-    [self.locationsArray addObject:testPin];
-    self.store.locations = [NSMutableArray arrayWithArray:self.locationsArray];
-    [self.mapView addAnnotations:self.store.locations];
-    
     [self setUpMap];
     [self addPresetPins];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-   // [self setUpMap];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-}
 - (void)setUpMap
 {
     self.locationManager = [[CLLocationManager alloc] init];
@@ -79,16 +61,6 @@
     self.mapView.showsUserLocation = YES;
     [self.mapView setCenterCoordinate:userCoordinate animated:YES];
     [self addGestureRecogniserToMapView];
-    
-//    if (self.locationsArray != nil) {
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        NSData *coordinate = [defaults objectForKey:@"latCoordinate"];
-//        TPAnnotation *newPin = [NSKeyedUnarchiver unarchiveObjectWithData:coordinate];
-//    
-//        [self.mapView addAnnotation:newPin];
-//    }
-//  TPAnnotation *newPin = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filename];
-    
     NSLog(@"%f",userCoordinate.latitude);
     NSLog(@"%f",userCoordinate.longitude);
 }
@@ -170,17 +142,8 @@
     self.descriptionLabel.text = toAdd.subtitle;
     [self.locationsArray addObject:toAdd];
     [self.locationsNames addObject:toAdd.title];
-
     [self.mapView addAnnotation:toAdd];
     self.store.locations = [NSMutableArray arrayWithObject:toAdd];
-    
-//    [self saveData];
-//    [self loadData];
-//    NSString *docsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//    
-//    self.filename = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//    [NSKeyedArchiver archiveRootObject:toAdd toFile:self.filename];
-//    NSLog(@"%@",self.filename);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:toAdd.title forKey:@"pinTitle"];
     [defaults setObject:toAdd.subtitle forKey:@"pinsubtitle"];
@@ -188,8 +151,6 @@
     [defaults setDouble:toAdd.coordinate.longitude forKey:@"pinLonCoordinate"];
     [defaults setObject:UIImagePNGRepresentation(toAdd.image) forKey:@"pinImage"];
     [defaults synchronize];
-//    NSLog(@">>>>>>>>>%@", [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys]);
-
     //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
 }
 
