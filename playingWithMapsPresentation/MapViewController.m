@@ -41,7 +41,7 @@
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
     [self.descriptionView setHidden:YES];
-    [self loadData];
+    //[self loadData];
 
     [self setUpMap];
     [self addPresetPins];
@@ -154,12 +154,12 @@
     toAdd.image = [UIImage imageNamed:@"placeholderImage.png"];
     self.titleLabel.text = toAdd.title;
     self.descriptionLabel.text = toAdd.subtitle;
-    self.store = [TPLocationDataStore sharedLocationsDataStore];
-    self.store.locations = [NSMutableArray arrayWithArray:self.locationsArray];
     [self.locationsArray addObject:toAdd];
     [self.locationsNames addObject:toAdd.title];
 
     [self.mapView addAnnotation:toAdd];
+//    self.store = [TPLocationDataStore sharedLocationsDataStore];
+//    self.store.locations = [NSMutableArray arrayWithArray:self.locationsArray];
     
 //    [self saveData];
 //    [self loadData];
@@ -200,28 +200,28 @@
 //    [self.mapView addAnnotation:point];
 //}
 
-- (void) saveData {
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
-    
-    [NSKeyedArchiver archiveRootObject:self.locationsArray toFile:filePath];
-}
-
-- (void) loadData {
-    // look for saved data.
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-        NSArray *savedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        self.locationsArray = [[NSMutableArray alloc] initWithArray:savedData];
-    }
-    //[self.mapView addAnnotations:self.locationsArray];
-}
+//- (void) saveData {
+//    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+//    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
+//    
+//    [NSKeyedArchiver archiveRootObject:self.locationsArray toFile:filePath];
+//}
+//
+//- (void) loadData {
+//    // look for saved data.
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+//    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
+//    
+//    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+//        NSData *data = [NSData dataWithContentsOfFile:filePath];
+//        NSArray *savedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//        self.locationsArray = [[NSMutableArray alloc] initWithArray:savedData];
+//    }
+//    //[self.mapView addAnnotations:self.locationsArray];
+//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
