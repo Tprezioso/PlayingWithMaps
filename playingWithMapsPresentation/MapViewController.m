@@ -97,15 +97,16 @@
 {
     TPAnnotation *pins = [[TPAnnotation alloc] init];
     self.locationsArray = [pins presetPins];
-    [self.mapView addAnnotations:self.locationsArray];
-    self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
     TPAnnotation *testPin = [[TPAnnotation alloc] init];
     testPin.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinTitle"];
     testPin.subtitle = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinsubtitle"];
     double lat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLatCoordinate"];
     double lon = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLonCoordinate"];
     testPin.coordinate = CLLocationCoordinate2DMake(lat, lon);
-    [self.mapView addAnnotation:testPin];
+    [self.locationsArray addObject:testPin];
+    [self.mapView addAnnotations:self.locationsArray];
+    self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
+    [self.locationsNames addObject:testPin.title];
 }
 
 - (void)removepinFromMap:(NSNotification *)pinNotification
@@ -165,7 +166,7 @@
     toAdd.image = [UIImage imageNamed:@"placeholderImage.png"];
     self.titleLabel.text = toAdd.title;
     self.descriptionLabel.text = toAdd.subtitle;
-    [self.locationsArray addObject:toAdd.title];
+    [self.locationsArray addObject:toAdd];
     [self.locationsNames addObject:toAdd.title];
 
     [self.mapView addAnnotation:toAdd];
@@ -212,29 +213,6 @@
 //    point.subtitle = @"I'm here!!!";
 //    
 //    [self.mapView addAnnotation:point];
-//}
-
-//- (void) saveData {
-//    
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-//    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
-//    
-//    [NSKeyedArchiver archiveRootObject:self.locationsArray toFile:filePath];
-//}
-//
-//- (void) loadData {
-//    // look for saved data.
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-//    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
-//    
-//    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-//        NSData *data = [NSData dataWithContentsOfFile:filePath];
-//        NSArray *savedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-//        self.locationsArray = [[NSMutableArray alloc] initWithArray:savedData];
-//    }
-//    //[self.mapView addAnnotations:self.locationsArray];
 //}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
