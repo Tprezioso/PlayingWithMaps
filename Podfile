@@ -3,6 +3,7 @@
 
 target 'playingWithMapsPresentation' do
 	pod 'MBProgressHUD'
+	pod 'RMMapper'
 end
 
 target 'playingWithMapsPresentationTests' do

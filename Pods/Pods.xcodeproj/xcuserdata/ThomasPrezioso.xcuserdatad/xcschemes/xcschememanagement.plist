@@ -14,15 +14,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RMMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0EEE0EF0A9B64ED5A2D00C30EAB5401F</key>
+		<key>3049AE53916D5CD7E245CC540DB16058</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E5E407E973D39B93FC9BBFDA43215B3</key>
+		<key>C3BCE22BABA45CABE689EAE4B28780B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0B9438E27BF59AE1E99179946F77518</key>
 		<dict>
 			<key>primary</key>
 			<true/>

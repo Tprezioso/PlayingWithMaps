@@ -143,7 +143,7 @@
     [self.locationsArray addObject:toAdd];
     [self.locationsNames addObject:toAdd.title];
     [self.mapView addAnnotation:toAdd];
-    self.store.locations = [NSMutableArray arrayWithObject:toAdd];
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:toAdd.title forKey:@"pinTitle"];
     [defaults setObject:toAdd.subtitle forKey:@"pinsubtitle"];

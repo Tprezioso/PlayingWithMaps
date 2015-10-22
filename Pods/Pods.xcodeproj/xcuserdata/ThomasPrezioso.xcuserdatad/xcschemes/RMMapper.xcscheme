@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7610B277524A328FAE599902"
-               BuildableName = "libPods-playingWithMapsPresentation.a"
-               BlueprintName = "Pods-playingWithMapsPresentation"
+               BlueprintIdentifier = "98CC8795C7950AF600860327"
+               BuildableName = "libRMMapper.a"
+               BlueprintName = "RMMapper"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
