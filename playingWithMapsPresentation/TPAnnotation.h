@@ -23,9 +23,5 @@
 //@property (strong, nonatomic)NSMutableArray *allPins;
 - (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate image:(UIImage*)pinImage;
 - (NSMutableArray *)presetPins;
-//+ (NSMutableArray *)getAllPins;
-//+ (void)loadPins;
-//+ (void)savePins:(TPAnnotation *)annotation;
-//+ (void)setTable:(UITableView *)table;
 
 @end
