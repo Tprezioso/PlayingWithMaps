@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9F015E061BD6DAE600F3A706 /* TPLocationDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F015E051BD6DAE600F3A706 /* TPLocationDataStore.m */; settings = {ASSET_TAGS = (); }; };
+		9F219E651BDAAD3900511CAB /* Locations+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F219E621BDAAD3900511CAB /* Locations+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		9F219E661BDAAD3900511CAB /* Locations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F219E641BDAAD3900511CAB /* Locations.m */; settings = {ASSET_TAGS = (); }; };
+		9F219E691BDAADB800511CAB /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F219E681BDAADB800511CAB /* CoreDataHelper.m */; settings = {ASSET_TAGS = (); }; };
 		9F352AF91BAB2FFA00949972 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F352AF81BAB2FFA00949972 /* placeholderImage.png */; };
 		9F352AFE1BAB40FC00949972 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F352AFD1BAB40FC00949972 /* text-list.png */; };
 		9F352B011BAB41FD00949972 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F352B001BAB41FD00949972 /* LocationTableViewController.m */; };
@@ -47,6 +50,12 @@
 		479B0465876EC29B05683278 /* Pods-playingWithMapsPresentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playingWithMapsPresentation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-playingWithMapsPresentation/Pods-playingWithMapsPresentation.debug.xcconfig"; sourceTree = "<group>"; };
 		9F015E041BD6DAE600F3A706 /* TPLocationDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocationDataStore.h; sourceTree = "<group>"; };
 		9F015E051BD6DAE600F3A706 /* TPLocationDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocationDataStore.m; sourceTree = "<group>"; };
+		9F219E611BDAAD3900511CAB /* Locations+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Locations+CoreDataProperties.h"; sourceTree = "<group>"; };
+		9F219E621BDAAD3900511CAB /* Locations+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Locations+CoreDataProperties.m"; sourceTree = "<group>"; };
+		9F219E631BDAAD3900511CAB /* Locations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Locations.h; sourceTree = "<group>"; };
+		9F219E641BDAAD3900511CAB /* Locations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Locations.m; sourceTree = "<group>"; };
+		9F219E671BDAADB800511CAB /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		9F219E681BDAADB800511CAB /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		9F352AF81BAB2FFA00949972 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		9F352AFD1BAB40FC00949972 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
 		9F352AFF1BAB41FD00949972 /* LocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTableViewController.h; sourceTree = "<group>"; };
@@ -119,6 +128,19 @@
 			name = DataStore;
 			sourceTree = "<group>";
 		};
+		9F219E601BDAAD0800511CAB /* CoreDataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9F219E611BDAAD3900511CAB /* Locations+CoreDataProperties.h */,
+				9F219E621BDAAD3900511CAB /* Locations+CoreDataProperties.m */,
+				9F219E631BDAAD3900511CAB /* Locations.h */,
+				9F219E641BDAAD3900511CAB /* Locations.m */,
+				9F219E671BDAADB800511CAB /* CoreDataHelper.h */,
+				9F219E681BDAADB800511CAB /* CoreDataHelper.m */,
+			);
+			name = CoreDataHelper;
+			sourceTree = "<group>";
+		};
 		9F352AFA1BAB3A9A00949972 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +200,7 @@
 			children = (
 				9F3A413C1AB30A930081FC05 /* AppDelegate.h */,
 				9F3A413D1AB30A930081FC05 /* AppDelegate.m */,
+				9F219E601BDAAD0800511CAB /* CoreDataHelper */,
 				9F015E071BD6E0A900F3A706 /* DataStore */,
 				9F352AFA1BAB3A9A00949972 /* Modal */,
 				9F352AFB1BAB3AB600949972 /* View */,
@@ -385,6 +408,9 @@
 				9F352B011BAB41FD00949972 /* LocationTableViewController.m in Sources */,
 				9F015E061BD6DAE600F3A706 /* TPLocationDataStore.m in Sources */,
 				9F3A413B1AB30A930081FC05 /* main.m in Sources */,
+				9F219E691BDAADB800511CAB /* CoreDataHelper.m in Sources */,
+				9F219E651BDAAD3900511CAB /* Locations+CoreDataProperties.m in Sources */,
+				9F219E661BDAAD3900511CAB /* Locations.m in Sources */,
 				9FD9D9821BD821D7004DB535 /* DataModel.xcdatamodeld in Sources */,
 				9FD89E6D1BD1864F0041FEE3 /* ImageViewController.m in Sources */,
 				9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */,
