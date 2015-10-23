@@ -16,4 +16,7 @@
 @property (strong, nonatomic) NSPersistentStore *store;
 @property (strong,nonatomic) NSPersistentStoreCoordinator *coordinator;
 
+- (void)setupCoreData;
+- (void)saveContent;
+
 @end
