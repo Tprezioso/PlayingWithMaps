@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F015E061BD6DAE600F3A706 /* TPLocationDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F015E051BD6DAE600F3A706 /* TPLocationDataStore.m */; settings = {ASSET_TAGS = (); }; };
-		9F219E651BDAAD3900511CAB /* Locations+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F219E621BDAAD3900511CAB /* Locations+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		9F219E661BDAAD3900511CAB /* Locations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F219E641BDAAD3900511CAB /* Locations.m */; settings = {ASSET_TAGS = (); }; };
-		9F219E691BDAADB800511CAB /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F219E681BDAADB800511CAB /* CoreDataHelper.m */; settings = {ASSET_TAGS = (); }; };
+		9F015E061BD6DAE600F3A706 /* TPLocationDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F015E051BD6DAE600F3A706 /* TPLocationDataStore.m */; };
+		9F219E651BDAAD3900511CAB /* Locations+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F219E621BDAAD3900511CAB /* Locations+CoreDataProperties.m */; };
+		9F219E661BDAAD3900511CAB /* Locations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F219E641BDAAD3900511CAB /* Locations.m */; };
 		9F352AF91BAB2FFA00949972 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F352AF81BAB2FFA00949972 /* placeholderImage.png */; };
 		9F352AFE1BAB40FC00949972 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F352AFD1BAB40FC00949972 /* text-list.png */; };
 		9F352B011BAB41FD00949972 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F352B001BAB41FD00949972 /* LocationTableViewController.m */; };
@@ -23,14 +22,14 @@
 		9F3A41551AB30A930081FC05 /* playingWithMapsPresentationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3A41541AB30A930081FC05 /* playingWithMapsPresentationTests.m */; };
 		9F3A415F1AB30B310081FC05 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3A415E1AB30B310081FC05 /* CoreLocation.framework */; };
 		9F3A41611AB30C110081FC05 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3A41601AB30C110081FC05 /* MapKit.framework */; };
-		9F44DDCB1BB9837300F011E7 /* kissenaParkExit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F44DDCA1BB9837300F011E7 /* kissenaParkExit.jpg */; settings = {ASSET_TAGS = (); }; };
+		9F44DDCB1BB9837300F011E7 /* kissenaParkExit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F44DDCA1BB9837300F011E7 /* kissenaParkExit.jpg */; };
 		9F5EB3891BA206AE00BC31A5 /* TPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5EB3881BA206AE00BC31A5 /* TPAnnotation.m */; };
-		9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7BBFED1BB318B20090BE56 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
-		9FD82E931BB9C751003173FD /* flushingMeadowsPark.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9FD82E921BB9C751003173FD /* flushingMeadowsPark.jpeg */; settings = {ASSET_TAGS = (); }; };
-		9FD89E6D1BD1864F0041FEE3 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD89E6C1BD1864F0041FEE3 /* ImageViewController.m */; settings = {ASSET_TAGS = (); }; };
-		9FD9D9821BD821D7004DB535 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9D9801BD821D7004DB535 /* DataModel.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7BBFED1BB318B20090BE56 /* DetailViewController.m */; };
+		9FD82E931BB9C751003173FD /* flushingMeadowsPark.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9FD82E921BB9C751003173FD /* flushingMeadowsPark.jpeg */; };
+		9FD89E6D1BD1864F0041FEE3 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD89E6C1BD1864F0041FEE3 /* ImageViewController.m */; };
+		9FD9D9821BD821D7004DB535 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9D9801BD821D7004DB535 /* DataModel.xcdatamodeld */; };
 		9FD9D9841BD82640004DB535 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9D9831BD82640004DB535 /* CoreData.framework */; };
-		9FEC4E471BAB482000538223 /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEC4E461BAB482000538223 /* map-pin.png */; settings = {ASSET_TAGS = (); }; };
+		9FEC4E471BAB482000538223 /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEC4E461BAB482000538223 /* map-pin.png */; };
 		A6EEA2A02180A5D25B9142D9 /* libPods-playingWithMapsPresentation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 376E4A5EE9511B3592B0EEE3 /* libPods-playingWithMapsPresentation.a */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +53,6 @@
 		9F219E621BDAAD3900511CAB /* Locations+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Locations+CoreDataProperties.m"; sourceTree = "<group>"; };
 		9F219E631BDAAD3900511CAB /* Locations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Locations.h; sourceTree = "<group>"; };
 		9F219E641BDAAD3900511CAB /* Locations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Locations.m; sourceTree = "<group>"; };
-		9F219E671BDAADB800511CAB /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
-		9F219E681BDAADB800511CAB /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		9F352AF81BAB2FFA00949972 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		9F352AFD1BAB40FC00949972 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
 		9F352AFF1BAB41FD00949972 /* LocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTableViewController.h; sourceTree = "<group>"; };
@@ -135,8 +132,6 @@
 				9F219E621BDAAD3900511CAB /* Locations+CoreDataProperties.m */,
 				9F219E631BDAAD3900511CAB /* Locations.h */,
 				9F219E641BDAAD3900511CAB /* Locations.m */,
-				9F219E671BDAADB800511CAB /* CoreDataHelper.h */,
-				9F219E681BDAADB800511CAB /* CoreDataHelper.m */,
 			);
 			name = CoreDataHelper;
 			sourceTree = "<group>";
@@ -408,7 +403,6 @@
 				9F352B011BAB41FD00949972 /* LocationTableViewController.m in Sources */,
 				9F015E061BD6DAE600F3A706 /* TPLocationDataStore.m in Sources */,
 				9F3A413B1AB30A930081FC05 /* main.m in Sources */,
-				9F219E691BDAADB800511CAB /* CoreDataHelper.m in Sources */,
 				9F219E651BDAAD3900511CAB /* Locations+CoreDataProperties.m in Sources */,
 				9F219E661BDAAD3900511CAB /* Locations.m in Sources */,
 				9FD9D9821BD821D7004DB535 /* DataModel.xcdatamodeld in Sources */,
