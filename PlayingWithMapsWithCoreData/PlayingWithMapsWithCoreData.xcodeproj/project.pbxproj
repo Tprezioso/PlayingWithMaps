@@ -130,6 +130,8 @@
 		7CF163FBF5B8C7B57E5B2D9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F66823D1BDE78E5006AE323 /* CoreLocation.framework */,
+				9F66823B1BDE78DC006AE323 /* MapKit.framework */,
 				C3FD0FB5075A13A8D72BC03C /* libPods-PlayingWithMapsWithCoreData.a */,
 			);
 			name = Frameworks;
@@ -138,8 +140,6 @@
 		9F6681D31BDE76FD006AE323 = {
 			isa = PBXGroup;
 			children = (
-				9F66823D1BDE78E5006AE323 /* CoreLocation.framework */,
-				9F66823B1BDE78DC006AE323 /* MapKit.framework */,
 				9F6681DE1BDE76FD006AE323 /* PlayingWithMapsWithCoreData */,
 				9F6681FB1BDE76FD006AE323 /* PlayingWithMapsWithCoreDataTests */,
 				9F6682061BDE76FD006AE323 /* PlayingWithMapsWithCoreDataUITests */,
