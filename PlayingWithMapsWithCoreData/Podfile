@@ -1,0 +1,15 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+target 'PlayingWithMapsWithCoreData' do
+	pod 'MBProgressHUD'
+end
+
+target 'PlayingWithMapsWithCoreDataTests' do
+
+end
+
+target 'PlayingWithMapsWithCoreDataUITests' do
+
+end
+

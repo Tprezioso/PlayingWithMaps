@@ -8,7 +8,7 @@
 
 #import "DetailViewController.h"
 #import "ImageViewController.h"
-//#import <MBProgressHUD.h>
+#import <MBProgressHUD.h>
 
 @interface DetailViewController ()
 
@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.editBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editMode)];
     self.navigationItem.rightBarButtonItem = self.editBarButton;
     self.detailTitleTextField.text = self.detailLocations.title;
@@ -44,7 +44,7 @@
         self.editBarButton.enabled = NO;
         self.editBarButton.tintColor = [UIColor clearColor];
     }
-  //  [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)editMode

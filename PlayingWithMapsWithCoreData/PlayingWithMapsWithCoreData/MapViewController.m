@@ -14,7 +14,7 @@
 #import <CoreData/CoreData.h>
 #import "TPAnnotation.h"
 #import "AppDelegate.h"
-//#import <MBProgressHUD.h>
+#import <MBProgressHUD.h>
 
 @interface MapViewController () <MKMapViewDelegate>
 
@@ -37,7 +37,7 @@
 {
     [super viewDidLoad];
    
-   // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.mapView.delegate = self;
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
@@ -45,7 +45,7 @@
     [self setUpMap];
     [self addPresetPins];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
-  //  [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -96,18 +96,8 @@
 {
     TPAnnotation *pins = [[TPAnnotation alloc] init];
     self.locationsArray = [pins presetPins];
-//    TPAnnotation *testPin = [[TPAnnotation alloc] init];
-//    testPin.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinTitle"];
-//    testPin.subtitle = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinsubtitle"];
-//    double lat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLatCoordinate"];
-//    double lon = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLonCoordinate"];
-//    testPin.coordinate = CLLocationCoordinate2DMake(lat, lon);
-//    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinImage"];
-//    testPin.image = [UIImage imageWithData:imageData];
-//    [self.locationsArray addObject:testPin];
     [self.mapView addAnnotations:self.locationsArray];
     self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
-   // [self.locationsNames addObject:testPin.title];
 }
 
 - (void)removepinFromMap:(NSNotification *)pinNotification
@@ -171,19 +161,7 @@
     [self.locationsNames addObject:toAdd.title];
     [self.mapView addAnnotation:toAdd];
 
-    //    saving using NSUserDefaults
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults setObject:toAdd.title forKey:@"pinTitle"];
-//    [defaults setObject:toAdd.subtitle forKey:@"pinsubtitle"];
-//    [defaults setDouble:toAdd.coordinate.latitude forKey:@"pinLatCoordinate"];
-//    [defaults setDouble:toAdd.coordinate.longitude forKey:@"pinLonCoordinate"];
-//    [defaults setObject:UIImagePNGRepresentation(toAdd.image) forKey:@"pinImage"];
-//    [defaults synchronize];
-    //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
-
-    // stuff I think works with core data
     NSManagedObjectContext *context = [self managedObjectContext];
-    
     // Create a new managed object
     NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
     [newDevice setValue:toAdd.title forKey:@"title"];

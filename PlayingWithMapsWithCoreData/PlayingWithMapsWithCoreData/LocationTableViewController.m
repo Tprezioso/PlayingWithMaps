@@ -9,7 +9,7 @@
 #import "LocationTableViewController.h"
 #import "MapViewController.h"
 #import "DetailViewController.h"
-//#import <MBProgressHUD.h>
+#import <MBProgressHUD.h>
 @interface LocationTableViewController ()
 
 @end
@@ -19,10 +19,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   // [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
-     self.clearsSelectionOnViewWillAppear = NO;
+    [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
+    self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-   // [MBProgressHUD hideHUDForView:self.tableView animated:YES];
+    [MBProgressHUD hideHUDForView:self.tableView animated:YES];
 }
 
 #pragma mark - Table view data source
