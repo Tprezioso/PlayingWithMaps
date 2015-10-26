@@ -51,9 +51,13 @@
 {
     [super viewDidAppear:animated];
 //    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
-//    self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-//    [self.mapView addAnnotations: self.devices];
+//   // if (managedObjectContext != nil) {
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
+//        self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//    [self.locationsArray arrayByAddingObjectsFromArray:self.devices];
+//    [self.locationsNames addObject:[self.devices [0]title]];
+    //[self.mapView addAnnotations: self.devices];
+    //}
 }
 
 - (void)setUpMap
@@ -79,18 +83,18 @@
 {
     TPAnnotation *pins = [[TPAnnotation alloc] init];
     self.locationsArray = [pins presetPins];
-//    TPAnnotation *testPin = [[TPAnnotation alloc] init];
-//    testPin.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinTitle"];
-//    testPin.subtitle = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinsubtitle"];
-//    double lat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLatCoordinate"];
-//    double lon = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLonCoordinate"];
-//    testPin.coordinate = CLLocationCoordinate2DMake(lat, lon);
-//    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinImage"];
-//    testPin.image = [UIImage imageWithData:imageData];
-//    [self.locationsArray addObject:testPin];
+    TPAnnotation *testPin = [[TPAnnotation alloc] init];
+    testPin.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinTitle"];
+    testPin.subtitle = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinsubtitle"];
+    double lat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLatCoordinate"];
+    double lon = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLonCoordinate"];
+    testPin.coordinate = CLLocationCoordinate2DMake(lat, lon);
+    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinImage"];
+    testPin.image = [UIImage imageWithData:imageData];
+    [self.locationsArray addObject:testPin];
     [self.mapView addAnnotations:self.locationsArray];
     self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
-//    [self.locationsNames addObject:testPin.title];
+    [self.locationsNames addObject:testPin.title];
 }
 
 - (void)removepinFromMap:(NSNotification *)pinNotification
@@ -154,6 +158,7 @@
     [self.locationsNames addObject:toAdd.title];
     [self.mapView addAnnotation:toAdd];
 
+    //    saving using NSUserDefaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:toAdd.title forKey:@"pinTitle"];
     [defaults setObject:toAdd.subtitle forKey:@"pinsubtitle"];
@@ -162,10 +167,12 @@
     [defaults setObject:UIImagePNGRepresentation(toAdd.image) forKey:@"pinImage"];
     [defaults synchronize];
     //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
-   // NSManagedObjectContext *context = [self managedObjectContext];
-    
-    // Create a new managed object
-//    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Locations" inManagedObjectContext:context];
+
+    // stuff I think works with core data
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    // Create a new managed object
+//    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
 //    [newDevice setValue:toAdd.title forKey:@"title"];
 //    [newDevice setValue:toAdd.subtitle forKey:@"subtitle"];
 //    [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.latitude] forKey:@"coordinateLat"];
@@ -203,14 +210,14 @@
 //    [self.mapView addAnnotation:point];
 //}
 
-//- (NSManagedObjectContext *)managedObjectContext {
-//    NSManagedObjectContext *context = nil;
-//    id delegate = [[UIApplication sharedApplication] delegate];
-//    if ([delegate performSelector:@selector(managedObjectContext)]) {
-//        context = [delegate managedObjectContext];
-//    }
-//    return context;
-//}
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
 - (void)savePins
 {
