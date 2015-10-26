@@ -105,6 +105,7 @@
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     [self.mapView removeAnnotation:pinToRemove];
     self.descriptionView.hidden = YES;
+    
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view

@@ -9,6 +9,7 @@
 #import "LocationTableViewController.h"
 #import "MapViewController.h"
 #import "DetailViewController.h"
+#import "AppDelegate.h"
 #import <MBProgressHUD.h>
 @interface LocationTableViewController ()
 
@@ -54,6 +55,11 @@
         [self.locationsNames removeObjectAtIndex:indexPath.row];
         NSMutableDictionary *removedPin = [[NSMutableDictionary alloc] init];
         removedPin [@"pin"] = [self.locations objectAtIndex:indexPath.row];
+//                AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//        
+//                NSManagedObjectContext *context = [appDelegate managedObjectContext];
+//        
+//                [context deleteObject:[self.locations objectAtIndex:indexPath.row]];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"removePin" object:nil userInfo:removedPin];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
