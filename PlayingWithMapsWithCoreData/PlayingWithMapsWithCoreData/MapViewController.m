@@ -13,6 +13,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreData/CoreData.h>
 #import "TPAnnotation.h"
+#import "AppDelegate.h"
 //#import <MBProgressHUD.h>
 
 @interface MapViewController () <MKMapViewDelegate>
@@ -50,13 +51,22 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-//    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-//   // if (managedObjectContext != nil) {
-//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
-//        self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-//    [self.locationsArray arrayByAddingObjectsFromArray:self.devices];
-//    [self.locationsNames addObject:[self.devices [0]title]];
-    //[self.mapView addAnnotations: self.devices];
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+   // if (managedObjectContext != nil) {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
+        self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSNumber *doubleValueLat = [self.devices valueForKey:@"coordinateLat"];
+    NSNumber *doubleValueLon = [self.devices valueForKey:@"coordinateLon"];
+    NSLog(@"%@>>>>>>>>>>>>>>", doubleValueLat);
+
+    [self.locationsArray arrayByAddingObjectsFromArray:self.devices];
+   
+    for (NSInteger i = 0; i < [self.devices count]; i++) {
+        NSString *names = @"";
+        names = [self.devices[i]title];
+        [self.locationsNames addObject:names];
+    }
+    [self.mapView addAnnotations: self.locationsArray];
     //}
 }
 
@@ -83,18 +93,18 @@
 {
     TPAnnotation *pins = [[TPAnnotation alloc] init];
     self.locationsArray = [pins presetPins];
-    TPAnnotation *testPin = [[TPAnnotation alloc] init];
-    testPin.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinTitle"];
-    testPin.subtitle = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinsubtitle"];
-    double lat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLatCoordinate"];
-    double lon = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLonCoordinate"];
-    testPin.coordinate = CLLocationCoordinate2DMake(lat, lon);
-    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinImage"];
-    testPin.image = [UIImage imageWithData:imageData];
-    [self.locationsArray addObject:testPin];
+//    TPAnnotation *testPin = [[TPAnnotation alloc] init];
+//    testPin.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinTitle"];
+//    testPin.subtitle = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinsubtitle"];
+//    double lat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLatCoordinate"];
+//    double lon = [[NSUserDefaults standardUserDefaults] doubleForKey:@"pinLonCoordinate"];
+//    testPin.coordinate = CLLocationCoordinate2DMake(lat, lon);
+//    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"pinImage"];
+//    testPin.image = [UIImage imageWithData:imageData];
+//    [self.locationsArray addObject:testPin];
     [self.mapView addAnnotations:self.locationsArray];
     self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
-    [self.locationsNames addObject:testPin.title];
+   // [self.locationsNames addObject:testPin.title];
 }
 
 - (void)removepinFromMap:(NSNotification *)pinNotification
@@ -159,30 +169,30 @@
     [self.mapView addAnnotation:toAdd];
 
     //    saving using NSUserDefaults
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:toAdd.title forKey:@"pinTitle"];
-    [defaults setObject:toAdd.subtitle forKey:@"pinsubtitle"];
-    [defaults setDouble:toAdd.coordinate.latitude forKey:@"pinLatCoordinate"];
-    [defaults setDouble:toAdd.coordinate.longitude forKey:@"pinLonCoordinate"];
-    [defaults setObject:UIImagePNGRepresentation(toAdd.image) forKey:@"pinImage"];
-    [defaults synchronize];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:toAdd.title forKey:@"pinTitle"];
+//    [defaults setObject:toAdd.subtitle forKey:@"pinsubtitle"];
+//    [defaults setDouble:toAdd.coordinate.latitude forKey:@"pinLatCoordinate"];
+//    [defaults setDouble:toAdd.coordinate.longitude forKey:@"pinLonCoordinate"];
+//    [defaults setObject:UIImagePNGRepresentation(toAdd.image) forKey:@"pinImage"];
+//    [defaults synchronize];
     //NSLog(@"%f, %f",touchMapCoordinate.latitude, touchMapCoordinate.longitude);
 
     // stuff I think works with core data
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//    
-//    // Create a new managed object
-//    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
-//    [newDevice setValue:toAdd.title forKey:@"title"];
-//    [newDevice setValue:toAdd.subtitle forKey:@"subtitle"];
-//    [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.latitude] forKey:@"coordinateLat"];
-//    [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.longitude] forKey:@"coordinateLon"];
-//
-//    NSError *error = nil;
-//    // Save the object to persistent store
-//    if (![context save:&error]) {
-//        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-//    }
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Create a new managed object
+    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
+    [newDevice setValue:toAdd.title forKey:@"title"];
+    [newDevice setValue:toAdd.subtitle forKey:@"subtitle"];
+    [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.latitude] forKey:@"coordinateLat"];
+    [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.longitude] forKey:@"coordinateLon"];
+
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
 
 }
 
