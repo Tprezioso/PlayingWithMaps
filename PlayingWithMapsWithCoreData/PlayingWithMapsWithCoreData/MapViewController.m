@@ -55,16 +55,19 @@
    // if (managedObjectContext != nil) {
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
         self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    NSNumber *doubleValueLat = [self.devices valueForKey:@"coordinateLat"];
-    NSNumber *doubleValueLon = [self.devices valueForKey:@"coordinateLon"];
-    NSLog(@"%@>>>>>>>>>>>>>>", doubleValueLat);
-
-    [self.locationsArray arrayByAddingObjectsFromArray:self.devices];
+    
+    
    
     for (NSInteger i = 0; i < [self.devices count]; i++) {
         NSString *names = @"";
         names = [self.devices[i]title];
         [self.locationsNames addObject:names];
+        TPAnnotation *newPin = [TPAnnotation new];
+        newPin.title = [self.devices[i]title];
+        newPin.subtitle = [self.devices[i]subtitle];
+        newPin.coordinate = CLLocationCoordinate2DMake([[self.devices[i] valueForKey:@"coordinateLat"] doubleValue], [[self.devices[i] valueForKey:@"coordinateLon"]doubleValue]);
+     
+        [self.locationsArray addObject:newPin];
     }
     [self.mapView addAnnotations: self.locationsArray];
     //}
