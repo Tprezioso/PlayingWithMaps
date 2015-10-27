@@ -101,11 +101,11 @@
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     [self.mapView removeAnnotation:pinToRemove];
     self.descriptionView.hidden = YES;
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    
-    [context deleteObject:[pinNotification.userInfo objectForKey:@"pin"]];
+//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//    
+//    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+//    
+//    [context deleteObject:pinToRemove];
     
 
 }
@@ -227,7 +227,7 @@
     if ([segue.identifier isEqualToString:@"listView"]) {
         LocationTableViewController *listView = segue.destinationViewController;
         listView.locations = self.locationsArray;
-        //listView.locationsNames = self.locationsNames;
+        listView.locationsNames = self.locationsNames;
     }
 }
 

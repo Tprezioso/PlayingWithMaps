@@ -32,50 +32,65 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
+    [self.tableView reloadData];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
-    self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-//    for (NSInteger i = 0; i < [self.devices count]; i++) {
-//        
-//      self.locationName = ;
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+////    for (NSInteger i = 0; i < [self.devices count]; i++) {
+////        
+////      self.locationName = ;
+////    }
+//    [self getlocacations];
+//    [self.tableView reloadData];
 //    }
-    self.locationsArray = self.devices;
-    }
-
-- (NSManagedObjectContext *)managedObjectContext
-{
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
+//- (void)getlocacations
+//{
+//    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
+//    self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//    self.locationsArray = self.devices;
+//   
+//    for (NSInteger i = 0; i < [self.devices count]; i++) {
+//        NSString *names = @"";
+//        names = [self.devices[i]title];
+//        [self.locationsTest addObject:names];
+////        [self.locationsTest addObject:[self.devices[i]title]];
+//
+//    }
+//    [self.tableView reloadData];
+//}
+//
+//- (NSManagedObjectContext *)managedObjectContext
+//{
+//    NSManagedObjectContext *context = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    if ([delegate performSelector:@selector(managedObjectContext)]) {
+//        context = [delegate managedObjectContext];
+//    }
+//    return context;
+//}
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 15;
+    return [self.locationsNames count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
-    
-    for (NSInteger i = 0; i < [self.devices count]; i++) {
-       NSString *names = @"";
-        names = [self.devices[i]title];
-        [self.locationsTest addObject:names];
+    for (NSInteger i = 0; i < [self.locationsArray count]; i++) {
+//       NSString *names = [self.locationsArray[i]title];
+//        self.locationsTest = [[NSMutableArray alloc] init];
+//        [self.locationsTest addObject:names];
     }
-    cell.textLabel.text = self.locationsTest[indexPath.row];
+
+    cell.textLabel.text = self.locationsNames[indexPath.row];
     
     return cell;
-}
+    }
 
 /*
 // Override to support conditional editing of the table view.
