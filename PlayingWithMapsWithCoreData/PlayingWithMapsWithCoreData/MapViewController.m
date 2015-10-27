@@ -29,6 +29,7 @@
 @property (strong, nonatomic) NSMutableArray *locationsNames;
 @property (strong, nonatomic) NSMutableArray *devices;
 
+
 @end
 
 @implementation MapViewController
@@ -52,12 +53,8 @@
 {
     [super viewDidAppear:animated];
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-   // if (managedObjectContext != nil) {
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
         self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
-    
-   
     for (NSInteger i = 0; i < [self.devices count]; i++) {
         NSString *names = @"";
         names = [self.devices[i]title];
@@ -70,7 +67,6 @@
         [self.locationsArray addObject:newPin];
     }
     [self.mapView addAnnotations: self.locationsArray];
-    //}
 }
 
 - (void)setUpMap
@@ -105,7 +101,13 @@
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     [self.mapView removeAnnotation:pinToRemove];
     self.descriptionView.hidden = YES;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    [context deleteObject:[pinNotification.userInfo objectForKey:@"pin"]];
+    
+
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -225,7 +227,7 @@
     if ([segue.identifier isEqualToString:@"listView"]) {
         LocationTableViewController *listView = segue.destinationViewController;
         listView.locations = self.locationsArray;
-        listView.locationsNames = self.locationsNames;
+        //listView.locationsNames = self.locationsNames;
     }
 }
 

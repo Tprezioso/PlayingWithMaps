@@ -15,5 +15,6 @@
 
 @property (strong, nonatomic)TPLocationDataStore *store;
 
+
 @end
 

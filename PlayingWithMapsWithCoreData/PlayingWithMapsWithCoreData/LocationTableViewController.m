@@ -11,7 +11,15 @@
 #import "DetailViewController.h"
 #import "AppDelegate.h"
 #import <MBProgressHUD.h>
+#import <CoreData/CoreData.h>
 @interface LocationTableViewController ()
+
+@property (strong, nonatomic)NSMutableArray *devices;
+@property (strong, nonatomic)NSString *locationName;
+@property (strong, nonatomic)NSMutableArray *locationsTest;
+@property (strong, nonatomic)NSMutableArray *locationsArray;
+
+
 
 @end
 
@@ -26,16 +34,45 @@
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
+    self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//    for (NSInteger i = 0; i < [self.devices count]; i++) {
+//        
+//      self.locationName = ;
+//    }
+    self.locationsArray = self.devices;
+    }
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.locationsNames count];
+    return 15;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
-    cell.textLabel.text = self.locationsNames[indexPath.row];
+    
+    for (NSInteger i = 0; i < [self.devices count]; i++) {
+       NSString *names = @"";
+        names = [self.devices[i]title];
+        [self.locationsTest addObject:names];
+    }
+    cell.textLabel.text = self.locationsTest[indexPath.row];
     
     return cell;
 }
@@ -55,11 +92,12 @@
         [self.locationsNames removeObjectAtIndex:indexPath.row];
         NSMutableDictionary *removedPin = [[NSMutableDictionary alloc] init];
         removedPin [@"pin"] = [self.locations objectAtIndex:indexPath.row];
-//                AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//        
-//                NSManagedObjectContext *context = [appDelegate managedObjectContext];
-//        
-//                [context deleteObject:[self.locations objectAtIndex:indexPath.row]];
+
+//        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//        NSManagedObjectContext *context = [appDelegate managedObjectContext];
+//        MapViewController *map = [[MapViewController alloc]init];
+//        [context deleteObject:[map.devices objectAtIndex:indexPath.row]];
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"removePin" object:nil userInfo:removedPin];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
