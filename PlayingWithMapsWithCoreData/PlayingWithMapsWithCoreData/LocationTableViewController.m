@@ -35,59 +35,59 @@
     [self.tableView reloadData];
 }
 
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    [super viewDidAppear:animated];
-////    for (NSInteger i = 0; i < [self.devices count]; i++) {
-////        
-////      self.locationName = ;
-////    }
-//    [self getlocacations];
-//    [self.tableView reloadData];
-//    }
-//- (void)getlocacations
-//{
-//    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
-//    self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-//    self.locationsArray = self.devices;
-//   
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 //    for (NSInteger i = 0; i < [self.devices count]; i++) {
-//        NSString *names = @"";
-//        names = [self.devices[i]title];
-//        [self.locationsTest addObject:names];
-////        [self.locationsTest addObject:[self.devices[i]title]];
-//
+//        
+//      self.locationName = ;
 //    }
-//    [self.tableView reloadData];
-//}
-//
-//- (NSManagedObjectContext *)managedObjectContext
-//{
-//    NSManagedObjectContext *context = nil;
-//    id delegate = [[UIApplication sharedApplication] delegate];
-//    if ([delegate performSelector:@selector(managedObjectContext)]) {
-//        context = [delegate managedObjectContext];
-//    }
-//    return context;
-//}
+    [self getlocacations];
+    [self.tableView reloadData];
+    }
+- (void)getlocacations
+{
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
+    self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    self.locationsArray = self.devices;
+   
+    for (NSInteger i = 0; i < [self.devices count]; i++) {
+        NSString *names = @"";
+        names = [self.devices[i]title];
+        [self.locationsTest addObject:names];
+//        [self.locationsTest addObject:[self.devices[i]title]];
+
+    }
+    [self.tableView reloadData];
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.locationsNames count];
+    return [self.locationsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
     for (NSInteger i = 0; i < [self.locationsArray count]; i++) {
-//       NSString *names = [self.locationsArray[i]title];
+       cell.textLabel.text = [self.locationsArray[i]title];
 //        self.locationsTest = [[NSMutableArray alloc] init];
 //        [self.locationsTest addObject:names];
     }
 
-    cell.textLabel.text = self.locationsNames[indexPath.row];
+   // cell.textLabel.text = self.locationsTest[indexPath.row];
     
     return cell;
     }
@@ -104,15 +104,16 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.locationsNames removeObjectAtIndex:indexPath.row];
+        [self.locationsArray removeObjectAtIndex:indexPath.row];
         NSMutableDictionary *removedPin = [[NSMutableDictionary alloc] init];
-        removedPin [@"pin"] = [self.locations objectAtIndex:indexPath.row];
+       // removedPin [@"pin"] = [self.locationsArray objectAtIndex:indexPath.row];
+        
 
-//        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//        NSManagedObjectContext *context = [appDelegate managedObjectContext];
-//        MapViewController *map = [[MapViewController alloc]init];
-//        [context deleteObject:[map.devices objectAtIndex:indexPath.row]];
-
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [appDelegate managedObjectContext];
+        //[context deleteObject:[self.locations objectAtIndex:indexPath.row]];
+        [context deleteObject:self.locationsArray[indexPath.row]];
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"removePin" object:nil userInfo:removedPin];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {

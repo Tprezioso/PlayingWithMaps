@@ -63,7 +63,7 @@
         newPin.title = [self.devices[i]title];
         newPin.subtitle = [self.devices[i]subtitle];
         newPin.coordinate = CLLocationCoordinate2DMake([[self.devices[i] valueForKey:@"coordinateLat"] doubleValue], [[self.devices[i] valueForKey:@"coordinateLon"]doubleValue]);
-     
+        
         [self.locationsArray addObject:newPin];
     }
     [self.mapView addAnnotations: self.locationsArray];
@@ -99,7 +99,7 @@
 - (void)removepinFromMap:(NSNotification *)pinNotification
 {
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
-    [self.mapView removeAnnotation:pinToRemove];
+  //  [self.mapView removeAnnotation:pinToRemove];
     self.descriptionView.hidden = YES;
 //    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 //    
@@ -171,7 +171,7 @@
     [newDevice setValue:toAdd.subtitle forKey:@"subtitle"];
     [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.latitude] forKey:@"coordinateLat"];
     [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.longitude] forKey:@"coordinateLon"];
-
+    
     NSError *error = nil;
     // Save the object to persistent store
     if (![context save:&error]) {
