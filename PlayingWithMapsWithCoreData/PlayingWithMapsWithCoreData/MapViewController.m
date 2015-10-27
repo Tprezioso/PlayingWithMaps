@@ -45,6 +45,7 @@
     [self.descriptionView setHidden:YES];
     [self setUpMap];
     [self addPresetPins];
+    [self setUpSavedPins];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
@@ -52,9 +53,13 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+}
+
+-(void)setUpSavedPins
+{
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
-        self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
+    self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     for (NSInteger i = 0; i < [self.devices count]; i++) {
         NSString *names = @"";
         names = [self.devices[i]title];
@@ -67,6 +72,7 @@
         [self.locationsArray addObject:newPin];
     }
     [self.mapView addAnnotations: self.locationsArray];
+    
 }
 
 - (void)setUpMap
@@ -99,7 +105,17 @@
 - (void)removepinFromMap:(NSNotification *)pinNotification
 {
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
-  //  [self.mapView removeAnnotation:pinToRemove];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    for (NSInteger i = 0; i < [self.devices count]; i++) {
+        if (pinToRemove.coordinate.latitude == [[self.devices[i] valueForKey:@"coordinateLat"]doubleValue] ) {
+            [context deleteObject:self.devices[i]];
+            NSLog(@"removed location from core data >>>>>>>>>>");
+        }
+
+    }
+    NSError *error = nil;
+    [context save:&error]; 
+        [self.mapView removeAnnotation:pinToRemove];
     self.descriptionView.hidden = YES;
 //    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 //    
