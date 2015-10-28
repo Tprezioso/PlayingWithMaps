@@ -119,13 +119,6 @@
     }
     [self.mapView removeAnnotation:pinToRemove];
     self.descriptionView.hidden = YES;
-//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    
-//    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-//    
-//    [context deleteObject:pinToRemove];
-    
-
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
