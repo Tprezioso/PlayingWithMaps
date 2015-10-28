@@ -114,8 +114,10 @@
 
     }
     NSError *error = nil;
-    [context save:&error]; 
-        [self.mapView removeAnnotation:pinToRemove];
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    [self.mapView removeAnnotation:pinToRemove];
     self.descriptionView.hidden = YES;
 //    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 //    
