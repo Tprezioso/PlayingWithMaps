@@ -53,6 +53,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self setUpSavedPins];
 }
 
 -(void)setUpSavedPins
@@ -107,11 +108,10 @@
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     NSManagedObjectContext *context = [self managedObjectContext];
     for (NSInteger i = 0; i < [self.devices count]; i++) {
-        if (pinToRemove.coordinate.latitude == [[self.devices[i] valueForKey:@"coordinateLat"]doubleValue] ) {
+        if (pinToRemove.coordinate.latitude == [[self.devices[i] valueForKey:@"coordinateLat"]doubleValue]){
             [context deleteObject:self.devices[i]];
             NSLog(@"removed location from core data >>>>>>>>>>");
         }
-
     }
     NSError *error = nil;
     if (![context save:&error]) {
