@@ -52,6 +52,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+//    [self setUpSavedPins];
 }
 
 - (void)setUpSavedPins
@@ -105,9 +106,14 @@
 {
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     NSManagedObjectContext *context = [self managedObjectContext];
-    for (NSInteger i = 0; i < [self.devices count]; i++) {
-        if (pinToRemove.coordinate.latitude == [[self.devices[i] valueForKey:@"coordinateLat"]doubleValue]){
-            [context deleteObject:self.devices[i]];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
+    NSMutableArray *fetchSavedData = [[NSMutableArray alloc] init];
+    fetchSavedData = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    for (NSInteger i = 0; i < [fetchSavedData count]; i++) {
+        NSLog(@"%f", [[fetchSavedData[i] valueForKey:@"coordinateLat"]doubleValue]);
+        NSLog(@"%f", pinToRemove.coordinate.latitude);
+        if (pinToRemove.coordinate.latitude == [[fetchSavedData[i] valueForKey:@"coordinateLat"] doubleValue]){
+            [context deleteObject:fetchSavedData[i]];
             NSLog(@"removed location from core data >>>>>>>>>>");
         }
     }
@@ -116,6 +122,7 @@
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
     [self.mapView removeAnnotation:pinToRemove];
+//    [self.mapView addAnnotations:self.locationsArray];
     self.descriptionView.hidden = YES;
 }
 
