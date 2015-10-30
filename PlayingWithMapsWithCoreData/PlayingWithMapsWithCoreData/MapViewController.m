@@ -37,8 +37,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
     self.mapView.delegate = self;
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
@@ -46,8 +47,11 @@
     [self setUpMap];
     [self addPresetPins];
     [self setUpSavedPins];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
 }
 
 - (void)setUpSavedPins
