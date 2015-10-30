@@ -68,12 +68,10 @@
         newPin.title = [self.devices[i]title];
         newPin.subtitle = [self.devices[i]subtitle];
         newPin.coordinate = CLLocationCoordinate2DMake([[self.devices[i] valueForKey:@"coordinateLat"] doubleValue], [[self.devices[i] valueForKey:@"coordinateLon"]doubleValue]);
-        
-        [self.locationsArray addObject:newPin];
+         [self.locationsArray addObject:newPin];
     }
     [self.mapView addAnnotations: self.locationsArray];
-    
-}
+ }
 
 - (void)setUpMap
 {
