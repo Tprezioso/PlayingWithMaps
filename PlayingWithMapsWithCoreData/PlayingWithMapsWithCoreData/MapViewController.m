@@ -50,13 +50,7 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self setUpSavedPins];
-}
-
--(void)setUpSavedPins
+- (void)setUpSavedPins
 {
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
