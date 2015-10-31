@@ -120,7 +120,6 @@
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
     [self.mapView removeAnnotation:pinToRemove];
-//    [self.mapView addAnnotations:self.locationsArray];
     self.descriptionView.hidden = YES;
 }
 
