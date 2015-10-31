@@ -52,7 +52,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-//    [self setUpSavedPins];
+ //  [self setUpSavedPins];
 }
 
 - (void)setUpSavedPins
@@ -106,14 +106,14 @@
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
-    NSMutableArray *fetchSavedData = [[NSMutableArray alloc] init];
-    fetchSavedData = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    for (NSInteger i = 0; i < [fetchSavedData count]; i++) {
-        NSLog(@"%f", [[fetchSavedData[i] valueForKey:@"coordinateLat"]doubleValue]);
+   // NSMutableArray *fetchSavedData = [[NSMutableArray alloc] init];
+    self.devices = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    for (NSInteger i = 0; i < [self.devices count]; i++) {
+        NSLog(@"%f", [[self.devices[i] valueForKey:@"coordinateLat"]doubleValue]);
         NSLog(@"%f", pinToRemove.coordinate.latitude);
-        NSLog(@"%@",fetchSavedData);
-        if (pinToRemove.coordinate.latitude == [[fetchSavedData[i] valueForKey:@"coordinateLat"] doubleValue]){
-            [context deleteObject:fetchSavedData[i]];
+        NSLog(@"%@",self.devices);
+        if (pinToRemove.coordinate.latitude == [[self.devices[i] valueForKey:@"coordinateLat"] doubleValue]){
+            [context deleteObject:self.devices[i]];
             NSLog(@"removed location from core data >>>>>>>>>>");
         }
     }

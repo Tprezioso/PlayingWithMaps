@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayingWithMapsWithCoreData/MapViewController.m"
-            timestampString = "467999422.985231"
+            timestampString = "468002501.183787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-removepinFromMap:"
             landmarkType = "5">
          </BreakpointContent>
