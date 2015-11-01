@@ -179,20 +179,19 @@
     [self.locationsNames addObject:toAdd.title];
     [self.mapView addAnnotation:toAdd];
 
-    NSManagedObjectContext *context = [self managedObjectContext];
     // Create a new managed object
+    NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
     [newDevice setValue:toAdd.title forKey:@"title"];
     [newDevice setValue:toAdd.subtitle forKey:@"subtitle"];
     [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.latitude] forKey:@"coordinateLat"];
     [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.longitude] forKey:@"coordinateLon"];
     
-    NSError *error = nil;
     // Save the object to persistent store
+    NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -226,10 +225,6 @@
         context = [delegate managedObjectContext];
     }
     return context;
-}
-
-- (void)savePins
-{
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
