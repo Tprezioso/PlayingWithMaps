@@ -43,7 +43,6 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
     cell.textLabel.text = self.locationsNames[indexPath.row];
-    
     return cell;
 }
 
