@@ -110,6 +110,7 @@
             NSLog(@"removed location from core data >>>>>>>>>>");
         }
     }
+
     for (TPAnnotation *pinToDelete in self.locationsArray) {
         if (pinToDelete.coordinate.latitude == pinToRemove.coordinate.latitude) {
             [self.locationsArray removeObject:pinToDelete];
