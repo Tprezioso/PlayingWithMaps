@@ -5,15 +5,14 @@
 //  Created by Thomas Prezioso on 3/13/15.
 //  Copyright (c) 2015 Thomas Prezioso. All rights reserved.
 //
-
+#import "AppDelegate.h"
 #import "MapViewController.h"
 #import "DetailViewController.h"
 #import "LocationTableViewController.h"
+#import "TPAnnotation.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreData/CoreData.h>
-#import "TPAnnotation.h"
-#import "AppDelegate.h"
 #import <MBProgressHUD.h>
 
 @interface MapViewController () <MKMapViewDelegate>
