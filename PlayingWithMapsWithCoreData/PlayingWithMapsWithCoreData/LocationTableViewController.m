@@ -15,9 +15,6 @@
 @interface LocationTableViewController ()
 
 @property (strong, nonatomic)NSMutableArray *devices;
-@property (strong, nonatomic)NSString *locationName;
-@property (strong, nonatomic)NSMutableArray *locationsTest;
-@property (strong, nonatomic)NSMutableArray *locationsArray;
 
 @end
 

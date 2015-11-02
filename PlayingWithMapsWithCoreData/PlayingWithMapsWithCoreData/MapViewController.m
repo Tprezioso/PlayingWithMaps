@@ -50,12 +50,13 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-
+    //[self addPresetPins];
+   // [self setUpSavedPins];
 }
 
 - (void)setUpSavedPins
 {
-    [self.mapView removeAnnotations:self.locationsArray];
+   [self.mapView removeAnnotations:self.locationsArray];
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
     self.devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
@@ -116,6 +117,16 @@
             NSLog(@"removed location from core data >>>>>>>>>>");
         }
     }
+    for (TPAnnotation *pinToDelete in self.locationsArray) {
+        if (pinToDelete.coordinate.latitude == pinToRemove.coordinate.latitude) {
+            [self.locationsArray removeObject:pinToDelete];
+        }
+    }
+//    for (NSInteger i = 0; i < [self.locationsArray count]; i++) {
+//        if (pinToRemove.coordinate.latitude == [self.locationsArray[i]]) {
+//            <#statements#>
+//        }
+//    }
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
