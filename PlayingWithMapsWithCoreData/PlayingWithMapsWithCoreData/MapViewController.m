@@ -48,12 +48,6 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    //[self addPresetPins];
-   // [self setUpSavedPins];
-}
-
 - (void)setUpSavedPins
 {
    [self.mapView removeAnnotations:self.locationsArray];
@@ -106,7 +100,6 @@
     TPAnnotation *pinToRemove = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
-   // NSMutableArray *fetchSavedData = [[NSMutableArray alloc] init];
     self.devices = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
     for (NSInteger i = 0; i < [self.devices count]; i++) {
         NSLog(@"%f", [[self.devices[i] valueForKey:@"coordinateLat"]doubleValue]);
@@ -122,11 +115,6 @@
             [self.locationsArray removeObject:pinToDelete];
         }
     }
-//    for (NSInteger i = 0; i < [self.locationsArray count]; i++) {
-//        if (pinToRemove.coordinate.latitude == [self.locationsArray[i]]) {
-//            <#statements#>
-//        }
-//    }
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
@@ -196,7 +184,6 @@
     [newDevice setValue:toAdd.subtitle forKey:@"subtitle"];
     [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.latitude] forKey:@"coordinateLat"];
     [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.longitude] forKey:@"coordinateLon"];
-
     NSData *imageData = UIImagePNGRepresentation(toAdd.image);
     [newDevice setValue:imageData forKey:@"images"];
     
