@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "ImageViewController.h"
+#import "AppDelegate.h"
 #import <MBProgressHUD.h>
 
 @interface DetailViewController ()
@@ -67,8 +68,33 @@
         self.detailTextView.editable = NO;
         self.detailTitleTextField.enabled = NO;
         self.segueButton.enabled = YES;
+        [self saveEdit];
+
     }
 }
+
+- (void)saveEdit
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
+    [newDevice setValue:self.detailTitleTextField.text forKey:@"title"];
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+
+}
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 
 - (IBAction)editImageButton:(id)sender
 {
