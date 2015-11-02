@@ -36,7 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
     self.mapView.delegate = self;
@@ -51,7 +50,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
- //  [self setUpSavedPins];
+
 }
 
 - (void)setUpSavedPins
