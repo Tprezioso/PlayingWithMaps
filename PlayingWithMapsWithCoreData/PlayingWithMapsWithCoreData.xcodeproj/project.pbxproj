@@ -26,7 +26,6 @@
 		9F6682311BDE7792006AE323 /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F66822C1BDE7792006AE323 /* map-pin.png */; };
 		9F6682321BDE7792006AE323 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F66822D1BDE7792006AE323 /* placeholderImage.png */; };
 		9F6682331BDE7792006AE323 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F66822E1BDE7792006AE323 /* text-list.png */; };
-		9F66823A1BDE7827006AE323 /* TPLocationDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6682391BDE7827006AE323 /* TPLocationDataStore.m */; };
 		9F66823C1BDE78DC006AE323 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F66823B1BDE78DC006AE323 /* MapKit.framework */; };
 		9F66823E1BDE78E5006AE323 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F66823D1BDE78E5006AE323 /* CoreLocation.framework */; };
 		E529BCFC777E0DA727AEBD89 /* libPods-PlayingWithMapsWithCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FD0FB5075A13A8D72BC03C /* libPods-PlayingWithMapsWithCoreData.a */; };
@@ -82,8 +81,6 @@
 		9F66822C1BDE7792006AE323 /* map-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin.png"; sourceTree = "<group>"; };
 		9F66822D1BDE7792006AE323 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		9F66822E1BDE7792006AE323 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
-		9F6682381BDE7827006AE323 /* TPLocationDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocationDataStore.h; sourceTree = "<group>"; };
-		9F6682391BDE7827006AE323 /* TPLocationDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocationDataStore.m; sourceTree = "<group>"; };
 		9F66823B1BDE78DC006AE323 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9F66823D1BDE78E5006AE323 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C3FD0FB5075A13A8D72BC03C /* libPods-PlayingWithMapsWithCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlayingWithMapsWithCoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,8 +161,6 @@
 			children = (
 				9F6681E21BDE76FD006AE323 /* AppDelegate.h */,
 				9F6681E31BDE76FD006AE323 /* AppDelegate.m */,
-				9F6682381BDE7827006AE323 /* TPLocationDataStore.h */,
-				9F6682391BDE7827006AE323 /* TPLocationDataStore.m */,
 				9F6682371BDE77FA006AE323 /* Modal */,
 				9F6682341BDE77C9006AE323 /* View */,
 				9F6682351BDE77D7006AE323 /* Controller */,
@@ -429,7 +424,6 @@
 				9F6682291BDE7783006AE323 /* ImageViewController.m in Sources */,
 				9F6681E41BDE76FD006AE323 /* AppDelegate.m in Sources */,
 				9F6681E11BDE76FD006AE323 /* main.m in Sources */,
-				9F66823A1BDE7827006AE323 /* TPLocationDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

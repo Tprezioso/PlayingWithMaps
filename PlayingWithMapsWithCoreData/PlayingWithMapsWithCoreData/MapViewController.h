@@ -7,14 +7,10 @@
 //
 
 #import "TPAnnotation.h"
-#import "TPLocationDataStore.h"
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
 @interface MapViewController : UIViewController <UITextFieldDelegate>
-
-@property (strong, nonatomic)TPLocationDataStore *store;
-
 
 @end
 
