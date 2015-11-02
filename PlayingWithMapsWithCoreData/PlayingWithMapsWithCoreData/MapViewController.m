@@ -69,6 +69,7 @@
         newPin.title = [self.devices[i]title];
         newPin.subtitle = [self.devices[i]subtitle];
         newPin.coordinate = CLLocationCoordinate2DMake([[self.devices[i] valueForKey:@"coordinateLat"] doubleValue], [[self.devices[i] valueForKey:@"coordinateLon"]doubleValue]);
+        newPin.image = [UIImage imageWithData:[self.devices[i] valueForKey:@"images"]];
          [self.locationsArray addObject:newPin];
     }
     [self.mapView addAnnotations: self.locationsArray];
@@ -186,6 +187,9 @@
     [newDevice setValue:toAdd.subtitle forKey:@"subtitle"];
     [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.latitude] forKey:@"coordinateLat"];
     [newDevice setValue:[NSNumber numberWithDouble:toAdd.coordinate.longitude] forKey:@"coordinateLon"];
+
+    NSData *imageData = UIImagePNGRepresentation(toAdd.image);
+    [newDevice setValue:imageData forKey:@"images"];
     
     // Save the object to persistent store
     NSError *error = nil;
