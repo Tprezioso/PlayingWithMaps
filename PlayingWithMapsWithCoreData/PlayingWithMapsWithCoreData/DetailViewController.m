@@ -70,6 +70,7 @@
         self.segueButton.enabled = YES;
         [self saveEdit];
         [self editedDetails];
+        [self editLocation];
     }
 }
 
@@ -79,7 +80,20 @@
     editedPin [@"pinTitle"] = self.detailTitleTextField.text;
     editedPin [@"pinsSubtitle"] = self.detailTextView.text;
     editedPin [@"pinImage"] = self.detailImageView.image;
+    editedPin [@"pin"] = self.detailLocations;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"editedPin" object:nil userInfo:editedPin];
+}
+- (void)editLocation
+{
+     self.detailLocations.title = self.detailTitleTextField.text;
+     self.detailLocations.subtitle = self.detailTextView.text;
+     self.detailLocations.image = self.detailImageView.image;
+    NSManagedObjectContext *context= [self managedObjectContext];
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+
 }
 - (void)saveEdit
 {

@@ -55,14 +55,43 @@
     NSString *editedPin = [pinNotification.userInfo objectForKey:@"pinTitle"];
     NSString *editedPinsubtitle = [pinNotification.userInfo objectForKey:@"pinsSubtitle"];
     UIImage *editedImage = [pinNotification.userInfo objectForKey:@"pinImage"];
+    TPAnnotation *pin = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
     TPAnnotation *locationPin = self.locations[ip.row];
     locationPin.title = editedPin;
     locationPin.subtitle = editedPinsubtitle;
     locationPin.image = editedImage;
     [self.tableView reloadData];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
+    NSMutableArray *pinArray = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSError *error = nil;
+    for (NSInteger i = 0; i < [pinArray count]; i++) {
+        if (pin.coordinate.latitude == [[pinArray[i] valueForKey:@"coordinateLat"] doubleValue]){
+            [pinArray[i] setValue:editedPin forKey:@"title"];
+            [pinArray[i] setValue:editedPinsubtitle forKey:@"subtitle"];
+            NSData *imageData = UIImagePNGRepresentation(editedImage);
+            [pinArray[i] setValue:imageData forKey:@"images"];
+            NSLog(@"<<<<<<<<<<<saved location from core data >>>>>>>>>>");
+        }
+    }
+
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+
 }
 
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
