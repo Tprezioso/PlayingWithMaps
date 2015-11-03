@@ -37,6 +37,8 @@
     [super viewDidLoad];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editedPin:) name:@"editedPin" object:nil];
+
     self.mapView.delegate = self;
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
@@ -46,6 +48,7 @@
     [self setUpSavedPins];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
+
 
 - (void)setUpSavedPins
 {
@@ -200,6 +203,38 @@
     }
 }
 
+- (void)editedPin:(NSNotification *)pinNotification
+{
+    NSString *editedPin = [pinNotification.userInfo objectForKey:@"pinTitle"];
+    NSString *editedPinsubtitle = [pinNotification.userInfo objectForKey:@"pinsSubtitle"];
+    UIImage *editedImage = [pinNotification.userInfo objectForKey:@"pinImage"];
+    TPAnnotation *newEditedPin = [[TPAnnotation alloc] init];
+    for (NSInteger i = 0; i < [self.locationsArray count]; i++) {
+        newEditedPin = self.locationsArray[i];
+        newEditedPin.title = editedPin;
+        newEditedPin.subtitle = editedPinsubtitle;
+        newEditedPin.image = editedImage;
+        self.titleLabel.text = newEditedPin.title;
+        self.descriptionLabel.text = newEditedPin.subtitle;
+        self.mapImageView.image = newEditedPin.image;
+    }
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
+    self.devices = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    for (NSInteger i = 0; i < [self.devices count]; i++) {
+        if (newEditedPin.coordinate.latitude == [[self.devices[i] valueForKey:@"coordinateLat"] doubleValue]){
+            [self.devices[i] setValue:editedPin forKey:@"title"];
+            [self.devices[i] setValue:editedPinsubtitle forKey:@"subtitle"];
+            NSData *imageData = UIImagePNGRepresentation(editedImage);
+            [self.devices[i] setValue:imageData forKey:@"images"];
+            NSLog(@"<<<<<<<<<<<saved location from core data >>>>>>>>>>");
+        }
+    }
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+}
 // Use to add annotation to userLocation
 //- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 //{
