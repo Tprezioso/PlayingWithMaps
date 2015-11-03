@@ -208,16 +208,15 @@
     NSString *editedPin = [pinNotification.userInfo objectForKey:@"pinTitle"];
     NSString *editedPinsubtitle = [pinNotification.userInfo objectForKey:@"pinsSubtitle"];
     UIImage *editedImage = [pinNotification.userInfo objectForKey:@"pinImage"];
+    TPAnnotation *pin = (TPAnnotation*)[pinNotification.userInfo objectForKey:@"pin"];
     TPAnnotation *newEditedPin = [[TPAnnotation alloc] init];
-    for (NSInteger i = 0; i < [self.locationsArray count]; i++) {
-        newEditedPin = self.locationsArray[i];
-        newEditedPin.title = editedPin;
-        newEditedPin.subtitle = editedPinsubtitle;
-        newEditedPin.image = editedImage;
-        self.titleLabel.text = newEditedPin.title;
-        self.descriptionLabel.text = newEditedPin.subtitle;
-        self.mapImageView.image = newEditedPin.image;
-    }
+    newEditedPin = pin;
+    newEditedPin.title = editedPin;
+    newEditedPin.subtitle = editedPinsubtitle;
+    newEditedPin.image = editedImage;
+    self.titleLabel.text = newEditedPin.title;
+    self.descriptionLabel.text = newEditedPin.subtitle;
+    self.mapImageView.image = newEditedPin.image;
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
     self.devices = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
