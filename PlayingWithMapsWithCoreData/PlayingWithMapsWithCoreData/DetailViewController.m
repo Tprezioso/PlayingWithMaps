@@ -85,6 +85,10 @@
     }
 
 }
+- (void)locationName:(NSString *)location
+{
+    location = self.detailTitleTextField.text;
+}
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;

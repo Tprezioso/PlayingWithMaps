@@ -14,8 +14,6 @@
 #import <CoreData/CoreData.h>
 @interface LocationTableViewController ()
 
-@property (strong, nonatomic)NSMutableArray *devices;
-
 @end
 
 @implementation LocationTableViewController
@@ -27,6 +25,11 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
+    [self.tableView reloadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     [self.tableView reloadData];
 }
 
@@ -87,6 +90,7 @@
     DetailViewController *detailedVC = segue.destinationViewController;
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     detailedVC.detailLocations = self.locations[selectedIndexPath.row];
+    detailedVC.nameOfLocation = self.locationsNames[selectedIndexPath.row];
     }
 }
 
