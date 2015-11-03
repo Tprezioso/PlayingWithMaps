@@ -15,7 +15,7 @@
 #import <CoreData/CoreData.h>
 #import <MBProgressHUD.h>
 
-@interface MapViewController () <MKMapViewDelegate>
+@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) TPAnnotation *pin;
@@ -74,6 +74,10 @@
     self.locationManager = [[CLLocationManager alloc] init];
     CLLocationCoordinate2D userCoordinate = self.locationManager.location.coordinate;
     
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+        [self.locationManager requestWhenInUseAuthorization];
+    
+    [self.locationManager startUpdatingLocation];
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
