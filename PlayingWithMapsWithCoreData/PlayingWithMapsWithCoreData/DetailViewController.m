@@ -78,16 +78,14 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
     [newDevice setValue:self.detailTitleTextField.text forKey:@"title"];
+//    [self.delegate locationName:self.detailTitleTextField.text];
+
     
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
 
-}
-- (void)locationName:(NSString *)location
-{
-    location = self.detailTitleTextField.text;
 }
 
 - (NSManagedObjectContext *)managedObjectContext {

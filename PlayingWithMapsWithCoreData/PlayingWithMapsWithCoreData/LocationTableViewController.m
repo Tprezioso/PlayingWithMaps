@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 #import <MBProgressHUD.h>
 #import <CoreData/CoreData.h>
-@interface LocationTableViewController ()
+@interface LocationTableViewController () <locationNames>
 
 @end
 
@@ -36,13 +36,14 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.locationsNames count];
+    return [self.locations count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
-    cell.textLabel.text = self.locationsNames[indexPath.row];
+    TPAnnotation *pins = self.locations[indexPath.row];
+    cell.textLabel.text = pins.title;
     return cell;
 }
 
