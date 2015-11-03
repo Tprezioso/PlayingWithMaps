@@ -41,10 +41,10 @@
     [self.detailTitleTextField setFont:[UIFont systemFontOfSize:13]];
     [self.detailTextView setFont:[UIFont systemFontOfSize:13]];
     
-    if (![self.detailTitleTextField.text  isEqual: @"Edit Your Pin"]) {
-        self.editBarButton.enabled = NO;
-        self.editBarButton.tintColor = [UIColor clearColor];
-    }
+//    if (![self.detailTitleTextField.text  isEqual: @"Edit Your Pin"]) {
+//        self.editBarButton.enabled = NO;
+//        self.editBarButton.tintColor = [UIColor clearColor];
+//    }
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
@@ -68,9 +68,7 @@
         self.detailTextView.editable = NO;
         self.detailTitleTextField.enabled = NO;
         self.segueButton.enabled = YES;
-        [self saveEdit];
         [self editedDetails];
-        [self editLocation];
     }
 }
 
@@ -83,42 +81,6 @@
     editedPin [@"pin"] = self.detailLocations;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"editedPin" object:nil userInfo:editedPin];
 }
-- (void)editLocation
-{
-     self.detailLocations.title = self.detailTitleTextField.text;
-     self.detailLocations.subtitle = self.detailTextView.text;
-     self.detailLocations.image = self.detailImageView.image;
-    NSManagedObjectContext *context= [self managedObjectContext];
-    NSError *error = nil;
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-
-}
-- (void)saveEdit
-{
-    NSManagedObjectContext *context = [self managedObjectContext];
-//    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
-//    [newDevice setValue:self.detailTitleTextField.text forKey:@"title"];
-//    [self.delegate locationName:self.detailTitleTextField.text];
-
-    
-    NSError *error = nil;
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-
-}
-
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
-
 
 - (IBAction)editImageButton:(id)sender
 {

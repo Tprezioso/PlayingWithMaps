@@ -17,7 +17,5 @@
 @interface DetailViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationBarDelegate>
 
 @property (strong, nonatomic) TPAnnotation *detailLocations;
-@property (strong, nonatomic) NSString *nameOfLocation;
-@property (nonatomic, weak) id<locationNames>delegate;
 
 @end

@@ -108,9 +108,9 @@
         }
     }
 
-    for (TPAnnotation *pinToDelete in self.locationsArray) {
-        if (pinToDelete.coordinate.latitude == pinToRemove.coordinate.latitude) {
-            [self.locationsArray removeObject:pinToDelete];
+    for (NSInteger i = 0; i < [self.locationsArray count]; i++) {
+        if (pinToRemove.coordinate.latitude == pinToRemove.coordinate.latitude) {
+            [self.locationsArray removeObject:pinToRemove];
         }
     }
     NSError *error = nil;
