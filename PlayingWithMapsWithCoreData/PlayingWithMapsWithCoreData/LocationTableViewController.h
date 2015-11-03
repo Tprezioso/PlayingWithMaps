@@ -10,7 +10,6 @@
 
 @interface LocationTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSMutableArray *locationsNames;
 @property (strong, nonatomic) NSMutableArray *locations;
 
 @end

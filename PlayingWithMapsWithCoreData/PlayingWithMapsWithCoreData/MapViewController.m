@@ -25,7 +25,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
 @property (strong, nonatomic) NSMutableArray *locationsArray;
-@property (strong, nonatomic) NSMutableArray *locationsNames;
 @property (strong, nonatomic) NSMutableArray *devices;
 
 
@@ -57,7 +56,6 @@
     for (NSInteger i = 0; i < [self.devices count]; i++) {
         NSString *names = @"";
         names = [self.devices[i]title];
-        [self.locationsNames addObject:names];
         TPAnnotation *newPin = [TPAnnotation new];
         newPin.title = [self.devices[i]title];
         newPin.subtitle = [self.devices[i]subtitle];
@@ -92,7 +90,6 @@
     TPAnnotation *pins = [[TPAnnotation alloc] init];
     self.locationsArray = [pins presetPins];
     [self.mapView addAnnotations:self.locationsArray];
-    self.locationsNames = @[[[pins presetPins][0]title], [[pins presetPins][1]title]].mutableCopy;
 }
 
 - (void)removepinFromMap:(NSNotification *)pinNotification
@@ -175,7 +172,6 @@
     self.titleLabel.text = toAdd.title;
     self.descriptionLabel.text = toAdd.subtitle;
     [self.locationsArray addObject:toAdd];
-    [self.locationsNames addObject:toAdd.title];
     [self.mapView addAnnotation:toAdd];
 
     // Create a new managed object
@@ -239,7 +235,6 @@
     if ([segue.identifier isEqualToString:@"listView"]) {
         LocationTableViewController *listView = segue.destinationViewController;
         listView.locations = self.locationsArray;
-        listView.locationsNames = self.locationsNames;
     }
 }
 

@@ -14,6 +14,7 @@
 #import <CoreData/CoreData.h>
 @interface LocationTableViewController () <locationNames>
 
+//@property (strong, nonatomic)TPAnnotation *pins;
 @end
 
 @implementation LocationTableViewController
@@ -59,7 +60,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.locationsNames removeObjectAtIndex:indexPath.row];
+        [self.locations removeObjectAtIndex:indexPath.row];
         NSMutableDictionary *removedPin = [[NSMutableDictionary alloc] init];
         removedPin [@"pin"] = [self.locations objectAtIndex:indexPath.row];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"removePin" object:nil userInfo:removedPin];
@@ -91,7 +92,6 @@
     DetailViewController *detailedVC = segue.destinationViewController;
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     detailedVC.detailLocations = self.locations[selectedIndexPath.row];
-    detailedVC.nameOfLocation = self.locationsNames[selectedIndexPath.row];
     }
 }
 
