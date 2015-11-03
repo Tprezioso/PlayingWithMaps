@@ -52,10 +52,14 @@
 
 - (void)editedPin:(NSNotification *)pinNotification
 {
-    NSString *editedPin = [pinNotification.userInfo objectForKey:@"pin"];
+    NSString *editedPin = [pinNotification.userInfo objectForKey:@"pinTitle"];
+    NSString *editedPinsubtitle = [pinNotification.userInfo objectForKey:@"pinsSubtitle"];
+    UIImage *editedImage = [pinNotification.userInfo objectForKey:@"pinImage"];
     NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
     TPAnnotation *locationPin = self.locations[ip.row];
     locationPin.title = editedPin;
+    locationPin.subtitle = editedPinsubtitle;
+    locationPin.image = editedImage;
     [self.tableView reloadData];
 }
 

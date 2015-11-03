@@ -76,7 +76,9 @@
 -(void) editedDetails
 {
     NSMutableDictionary *editedPin = [[NSMutableDictionary alloc] init];
-    editedPin [@"pin"] = self.detailTitleTextField.text;
+    editedPin [@"pinTitle"] = self.detailTitleTextField.text;
+    editedPin [@"pinsSubtitle"] = self.detailTextView.text;
+    editedPin [@"pinImage"] = self.detailImageView.image;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"editedPin" object:nil userInfo:editedPin];
 }
 - (void)saveEdit
