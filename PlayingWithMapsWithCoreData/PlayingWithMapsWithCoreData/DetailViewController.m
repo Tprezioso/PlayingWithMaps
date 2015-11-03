@@ -69,15 +69,14 @@
         self.detailTitleTextField.enabled = NO;
         self.segueButton.enabled = YES;
         [self saveEdit];
-
     }
 }
 
 - (void)saveEdit
 {
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
-    [newDevice setValue:self.detailTitleTextField.text forKey:@"title"];
+//    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
+//    [newDevice setValue:self.detailTitleTextField.text forKey:@"title"];
 //    [self.delegate locationName:self.detailTitleTextField.text];
 
     
