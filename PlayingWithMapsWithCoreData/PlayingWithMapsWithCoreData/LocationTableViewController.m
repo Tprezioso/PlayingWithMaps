@@ -12,9 +12,8 @@
 #import "AppDelegate.h"
 #import <MBProgressHUD.h>
 #import <CoreData/CoreData.h>
-@interface LocationTableViewController () <locationNames>
+@interface LocationTableViewController () 
 
-//@property (strong, nonatomic)TPAnnotation *pins;
 @end
 
 @implementation LocationTableViewController
@@ -80,7 +79,6 @@
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-
 }
 
 - (NSManagedObjectContext *)managedObjectContext
@@ -92,6 +90,7 @@
     }
     return context;
 }
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -128,7 +127,6 @@
     return YES;
 }
 */
-
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

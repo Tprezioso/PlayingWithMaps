@@ -40,11 +40,6 @@
     self.detailImageView.layer.masksToBounds = YES;
     [self.detailTitleTextField setFont:[UIFont systemFontOfSize:13]];
     [self.detailTextView setFont:[UIFont systemFontOfSize:13]];
-    
-//    if (![self.detailTitleTextField.text  isEqual: @"Edit Your Pin"]) {
-//        self.editBarButton.enabled = NO;
-//        self.editBarButton.tintColor = [UIColor clearColor];
-//    }
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
