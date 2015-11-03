@@ -69,9 +69,16 @@
         self.detailTitleTextField.enabled = NO;
         self.segueButton.enabled = YES;
         [self saveEdit];
+        [self editedDetails];
     }
 }
 
+-(void) editedDetails
+{
+    NSMutableDictionary *editedPin = [[NSMutableDictionary alloc] init];
+    editedPin [@"pin"] = self.detailTitleTextField.text;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"editedPin" object:nil userInfo:editedPin];
+}
 - (void)saveEdit
 {
     NSManagedObjectContext *context = [self managedObjectContext];

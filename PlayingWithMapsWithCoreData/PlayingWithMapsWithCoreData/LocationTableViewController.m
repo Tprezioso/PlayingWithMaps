@@ -25,6 +25,8 @@
     [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editedPin:) name:@"editedPin" object:nil];
+
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
     [self.tableView reloadData];
 }
@@ -46,6 +48,15 @@
     TPAnnotation *pins = self.locations[indexPath.row];
     cell.textLabel.text = pins.title;
     return cell;
+}
+
+- (void)editedPin:(NSNotification *)pinNotification
+{
+    NSString *editedPin = [pinNotification.userInfo objectForKey:@"pin"];
+    NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
+    TPAnnotation *locationPin = self.locations[ip.row];
+    locationPin.title = editedPin;
+    [self.tableView reloadData];
 }
 
 /*
