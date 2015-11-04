@@ -165,8 +165,6 @@
 				9F6682341BDE77C9006AE323 /* View */,
 				9F6682351BDE77D7006AE323 /* Controller */,
 				9F6682361BDE77E7006AE323 /* Images */,
-				9F6681F31BDE76FD006AE323 /* Info.plist */,
-				9F6681EB1BDE76FD006AE323 /* PlayingWithMapsWithCoreData.xcdatamodeld */,
 				9F6681DF1BDE76FD006AE323 /* Supporting Files */,
 			);
 			path = PlayingWithMapsWithCoreData;
@@ -175,6 +173,8 @@
 		9F6681DF1BDE76FD006AE323 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F6681F31BDE76FD006AE323 /* Info.plist */,
+				9F6681EB1BDE76FD006AE323 /* PlayingWithMapsWithCoreData.xcdatamodeld */,
 				9F6681E01BDE76FD006AE323 /* main.m */,
 			);
 			name = "Supporting Files";
