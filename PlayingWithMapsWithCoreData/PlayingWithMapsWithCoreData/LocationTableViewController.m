@@ -25,7 +25,6 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editedPin:) name:@"editedPin" object:nil];
-
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
     [self.tableView reloadData];
 }
@@ -106,9 +105,7 @@
         NSMutableDictionary *removedPin = [[NSMutableDictionary alloc] init];
         removedPin [@"pin"] = [self.locations objectAtIndex:indexPath.row];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"removePin" object:nil userInfo:removedPin];
-
-       // [self.locations removeObjectAtIndex:indexPath.row];
-               [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   

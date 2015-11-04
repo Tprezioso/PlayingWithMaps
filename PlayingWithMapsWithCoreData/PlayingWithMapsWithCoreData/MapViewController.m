@@ -38,7 +38,6 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removepinFromMap:) name:@"removePin" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editedPin:) name:@"editedPin" object:nil];
-
     self.mapView.delegate = self;
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
@@ -48,7 +47,6 @@
     [self setUpSavedPins];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
-
 
 - (void)setUpSavedPins
 {
@@ -76,8 +74,7 @@
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
         [self.locationManager requestWhenInUseAuthorization];
-    
-    [self.locationManager startUpdatingLocation];
+        [self.locationManager startUpdatingLocation];
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
@@ -168,7 +165,6 @@
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan) {
         return;
     }
-    
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     TPAnnotation *toAdd = [[TPAnnotation alloc] init];
