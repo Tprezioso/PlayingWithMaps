@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>open-Map</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Map</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>self.edu.tom.PlayingWithMapsWithCoreData.map</string>
+		</dict>
+	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This app would like to use your current location</string>
 	<key>CFBundleDevelopmentRegion</key>
