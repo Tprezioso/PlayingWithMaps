@@ -27,7 +27,6 @@
 @property (strong, nonatomic) NSMutableArray *locationsArray;
 @property (strong, nonatomic) NSMutableArray *devices;
 
-
 @end
 
 @implementation MapViewController
