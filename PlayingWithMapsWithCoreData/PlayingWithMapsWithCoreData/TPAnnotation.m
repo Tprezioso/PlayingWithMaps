@@ -28,34 +28,7 @@ static UITableView *tableView;
     }
     return self;
 }
-- (void)encodeWithCoder:(NSCoder *)encoder
-{
-    //Encode properties, other class variables, etc
-    [encoder encodeObject:self.title forKey:@"title"];
-    [encoder encodeObject:self.subtitle forKey:@"subtitle"];
-    NSMutableArray *coords = [[NSMutableArray alloc]init];
-    [coords addObject:[NSNumber numberWithDouble:self.coordinate.longitude]];
-    [coords addObject:[NSNumber numberWithDouble:self.coordinate.latitude]];
-    [encoder encodeObject:coords forKey:@"coords"];
 
-}
-
-- (id)initWithCoder:(NSCoder *)decoder
-{
-    //self = [super init];
-    //if(self) {
-        //decode properties, other class vars
-        self.title = [decoder decodeObjectForKey:@"title"];
-        self.subtitle = [decoder decodeObjectForKey:@"subtitle"];
-        NSMutableArray *coord = [decoder decodeObjectForKey:@"coords"];
-        double lat = [(NSString *)[coord objectAtIndex:0] doubleValue];
-        double lon = [(NSString *)[coord objectAtIndex:1] doubleValue];
-        
-        CLLocationCoordinate2D coordss = (CLLocationCoordinate2D){lat, lon};
-        
-    //}
-    return [self initWithTitle:self.title subtitle:self.subtitle pinCoordinates:coordss image:nil];
-}
 - (NSMutableArray *)presetPins
 {
     TPAnnotation *kissenaPrakPin = [[TPAnnotation alloc]init];

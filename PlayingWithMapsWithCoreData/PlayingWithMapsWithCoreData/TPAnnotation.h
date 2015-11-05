@@ -20,7 +20,6 @@
 @property (nonatomic, copy) NSString * subtitle;
 @property (nonatomic, assign)CLLocationCoordinate2D coordinate;
 @property (strong, nonatomic)UIImage *image;
-//@property (strong, nonatomic)NSMutableArray *allPins;
 - (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate image:(UIImage*)pinImage;
 - (NSMutableArray *)presetPins;
 
