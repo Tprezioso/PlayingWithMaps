@@ -60,7 +60,6 @@
     locationPin.subtitle = editedPinsubtitle;
     locationPin.image = editedImage;
     [self.tableView reloadData];
-    
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Device"];
     NSMutableArray *pinArray = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
