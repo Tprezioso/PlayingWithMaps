@@ -43,24 +43,6 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-//        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-//    }
-    if (self.isEditing) {
-        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Wait"
-                                                                       message:@"If you go back now your changes will not be saved"
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                              handler:^(UIAlertAction * action) {}];
-        [alert addAction:defaultAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-}
-
 - (void)editMode
 {
     if (self.editBarButton.target) {
@@ -76,11 +58,15 @@
         self.detailTitleTextField.enabled = YES;
         self.editImageButtonPressed.enabled = YES;
         self.segueButton.enabled = NO;
+        self.navigationItem.hidesBackButton = YES;
+        self.navigationController.navigationItem.backBarButtonItem.enabled = NO;
     } else {
         self.editBarButton.title = @"Edit";
         self.detailTextView.editable = NO;
         self.detailTitleTextField.enabled = NO;
         self.segueButton.enabled = YES;
+        self.navigationController.navigationItem.backBarButtonItem.enabled = YES;
+        self.navigationItem.hidesBackButton = NO;
         [self editedDetails];
     }
 }
