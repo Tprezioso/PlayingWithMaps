@@ -62,7 +62,7 @@
         newPin.subtitle = [self.devices[i]subtitle];
         newPin.coordinate = CLLocationCoordinate2DMake([[self.devices[i] valueForKey:@"coordinateLat"] doubleValue], [[self.devices[i] valueForKey:@"coordinateLon"]doubleValue]);
         newPin.image = [UIImage imageWithData:[self.devices[i] valueForKey:@"images"]];
-         [self.locationsArray addObject:newPin];
+        [self.locationsArray addObject:newPin];
     }
     [self.mapView addAnnotations: self.locationsArray];
  }
