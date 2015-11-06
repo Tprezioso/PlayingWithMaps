@@ -43,6 +43,24 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+//    }
+    if (self.isEditing) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Wait"
+                                                                       message:@"If you go back now your changes will not be saved"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
 - (void)editMode
 {
     if (self.editBarButton.target) {

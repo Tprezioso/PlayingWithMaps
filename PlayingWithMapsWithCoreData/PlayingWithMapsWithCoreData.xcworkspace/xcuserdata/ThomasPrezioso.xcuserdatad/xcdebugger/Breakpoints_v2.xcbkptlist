@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayingWithMapsWithCoreData/DetailViewController.m"
-            timestampString = "468277517.622878"
+            timestampString = "468520774.09049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-editedDetails"
             landmarkType = "5">
          </BreakpointContent>
