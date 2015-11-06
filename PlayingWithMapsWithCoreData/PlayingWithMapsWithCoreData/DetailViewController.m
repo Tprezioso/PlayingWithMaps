@@ -71,7 +71,7 @@
     }
 }
 
--(void) editedDetails
+- (void) editedDetails
 {
     NSMutableDictionary *editedPin = [[NSMutableDictionary alloc] init];
     editedPin [@"pinTitle"] = self.detailTitleTextField.text;
