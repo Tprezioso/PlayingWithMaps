@@ -51,7 +51,6 @@
 }
 
 #pragma mark - Core Data stack
-
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -81,7 +80,6 @@
     }
     
     // Create the coordinator and store
-    
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PlayingWithMapsWithCoreData.sqlite"];
     NSError *error = nil;
@@ -108,7 +106,6 @@
     if (_managedObjectContext != nil) {
         return _managedObjectContext;
     }
-    
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (!coordinator) {
         return nil;
@@ -119,7 +116,6 @@
 }
 
 #pragma mark - Core Data Saving support
-
 - (void)saveContext
 {
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
