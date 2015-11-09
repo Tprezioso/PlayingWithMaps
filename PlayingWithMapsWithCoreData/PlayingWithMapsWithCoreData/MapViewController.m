@@ -128,6 +128,10 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    view.rightCalloutAccessoryView = infoButton;
+    infoButton.hidden = YES;
+
     NSLog(@"annotation selected");
     [self.descriptionView setHidden:NO];
     id<MKAnnotation> annSelected = view.annotation;
@@ -142,16 +146,15 @@
             NSLog(@"Pin touched: title = %@", dm.title);
         }
     } else {
-        [self.descriptionView setHidden:YES];
+            [self.descriptionView setHidden:YES];
     }
-    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    view.rightCalloutAccessoryView = infoButton;
-    infoButton.hidden = YES;
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    [self performSegueWithIdentifier:@"detailView" sender:self];
+    if ([view.annotation isKindOfClass:[TPAnnotation class]]) {
+        [self performSegueWithIdentifier:@"detailView" sender:self];
+    }
 }
 
 - (void)addGestureRecogniserToMapView
