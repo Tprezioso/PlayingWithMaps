@@ -38,8 +38,8 @@
     self.detailImageView.image = self.detailLocations.image;
     self.detailImageView.layer.cornerRadius = self.detailImageView.frame.size.height / 2;
     self.detailImageView.layer.masksToBounds = YES;
-    [self.detailTitleTextField setFont:[UIFont systemFontOfSize:13]];
-    [self.detailTextView setFont:[UIFont systemFontOfSize:13]];
+    [self.detailTitleTextField setFont:[UIFont systemFontOfSize:17]];
+    [self.detailTextView setFont:[UIFont systemFontOfSize:17]];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 

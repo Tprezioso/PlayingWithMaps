@@ -186,7 +186,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="BC8-Q1-2zu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
