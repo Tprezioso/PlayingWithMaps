@@ -60,6 +60,7 @@
         self.segueButton.enabled = NO;
         self.navigationItem.hidesBackButton = YES;
         self.navigationController.navigationItem.backBarButtonItem.enabled = NO;
+        self.detailTextView.textColor = [UIColor grayColor];
     } else {
         self.editBarButton.title = @"Edit";
         self.detailTextView.editable = NO;
@@ -67,6 +68,7 @@
         self.segueButton.enabled = YES;
         self.navigationController.navigationItem.backBarButtonItem.enabled = YES;
         self.navigationItem.hidesBackButton = NO;
+        self.detailTextView.textColor = [UIColor blackColor];
         [self editedDetails];
     }
 }
