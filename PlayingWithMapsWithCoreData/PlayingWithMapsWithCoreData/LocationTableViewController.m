@@ -25,6 +25,7 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editedPin:) name:@"editedPin" object:nil];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
     [self.tableView reloadData];
 }
