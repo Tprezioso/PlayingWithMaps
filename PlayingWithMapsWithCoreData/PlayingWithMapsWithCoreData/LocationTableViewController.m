@@ -25,11 +25,8 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editedPin:) name:@"editedPin" object:nil];
+    [self setUpPullToRefresh];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor redColor];
-    self.refreshControl.tintColor = [UIColor whiteColor];
-    [self.refreshControl addTarget:self action:@selector(refreshController) forControlEvents:UIControlEventValueChanged];
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
     [self.tableView reloadData];
 }
@@ -39,11 +36,20 @@
     [self.tableView reloadData];
 }
 
+- (void)setUpPullToRefresh
+{
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor redColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self action:@selector(refreshController) forControlEvents:UIControlEventValueChanged];
+}
+
 - (void)refreshController
 {
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 }
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
