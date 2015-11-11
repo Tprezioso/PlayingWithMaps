@@ -24,7 +24,7 @@
     [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editedPin:) name:@"editedPin" object:nil];
+    [self setupNotification];
     [self setUpPullToRefresh];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [MBProgressHUD hideHUDForView:self.tableView animated:YES];
@@ -34,6 +34,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.tableView reloadData];
+}
+
+- (void)setupNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editedPin:) name:@"editedPin" object:nil];
 }
 
 - (void)setUpPullToRefresh
