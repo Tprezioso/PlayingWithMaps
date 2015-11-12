@@ -17,7 +17,6 @@
 static NSMutableArray *allPins = nil;
 static UITableView *tableView;
 
-
 - (instancetype)initWithTitle:(NSString*)pinTitle subtitle:(NSString*)pinSubtitle pinCoordinates:(CLLocationCoordinate2D)pinCoordinate image:(UIImage*)pinImage
 {
     if (self = [super init]) {
