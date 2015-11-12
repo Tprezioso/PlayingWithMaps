@@ -266,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="1794" y="1064"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="ZJb-US-7JS">
             <objects>
-                <viewController id="ecL-3K-b8P" sceneMemberID="viewController">
+                <viewController id="ecL-3K-b8P" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c1g-H5-OER"/>
                         <viewControllerLayoutGuide type="bottom" id="pTS-wa-rXi"/>
