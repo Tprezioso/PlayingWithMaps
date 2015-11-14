@@ -10,6 +10,7 @@
 
 @interface ProfileViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *profileImage;
+@property (strong, nonatomic) IBOutlet UILabel *userNumberLabel;
 
 @end
 

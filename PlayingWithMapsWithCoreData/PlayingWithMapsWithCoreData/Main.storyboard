@@ -303,6 +303,7 @@
                     <navigationItem key="navigationItem" title="User Name" id="y89-VG-m2r"/>
                     <connections>
                         <outlet property="profileImage" destination="QDN-E4-u9I" id="XGA-AV-F6m"/>
+                        <outlet property="userNumberLabel" destination="41M-UQ-LlN" id="VD2-mx-UV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Nd-cR-kxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
