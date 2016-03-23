@@ -27,7 +27,7 @@
 		9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7BBFED1BB318B20090BE56 /* DetailViewController.m */; };
 		9FD82E931BB9C751003173FD /* flushingMeadowsPark.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9FD82E921BB9C751003173FD /* flushingMeadowsPark.jpeg */; };
 		9FD89E6D1BD1864F0041FEE3 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD89E6C1BD1864F0041FEE3 /* ImageViewController.m */; };
-		9FD9D9821BD821D7004DB535 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9D9801BD821D7004DB535 /* DataModel.xcdatamodeld */; };
+		9FD9D9821BD821D7004DB535 /* MapData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9D9801BD821D7004DB535 /* MapData.xcdatamodeld */; };
 		9FD9D9841BD82640004DB535 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9D9831BD82640004DB535 /* CoreData.framework */; };
 		9FEC4E471BAB482000538223 /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEC4E461BAB482000538223 /* map-pin.png */; };
 		A6EEA2A02180A5D25B9142D9 /* libPods-playingWithMapsPresentation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 376E4A5EE9511B3592B0EEE3 /* libPods-playingWithMapsPresentation.a */; };
@@ -80,7 +80,7 @@
 		9FD82E921BB9C751003173FD /* flushingMeadowsPark.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flushingMeadowsPark.jpeg; sourceTree = "<group>"; };
 		9FD89E6B1BD1864F0041FEE3 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		9FD89E6C1BD1864F0041FEE3 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
-		9FD9D9811BD821D7004DB535 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		9FD9D9811BD821D7004DB535 /* MapData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapData.xcdatamodel; sourceTree = "<group>"; };
 		9FD9D9831BD82640004DB535 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9FEC4E461BAB482000538223 /* map-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				9F3A41391AB30A930081FC05 /* Info.plist */,
-				9FD9D9801BD821D7004DB535 /* DataModel.xcdatamodeld */,
+				9FD9D9801BD821D7004DB535 /* MapData.xcdatamodeld */,
 				9F3A413A1AB30A930081FC05 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -405,7 +405,7 @@
 				9F3A413B1AB30A930081FC05 /* main.m in Sources */,
 				9F219E651BDAAD3900511CAB /* Locations+CoreDataProperties.m in Sources */,
 				9F219E661BDAAD3900511CAB /* Locations.m in Sources */,
-				9FD9D9821BD821D7004DB535 /* DataModel.xcdatamodeld in Sources */,
+				9FD9D9821BD821D7004DB535 /* MapData.xcdatamodeld in Sources */,
 				9FD89E6D1BD1864F0041FEE3 /* ImageViewController.m in Sources */,
 				9F7BBFEE1BB318B20090BE56 /* DetailViewController.m in Sources */,
 			);
@@ -627,13 +627,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9FD9D9801BD821D7004DB535 /* DataModel.xcdatamodeld */ = {
+		9FD9D9801BD821D7004DB535 /* MapData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9FD9D9811BD821D7004DB535 /* DataModel.xcdatamodel */,
+				9FD9D9811BD821D7004DB535 /* MapData.xcdatamodel */,
 			);
-			currentVersion = 9FD9D9811BD821D7004DB535 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
+			currentVersion = 9FD9D9811BD821D7004DB535 /* MapData.xcdatamodel */;
+			path = MapData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
