@@ -39,6 +39,7 @@
     self.mapView.delegate = self;
     self.mapImageView.layer.cornerRadius = self.mapImageView.frame.size.width / 2;
     self.mapImageView.clipsToBounds = YES;
+    self.mapView.mapType = MKMapTypeHybrid;
     [self setupNotifications];
     [self.descriptionView setHidden:YES];
     [self setUpMap];
